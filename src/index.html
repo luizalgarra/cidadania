@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#f3f7f8">
+    <meta name="color-scheme" content="light">
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'"
+    >
+    <meta
+      name="description"
+      content="Escolha um compromisso público e transforme sua reflexão em um plano pessoal de ação cidadã para 30 dias."
+    >
+    <title>Compromisso em Ação</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#app">Pular para o conteúdo</a>
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="Compromisso em Ação — início">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><b></b></span>
+        <span>Compromisso <strong>em Ação</strong></span>
+      </a>
+      <button class="quiet-button header-reset" type="button" data-global-action="reset">
+        Recomeçar
+      </button>
+    </header>
+
+    <main id="app" data-step="welcome" tabindex="-1">
+      <section class="screen welcome-screen" aria-labelledby="welcome-title">
+        <p class="eyebrow">Jornada individual · 6–8 minutos</p>
+        <div class="responsibility-map" aria-label="Ação cidadã e responsabilidade pública caminham juntas">
+          <div class="map-track map-track--citizen"><span>O que posso fazer</span></div>
+          <div class="map-track map-track--state"><span>O que o Estado deve fazer</span></div>
+          <span class="map-marker" aria-hidden="true"></span>
+        </div>
+        <h1 id="welcome-title">Um compromisso.<br>Um próximo passo possível.</h1>
+        <p class="lede">
+          Reflita sobre compromissos públicos, escolha onde sua energia faz sentido agora
+          e monte um plano de ação cidadã para os próximos 30 dias.
+        </p>
+        <button class="primary-button" type="button" data-action="start">
+          Começar minha escolha
+        </button>
+        <details class="how-it-works">
+          <summary>Como funciona</summary>
+          <ol>
+            <li>Você escolhe até três temas.</li>
+            <li>O app sugere compromissos a partir das suas respostas.</li>
+            <li>Você decide qual deles transformar em plano.</li>
+          </ol>
+        </details>
+        <p class="privacy-note">
+          Sem cadastro. Suas respostas ficam somente neste aparelho.
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Uma ferramenta de reflexão cidadã. Não substitui políticas públicas nem orientação profissional.</p>
+    </footer>
+
+    <div class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
