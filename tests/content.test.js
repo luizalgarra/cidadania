@@ -41,8 +41,11 @@ test('catalogue collections use unique stable identifiers', () => {
 test('source context names the attributed speaker without overstating verification', () => {
   assert.equal(SOURCE_CONTEXT.speaker, 'Luiz Inácio Lula da Silva');
   assert.match(SOURCE_CONTEXT.context, /segundo turno/i);
+  assert.match(SOURCE_CONTEXT.context, /discurso de vitória/i);
+  assert.equal(SOURCE_CONTEXT.dateLabel, 'outubro de 2026');
   assert.equal(SOURCE_CONTEXT.externallyVerified, false);
   assert.match(SOURCE_CONTEXT.provenance, /fornecida pelo usuário/i);
+  assert.match(SOURCE_CONTEXT.provenance, /não (?:foi|foram) verificad/i);
 });
 
 test('catalogue explicitly covers each distinct future commitment', () => {

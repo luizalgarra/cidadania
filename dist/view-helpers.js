@@ -31,6 +31,48 @@ export function commitmentKindLabel(kind) {
   return COMMITMENT_KIND_LABELS[kind] ?? 'Classificação editorial não informada.';
 }
 
+export function sourceAttributionLabel(sourceContext, { fullName = false } = {}) {
+  const speaker = fullName
+    ? sourceContext?.speaker
+    : (sourceContext?.shortName || sourceContext?.speaker);
+  const event = sourceContext?.event;
+  const dateLabel = sourceContext?.dateLabel;
+  if (!speaker || !event || !dateLabel) return '';
+  return `Segundo a transcrição fornecida, compromissos apresentados por ${speaker} em seu ${event}, em ${dateLabel}.`;
+}
+
+export function formatPlanAsText({ plan, commitment, sourceContext }) {
+  if (!plan || !commitment) return '';
+  const origin = sourceContext?.speaker && sourceContext?.event && sourceContext?.dateLabel
+    ? `segundo a transcrição fornecida, compromisso apresentado por ${sourceContext.speaker} em seu ${sourceContext.event}, em ${sourceContext.dateLabel}.`
+    : sourceAttributionLabel(sourceContext, { fullName: true });
+  return [
+    'COMPROMISSO EM AÇÃO',
+    '',
+    `Origem deste plano: ${origin}`,
+    `Compromisso: ${commitment.title}`,
+    `Trecho do discurso: ${commitment.excerpt}`,
+    'As ações concretas deste plano foram definidas por você; não são citações nem instruções diretas de Lula.',
+    sourceContext?.provenance ?? '',
+    '',
+    `Rota: ${plan.routeTitle}`,
+    `Prazo: ${formatDatePtBr(plan.targetDate)}`,
+    `Território: ${plan.territory}`,
+    `Tempo disponível: ${plan.availableTime}`,
+    '',
+    `Resultado buscado: ${plan.desiredResult}`,
+    `Primeiro passo: ${plan.firstAction}`,
+    plan.partner ? `Parceria possível: ${plan.partner}` : '',
+    `Indicador: ${plan.indicator}`,
+    plan.caution ? `Cuidado: ${plan.caution}` : '',
+    '',
+    `Ação cidadã: ${plan.citizenBoundary}`,
+    `Responsabilidade pública: ${plan.publicResponsibility}`,
+    '',
+    'Revisão: daqui a 7 dias.'
+  ].filter((line, index, lines) => line !== '' || lines[index - 1] !== '').join('\n');
+}
+
 export function deriveStartDateFromTarget(targetDate, days = 30) {
   const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(targetDate));
   if (!match || !Number.isInteger(days) || days < 0) return '';

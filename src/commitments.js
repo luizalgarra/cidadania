@@ -1,7 +1,10 @@
 export const SOURCE_CONTEXT = {
   speaker: 'Luiz Inácio Lula da Silva',
-  context: 'Fala à imprensa após o segundo turno da eleição presidencial, conforme o conteúdo da transcrição.',
-  provenance: 'Transcrição fornecida pelo usuário; data, autoria documental e origem externa não foram verificadas neste app.',
+  shortName: 'Lula',
+  event: 'discurso de vitória após o segundo turno',
+  dateLabel: 'outubro de 2026',
+  context: 'Segundo a transcrição fornecida, compromissos apresentados por Lula em seu discurso de vitória após o segundo turno da eleição presidencial, em outubro de 2026.',
+  provenance: 'Transcrição fornecida pelo usuário; data, autoria documental e origem externa não foram verificadas independentemente neste app.',
   externallyVerified: false
 };
 

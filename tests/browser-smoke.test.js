@@ -51,4 +51,7 @@ test('contains a recognizable welcome screen when parsed by a real browser', (t)
   assert.equal(result.status, 0, result.stderr);
   assert.match(result.stdout, /data-step="welcome"/);
   assert.match(result.stdout, /Começar minha escolha/);
+  assert.match(result.stdout, /Base desta jornada/);
+  assert.match(result.stdout, /discurso de vitória de Lula/i);
+  assert.match(result.stdout, /outubro de 2026/i);
 });

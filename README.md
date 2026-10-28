@@ -1,6 +1,6 @@
 # Compromisso em Ação
 
-Aplicação web individual para refletir sobre compromissos extraídos de uma transcrição atribuída a Luiz Inácio Lula da Silva e transformar uma escolha em um plano cidadão de 30 dias.
+Aplicação web individual para refletir, segundo a transcrição fornecida, sobre compromissos apresentados por Luiz Inácio Lula da Silva em seu discurso de vitória após o segundo turno, em outubro de 2026, e transformar uma escolha em um plano cidadão de 30 dias.
 
 ## Como funciona
 
@@ -11,7 +11,7 @@ Aplicação web individual para refletir sobre compromissos extraídos de uma tr
 5. Distingue ação cidadã de responsabilidade pública.
 6. Gera um plano local com primeiro passo, indicador e revisão em sete dias.
 
-A ordenação é heurística e serve somente à reflexão. Não é teste de perfil, compatibilidade política ou probabilidade de sucesso. A transcrição foi fornecida pelo usuário; data, autoria documental e origem externa não foram verificadas pelo app. Sínteses, classificações e rotas são editoriais.
+A ordenação é heurística e serve somente à reflexão. Não é teste de perfil, compatibilidade política ou probabilidade de sucesso. A transcrição foi fornecida pelo usuário; data, autoria documental e origem externa não foram verificadas independentemente pelo app. Sínteses, classificações, rotas e ações concretas são editoriais e não devem ser lidas como citações ou instruções diretas de Lula.
 
 ## Privacidade
 

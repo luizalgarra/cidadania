@@ -8,6 +8,63 @@ import {
   commitmentKindLabel,
   deriveStartDateFromTarget
 } from '../src/view-helpers.js';
+import * as viewHelpers from '../src/view-helpers.js';
+
+test('states the political origin of the journey without implying that the plan is a quotation', () => {
+  assert.equal(typeof viewHelpers.sourceAttributionLabel, 'function');
+
+  const sourceContext = {
+    speaker: 'Luiz Inácio Lula da Silva',
+    shortName: 'Lula',
+    event: 'discurso de vitória após o segundo turno',
+    dateLabel: 'outubro de 2026'
+  };
+
+  assert.equal(
+    viewHelpers.sourceAttributionLabel(sourceContext),
+    'Segundo a transcrição fornecida, compromissos apresentados por Lula em seu discurso de vitória após o segundo turno, em outubro de 2026.'
+  );
+  assert.equal(
+    viewHelpers.sourceAttributionLabel(sourceContext, { fullName: true }),
+    'Segundo a transcrição fornecida, compromissos apresentados por Luiz Inácio Lula da Silva em seu discurso de vitória após o segundo turno, em outubro de 2026.'
+  );
+});
+
+test('keeps the Lula victory-speech origin and the editorial boundary in copied plans', () => {
+  assert.equal(typeof viewHelpers.formatPlanAsText, 'function');
+
+  const text = viewHelpers.formatPlanAsText({
+    plan: {
+      routeTitle: 'Acompanhar e cobrar',
+      targetDate: '2026-11-27',
+      territory: 'meu bairro',
+      availableTime: '1 hora por semana',
+      desiredResult: 'obter uma resposta pública',
+      firstAction: 'enviar uma pergunta ao órgão responsável',
+      partner: '',
+      indicator: 'uma resposta registrada',
+      caution: '',
+      citizenBoundary: 'acompanhar e formular perguntas',
+      publicResponsibility: 'responder e prestar contas'
+    },
+    commitment: {
+      title: 'Participação nas decisões',
+      excerpt: '“Nós vamos fazer o povo participar mais das nossas decisões.”'
+    },
+    sourceContext: {
+      speaker: 'Luiz Inácio Lula da Silva',
+      shortName: 'Lula',
+      event: 'discurso de vitória após o segundo turno',
+      dateLabel: 'outubro de 2026',
+      provenance: 'Transcrição fornecida pelo usuário; origem externa não verificada independentemente neste app.'
+    }
+  });
+
+  assert.match(text, /Origem deste plano: segundo a transcrição fornecida, compromisso apresentado por Luiz Inácio Lula da Silva em seu discurso de vitória após o segundo turno, em outubro de 2026\./);
+  assert.match(text, /Trecho do discurso: “Nós vamos fazer o povo participar mais das nossas decisões\.”/);
+  assert.match(text, /As ações concretas deste plano foram definidas por você; não são citações nem instruções diretas de Lula\./);
+  assert.match(text, /Transcrição fornecida pelo usuário; origem externa não verificada independentemente neste app\./);
+});
 
 test('escapes user text before it is inserted into an HTML template', () => {
   assert.equal(

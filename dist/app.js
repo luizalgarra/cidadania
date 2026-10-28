@@ -17,7 +17,9 @@ import {
   formatDatePtBr,
   createPlanDefaults,
   commitmentKindLabel,
-  deriveStartDateFromTarget
+  deriveStartDateFromTarget,
+  sourceAttributionLabel,
+  formatPlanAsText
 } from './view-helpers.js';
 
 const STORAGE_KEY = 'compromisso-em-acao:v1';
@@ -195,6 +197,7 @@ function showInlineError(message, selector = null) {
 
 function stageHeader(step, title, description = '', detail = '') {
   const meta = STAGE_META[step];
+  const sourceLabel = sourceAttributionLabel(SOURCE_CONTEXT);
   return `
     <header class="stage-header">
       <div class="stage-navigation">
@@ -203,8 +206,12 @@ function stageHeader(step, title, description = '', detail = '') {
       </div>
       <progress max="8" value="${meta.number}">${meta.number} de 8</progress>
       <p class="eyebrow stage-title">${escapeHtml(meta.label)}</p>
-      <h2 id="${escapeHtml(step)}-heading">${escapeHtml(title)}</h2>
+      <h2 id="${escapeHtml(step)}-heading" aria-describedby="${escapeHtml(step)}-source">${escapeHtml(title)}</h2>
       ${description ? `<p class="lede">${escapeHtml(description)}</p>` : ''}
+      <p class="stage-source" id="${escapeHtml(step)}-source" role="note">
+        <strong>Base desta jornada</strong>
+        <span>${escapeHtml(sourceLabel)}</span>
+      </p>
     </header>
   `;
 }
@@ -225,16 +232,18 @@ function responsibilities(commitment) {
 }
 
 function renderWelcome() {
+  const sourceLabel = sourceAttributionLabel(SOURCE_CONTEXT);
   return `
     <section class="screen welcome-screen" aria-labelledby="welcome-title">
       <p class="eyebrow">Jornada individual · 6–8 minutos</p>
+      <p class="source-banner" role="note"><strong>Base desta jornada:</strong> ${escapeHtml(sourceLabel)}</p>
       <div class="responsibility-map" aria-label="Ação cidadã e responsabilidade pública caminham juntas">
         <div class="map-track map-track--citizen"><span>O que posso fazer</span></div>
         <div class="map-track map-track--state"><span>O que o Estado deve fazer</span></div>
         <span class="map-marker" aria-hidden="true"></span>
       </div>
       <h1 id="welcome-title">Um compromisso.<br>Um próximo passo possível.</h1>
-      <p class="lede">Reflita sobre compromissos públicos, escolha onde sua energia faz sentido agora e monte um plano de ação cidadã para os próximos 30 dias.</p>
+      <p class="lede">Reflita sobre esses compromissos, escolha onde sua energia faz sentido agora e monte um plano de ação cidadã para os próximos 30 dias.</p>
       <button class="primary-button" type="button" data-action="start">Começar minha escolha</button>
       <details class="how-it-works">
         <summary>Como funciona</summary>
@@ -243,7 +252,7 @@ function renderWelcome() {
           <li>O app sugere compromissos a partir das suas respostas.</li>
           <li>Você decide qual deles transformar em plano.</li>
         </ol>
-        <p><strong>Corpus:</strong> transcrição atribuída a ${escapeHtml(SOURCE_CONTEXT.speaker)}. ${escapeHtml(SOURCE_CONTEXT.context)} ${escapeHtml(SOURCE_CONTEXT.provenance)}</p>
+        <p><strong>Fonte de trabalho:</strong> ${escapeHtml(SOURCE_CONTEXT.provenance)}</p>
         <p>Sínteses, classificações e rotas de ação são editoriais; o trecho correspondente aparece para conferência.</p>
       </details>
       <p class="privacy-note">Sem cadastro. Suas respostas ficam neste navegador até você usar “Recomeçar” ou apagar os dados do site. Em aparelho compartilhado, apague-as ao terminar.</p>
@@ -321,7 +330,7 @@ function renderReactions() {
         <h3 id="reaction-title">${escapeHtml(commitment.title)}</h3>
         <p>${escapeHtml(commitment.summary)}</p>
         <p class="classification-note"><strong>Grau de especificidade:</strong> ${escapeHtml(commitmentKindLabel(commitment.kind))}</p>
-        <p class="source-label">Trecho da transcrição atribuída a Lula</p>
+        <p class="source-label">Trecho da transcrição fornecida · discurso de vitória de Lula · ${escapeHtml(SOURCE_CONTEXT.dateLabel)}</p>
         <blockquote>${escapeHtml(commitment.excerpt)}</blockquote>
         <details>
           <summary>Quem pode fazer o quê?</summary>
@@ -571,6 +580,13 @@ function renderComplete() {
     <section class="screen" aria-labelledby="complete-heading">
       ${stageHeader('complete', 'Seu plano de ação', 'Ele está salvo somente neste aparelho. Você pode imprimir ou copiar o texto.')}
       <article class="plan-card">
+        <section class="plan-source" aria-labelledby="plan-source-title">
+          <p class="source-label" id="plan-source-title">Origem do compromisso</p>
+          <p><strong>Segundo a transcrição fornecida, este plano de ação cidadã parte de um compromisso apresentado por ${escapeHtml(SOURCE_CONTEXT.speaker)} em seu ${escapeHtml(SOURCE_CONTEXT.event)}, em ${escapeHtml(SOURCE_CONTEXT.dateLabel)}.</strong></p>
+          <blockquote>${escapeHtml(commitment.excerpt)}</blockquote>
+          <p>As ações concretas deste plano foram definidas por você; não são citações nem instruções diretas de Lula.</p>
+          <p class="source-caveat">${escapeHtml(SOURCE_CONTEXT.provenance)}</p>
+        </section>
         <p class="theme-label">${escapeHtml(themeById.get(commitment.themeId)?.title ?? '')}</p>
         <h3 id="complete-title">${escapeHtml(commitment.title)}</h3>
         <div class="responsibility-map responsibility-map--joined" aria-label="Sua ação encontra a responsabilidade pública">
@@ -677,27 +693,7 @@ function resetDownstreamFromThemes() {
 function planAsText() {
   const plan = state.plan;
   const commitment = chosenCommitment();
-  if (!plan || !commitment) return '';
-  return [
-    'COMPROMISSO EM AÇÃO',
-    '',
-    `Compromisso: ${commitment.title}`,
-    `Rota: ${plan.routeTitle}`,
-    `Prazo: ${formatDatePtBr(plan.targetDate)}`,
-    `Território: ${plan.territory}`,
-    `Tempo disponível: ${plan.availableTime}`,
-    '',
-    `Resultado buscado: ${plan.desiredResult}`,
-    `Primeiro passo: ${plan.firstAction}`,
-    plan.partner ? `Parceria possível: ${plan.partner}` : '',
-    `Indicador: ${plan.indicator}`,
-    plan.caution ? `Cuidado: ${plan.caution}` : '',
-    '',
-    `Ação cidadã: ${plan.citizenBoundary}`,
-    `Responsabilidade pública: ${plan.publicResponsibility}`,
-    '',
-    'Revisão: daqui a 7 dias.'
-  ].filter((line, index, lines) => line !== '' || lines[index - 1] !== '').join('\n');
+  return formatPlanAsText({ plan, commitment, sourceContext: SOURCE_CONTEXT });
 }
 
 async function copyPlan() {
