@@ -61,4 +61,7 @@ test('contains a recognizable landing page before the application welcome screen
   assert.doesNotMatch(result.stdout, /transcrição fornecida/i);
   assert.match(result.stdout, /discurso de vitória de Lula/i);
   assert.match(result.stdout, /outubro de 2026/i);
+  assert.match(result.stdout, /class="national-color-ribbon"/);
+  assert.match(result.stdout, /class="national-color-ribbon__green"/);
+  assert.match(result.stdout, /class="national-color-ribbon__yellow"/);
 });

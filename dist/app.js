@@ -240,6 +240,11 @@ function renderLanding() {
           <p class="landing-source-note"><a class="source-link" href="${escapeHtml(SOURCE_CONTEXT.sourceUrl)}" target="_blank" rel="noopener noreferrer">Íntegra e vídeo do pronunciamento ↗</a></p>
           <h1 id="landing-title">Do compromisso público <span>ao primeiro passo possível.</span></h1>
           <p class="landing-lede">Uma jornada individual para ler compromissos apresentados por Lula, escolher o que importa no seu entorno e criar um plano cidadão de 30 dias — sem confundir participação com dever do Estado.</p>
+          <div class="national-color-ribbon" aria-hidden="true">
+            <span class="national-color-ribbon__green"></span>
+            <span class="national-color-ribbon__yellow"></span>
+            <i></i>
+          </div>
           <div class="landing-actions">
             <button class="primary-button landing-primary" type="button" data-action="enter-app">Conhecer a jornada <span aria-hidden="true">→</span></button>
             <a class="landing-text-link" href="#como-funciona">Ver como funciona</a>
