@@ -38,14 +38,19 @@ test('catalogue collections use unique stable identifiers', () => {
   assert.equal(idsAreUnique(ROUTES), true);
 });
 
-test('source context names the attributed speaker without overstating verification', () => {
+test('source context points readers to the published speech and identifies its origin', () => {
   assert.equal(SOURCE_CONTEXT.speaker, 'Luiz Inácio Lula da Silva');
   assert.match(SOURCE_CONTEXT.context, /segundo turno/i);
   assert.match(SOURCE_CONTEXT.context, /discurso de vitória/i);
   assert.equal(SOURCE_CONTEXT.dateLabel, 'outubro de 2026');
-  assert.equal(SOURCE_CONTEXT.externallyVerified, false);
-  assert.match(SOURCE_CONTEXT.provenance, /fornecida pelo usuário/i);
-  assert.match(SOURCE_CONTEXT.provenance, /não (?:foi|foram) verificad/i);
+  assert.equal(SOURCE_CONTEXT.externallyVerified, true);
+  assert.equal(
+    SOURCE_CONTEXT.sourceUrl,
+    'https://www.poder360.com.br/poder-eleicoes-2026/leia-a-integra-do-pronunciamento-da-vitoria-de-lula-2/'
+  );
+  assert.match(SOURCE_CONTEXT.provenance, /íntegra e vídeo/i);
+  assert.doesNotMatch(SOURCE_CONTEXT.context, /transcrição fornecida/i);
+  assert.doesNotMatch(SOURCE_CONTEXT.provenance, /transcrição fornecida/i);
 });
 
 test('catalogue explicitly covers each distinct future commitment', () => {

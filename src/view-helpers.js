@@ -38,13 +38,13 @@ export function sourceAttributionLabel(sourceContext, { fullName = false } = {})
   const event = sourceContext?.event;
   const dateLabel = sourceContext?.dateLabel;
   if (!speaker || !event || !dateLabel) return '';
-  return `Segundo a transcrição fornecida, compromissos apresentados por ${speaker} em seu ${event}, em ${dateLabel}.`;
+  return `Compromissos apresentados por ${speaker} em seu ${event}, em ${dateLabel}.`;
 }
 
 export function formatPlanAsText({ plan, commitment, sourceContext }) {
   if (!plan || !commitment) return '';
   const origin = sourceContext?.speaker && sourceContext?.event && sourceContext?.dateLabel
-    ? `segundo a transcrição fornecida, compromisso apresentado por ${sourceContext.speaker} em seu ${sourceContext.event}, em ${sourceContext.dateLabel}.`
+    ? `compromisso apresentado por ${sourceContext.speaker} em seu ${sourceContext.event}, em ${sourceContext.dateLabel}.`
     : sourceAttributionLabel(sourceContext, { fullName: true });
   return [
     'COMPROMISSO EM AÇÃO',
@@ -53,6 +53,7 @@ export function formatPlanAsText({ plan, commitment, sourceContext }) {
     `Compromisso: ${commitment.title}`,
     `Trecho do discurso: ${commitment.excerpt}`,
     'As ações concretas deste plano foram definidas por você; não são citações nem instruções diretas de Lula.',
+    sourceContext?.sourceUrl ? `Fonte pública: ${sourceContext.sourceUrl}` : '',
     sourceContext?.provenance ?? '',
     '',
     `Rota: ${plan.routeTitle}`,

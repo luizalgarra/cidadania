@@ -229,6 +229,16 @@ body.has-progress .site-header .header-reset {
   font-size: 0.78rem;
 }
 
+.source-link {
+  color: var(--carbon);
+  font-weight: 760;
+  text-underline-offset: 4px;
+}
+
+.source-link:hover {
+  text-decoration-thickness: 2px;
+}
+
 .landing-hero h1 {
   max-width: 650px;
   margin-bottom: 28px;

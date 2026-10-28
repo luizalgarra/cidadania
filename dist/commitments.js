@@ -3,9 +3,12 @@ export const SOURCE_CONTEXT = {
   shortName: 'Lula',
   event: 'discurso de vitória após o segundo turno',
   dateLabel: 'outubro de 2026',
-  context: 'Segundo a transcrição fornecida, compromissos apresentados por Lula em seu discurso de vitória após o segundo turno da eleição presidencial, em outubro de 2026.',
-  provenance: 'Transcrição fornecida pelo usuário; data, autoria documental e origem externa não foram verificadas independentemente neste app.',
-  externallyVerified: false
+  context: 'Compromissos apresentados por Lula em seu discurso de vitória após o segundo turno da eleição presidencial, em outubro de 2026.',
+  sourceTitle: 'Íntegra e vídeo do pronunciamento da vitória de Lula',
+  sourceUrl: 'https://www.poder360.com.br/poder-eleicoes-2026/leia-a-integra-do-pronunciamento-da-vitoria-de-lula-2/',
+  recordingUrl: 'https://www12.senado.leg.br/noticias/videos/2026/10/reeleito-presidente-lula-agradece-apoio-do-povo-e-sobretudo-das-mulheres',
+  provenance: 'Íntegra e vídeo publicados pelo Poder360 em 25 de outubro de 2026; registro audiovisual também disponível no Senado Notícias.',
+  externallyVerified: true
 };
 
 export const THEMES = [

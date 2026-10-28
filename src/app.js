@@ -210,7 +210,7 @@ function stageHeader(step, title, description = '', detail = '') {
       ${description ? `<p class="lede">${escapeHtml(description)}</p>` : ''}
       <p class="stage-source" id="${escapeHtml(step)}-source" role="note">
         <strong>Base desta jornada</strong>
-        <span>${escapeHtml(sourceLabel)}</span>
+        <span>${escapeHtml(sourceLabel)} <a class="source-link" href="${escapeHtml(SOURCE_CONTEXT.sourceUrl)}" target="_blank" rel="noopener noreferrer">Ler a íntegra e assistir ao vídeo ↗</a></span>
       </p>
     </header>
   `;
@@ -237,7 +237,7 @@ function renderLanding() {
       <section class="landing-hero" aria-labelledby="landing-title">
         <div class="landing-hero__copy">
           <p class="eyebrow landing-source">Discurso de vitória · outubro de 2026</p>
-          <p class="landing-source-note">Segundo a transcrição fornecida</p>
+          <p class="landing-source-note"><a class="source-link" href="${escapeHtml(SOURCE_CONTEXT.sourceUrl)}" target="_blank" rel="noopener noreferrer">Íntegra e vídeo do pronunciamento ↗</a></p>
           <h1 id="landing-title">Do compromisso público <span>ao primeiro passo possível.</span></h1>
           <p class="landing-lede">Uma jornada individual para ler compromissos apresentados por Lula, escolher o que importa no seu entorno e criar um plano cidadão de 30 dias — sem confundir participação com dever do Estado.</p>
           <div class="landing-actions">
@@ -352,6 +352,7 @@ function renderLanding() {
         <details class="landing-method">
           <summary>Fonte e critérios editoriais</summary>
           <p>${escapeHtml(SOURCE_CONTEXT.provenance)}</p>
+          <p><a class="source-link" href="${escapeHtml(SOURCE_CONTEXT.sourceUrl)}" target="_blank" rel="noopener noreferrer">Ler a íntegra e assistir ao vídeo ↗</a></p>
           <p>Sínteses, classificações, rotas e ações sugeridas são editoriais. A ordenação ajuda a comparar respostas; não mede alinhamento político, mérito ou probabilidade de sucesso.</p>
         </details>
       </section>
@@ -381,7 +382,8 @@ function renderWelcome() {
           <li>O app sugere compromissos a partir das suas respostas.</li>
           <li>Você decide qual deles transformar em plano.</li>
         </ol>
-        <p><strong>Fonte de trabalho:</strong> ${escapeHtml(SOURCE_CONTEXT.provenance)}</p>
+        <p><strong>Fonte pública:</strong> <a class="source-link" href="${escapeHtml(SOURCE_CONTEXT.sourceUrl)}" target="_blank" rel="noopener noreferrer">íntegra e vídeo do pronunciamento ↗</a></p>
+        <p>${escapeHtml(SOURCE_CONTEXT.provenance)}</p>
         <p>Sínteses, classificações e rotas de ação são editoriais; o trecho correspondente aparece para conferência.</p>
       </details>
       <p class="privacy-note">Sem cadastro. Suas respostas ficam neste navegador até você usar “Recomeçar” ou apagar os dados do site. Em aparelho compartilhado, apague-as ao terminar.</p>
@@ -459,7 +461,7 @@ function renderReactions() {
         <h3 id="reaction-title">${escapeHtml(commitment.title)}</h3>
         <p>${escapeHtml(commitment.summary)}</p>
         <p class="classification-note"><strong>Grau de especificidade:</strong> ${escapeHtml(commitmentKindLabel(commitment.kind))}</p>
-        <p class="source-label">Trecho da transcrição fornecida · discurso de vitória de Lula · ${escapeHtml(SOURCE_CONTEXT.dateLabel)}</p>
+        <p class="source-label">Trecho do discurso de vitória de Lula · ${escapeHtml(SOURCE_CONTEXT.dateLabel)} · <a class="source-link" href="${escapeHtml(SOURCE_CONTEXT.sourceUrl)}" target="_blank" rel="noopener noreferrer">conferir íntegra ↗</a></p>
         <blockquote>${escapeHtml(commitment.excerpt)}</blockquote>
         <details>
           <summary>Quem pode fazer o quê?</summary>
@@ -711,10 +713,10 @@ function renderComplete() {
       <article class="plan-card">
         <section class="plan-source" aria-labelledby="plan-source-title">
           <p class="source-label" id="plan-source-title">Origem do compromisso</p>
-          <p><strong>Segundo a transcrição fornecida, este plano de ação cidadã parte de um compromisso apresentado por ${escapeHtml(SOURCE_CONTEXT.speaker)} em seu ${escapeHtml(SOURCE_CONTEXT.event)}, em ${escapeHtml(SOURCE_CONTEXT.dateLabel)}.</strong></p>
+          <p><strong>Este plano de ação cidadã parte de um compromisso apresentado por ${escapeHtml(SOURCE_CONTEXT.speaker)} em seu ${escapeHtml(SOURCE_CONTEXT.event)}, em ${escapeHtml(SOURCE_CONTEXT.dateLabel)}.</strong></p>
           <blockquote>${escapeHtml(commitment.excerpt)}</blockquote>
           <p>As ações concretas deste plano foram definidas por você; não são citações nem instruções diretas de Lula.</p>
-          <p class="source-caveat">${escapeHtml(SOURCE_CONTEXT.provenance)}</p>
+          <p class="source-caveat">${escapeHtml(SOURCE_CONTEXT.provenance)} <a class="source-link" href="${escapeHtml(SOURCE_CONTEXT.sourceUrl)}" target="_blank" rel="noopener noreferrer">Ler a íntegra e assistir ao vídeo ↗</a></p>
         </section>
         <p class="theme-label">${escapeHtml(themeById.get(commitment.themeId)?.title ?? '')}</p>
         <h3 id="complete-title">${escapeHtml(commitment.title)}</h3>

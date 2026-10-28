@@ -22,11 +22,11 @@ test('states the political origin of the journey without implying that the plan 
 
   assert.equal(
     viewHelpers.sourceAttributionLabel(sourceContext),
-    'Segundo a transcrição fornecida, compromissos apresentados por Lula em seu discurso de vitória após o segundo turno, em outubro de 2026.'
+    'Compromissos apresentados por Lula em seu discurso de vitória após o segundo turno, em outubro de 2026.'
   );
   assert.equal(
     viewHelpers.sourceAttributionLabel(sourceContext, { fullName: true }),
-    'Segundo a transcrição fornecida, compromissos apresentados por Luiz Inácio Lula da Silva em seu discurso de vitória após o segundo turno, em outubro de 2026.'
+    'Compromissos apresentados por Luiz Inácio Lula da Silva em seu discurso de vitória após o segundo turno, em outubro de 2026.'
   );
 });
 
@@ -56,14 +56,17 @@ test('keeps the Lula victory-speech origin and the editorial boundary in copied 
       shortName: 'Lula',
       event: 'discurso de vitória após o segundo turno',
       dateLabel: 'outubro de 2026',
-      provenance: 'Transcrição fornecida pelo usuário; origem externa não verificada independentemente neste app.'
+      sourceUrl: 'https://www.poder360.com.br/poder-eleicoes-2026/leia-a-integra-do-pronunciamento-da-vitoria-de-lula-2/',
+      provenance: 'Íntegra e vídeo publicados pelo Poder360 em 25 de outubro de 2026.'
     }
   });
 
-  assert.match(text, /Origem deste plano: segundo a transcrição fornecida, compromisso apresentado por Luiz Inácio Lula da Silva em seu discurso de vitória após o segundo turno, em outubro de 2026\./);
+  assert.match(text, /Origem deste plano: compromisso apresentado por Luiz Inácio Lula da Silva em seu discurso de vitória após o segundo turno, em outubro de 2026\./);
   assert.match(text, /Trecho do discurso: “Nós vamos fazer o povo participar mais das nossas decisões\.”/);
   assert.match(text, /As ações concretas deste plano foram definidas por você; não são citações nem instruções diretas de Lula\./);
-  assert.match(text, /Transcrição fornecida pelo usuário; origem externa não verificada independentemente neste app\./);
+  assert.match(text, /Fonte pública: https:\/\/www\.poder360\.com\.br\/poder-eleicoes-2026\/leia-a-integra-do-pronunciamento-da-vitoria-de-lula-2\//);
+  assert.match(text, /Íntegra e vídeo publicados pelo Poder360 em 25 de outubro de 2026\./);
+  assert.doesNotMatch(text, /transcrição fornecida/i);
 });
 
 test('escapes user text before it is inserted into an HTML template', () => {

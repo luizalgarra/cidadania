@@ -53,7 +53,12 @@ test('contains a recognizable landing page before the application welcome screen
   assert.match(result.stdout, /Do compromisso público/i);
   assert.match(result.stdout, /ao primeiro passo possível/i);
   assert.match(result.stdout, /Conhecer a jornada/);
-  assert.match(result.stdout, /Segundo a transcrição fornecida/i);
+  assert.match(result.stdout, /Íntegra e vídeo do pronunciamento/i);
+  assert.match(
+    result.stdout,
+    /href="https:\/\/www\.poder360\.com\.br\/poder-eleicoes-2026\/leia-a-integra-do-pronunciamento-da-vitoria-de-lula-2\/"/
+  );
+  assert.doesNotMatch(result.stdout, /transcrição fornecida/i);
   assert.match(result.stdout, /discurso de vitória de Lula/i);
   assert.match(result.stdout, /outubro de 2026/i);
 });
