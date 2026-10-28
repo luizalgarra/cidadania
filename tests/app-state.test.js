@@ -20,6 +20,17 @@ test('creates independent state objects so one session cannot mutate another', (
   assert.equal(second.reflections.affected, '');
 });
 
+test('starts a new journey on the landing page before the existing welcome screen', () => {
+  const state = createInitialState();
+
+  assert.equal(state.version, 2);
+  assert.equal(state.step, 'landing');
+  assert.equal(canContinue(state), true);
+  assert.equal(getNextStep('landing'), 'welcome');
+  assert.equal(getPreviousStep('welcome'), 'landing');
+  assert.equal(getPreviousStep('landing'), 'landing');
+});
+
 test('requires between one and three themes before continuing', () => {
   const state = { ...createInitialState(), step: 'themes' };
 
@@ -85,7 +96,7 @@ test('moves through the declared journey in both directions', () => {
   assert.equal(getNextStep('reflection'), 'route');
   assert.equal(getNextStep('complete'), 'complete');
   assert.equal(getPreviousStep('themes'), 'welcome');
-  assert.equal(getPreviousStep('welcome'), 'welcome');
+  assert.equal(getPreviousStep('welcome'), 'landing');
 });
 
 test('sanitizes malformed restored state without accepting unknown steps', () => {
@@ -98,7 +109,7 @@ test('sanitizes malformed restored state without accepting unknown steps', () =>
     planInput: null
   });
 
-  assert.equal(restored.step, 'welcome');
+  assert.equal(restored.step, 'landing');
   assert.deepEqual(restored.selectedThemes, ['saude']);
   assert.equal(restored.selectedCommitmentId, null);
   assert.equal(restored.reviewDone, false);
@@ -109,6 +120,20 @@ test('sanitizes malformed restored state without accepting unknown steps', () =>
     caution: ''
   });
   assert.deepEqual(restored.planInput, createInitialState().planInput);
+});
+
+test('shows the new landing to legacy unstarted sessions without interrupting active progress', () => {
+  const unstarted = sanitizeRestoredState({ version: 1, step: 'welcome' });
+  const active = sanitizeRestoredState({
+    version: 1,
+    step: 'ratings',
+    selectedThemes: ['saude-sus'],
+    candidates: ['fortalecimento-sus']
+  });
+
+  assert.equal(unstarted.step, 'landing');
+  assert.equal(active.step, 'ratings');
+  assert.equal(active.version, 2);
 });
 
 test('preserves all four explicitly chosen candidates when restoring ranked results', () => {

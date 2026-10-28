@@ -1,4 +1,5 @@
 export const STEPS = Object.freeze([
+  'landing',
   'welcome',
   'themes',
   'reactions',
@@ -39,8 +40,8 @@ const emptyPlanInput = () => ({
 
 export function createInitialState() {
   return {
-    version: 1,
-    step: 'welcome',
+    version: 2,
+    step: 'landing',
     selectedThemes: [],
     reactions: {},
     ratings: {},
@@ -57,13 +58,13 @@ export function createInitialState() {
 
 export function getNextStep(step) {
   const index = STEPS.indexOf(step);
-  if (index < 0 || index === STEPS.length - 1) return index < 0 ? 'welcome' : step;
+  if (index < 0 || index === STEPS.length - 1) return index < 0 ? 'landing' : step;
   return STEPS[index + 1];
 }
 
 export function getPreviousStep(step) {
   const index = STEPS.indexOf(step);
-  if (index <= 0) return 'welcome';
+  if (index <= 0) return 'landing';
   return STEPS[index - 1];
 }
 
@@ -85,6 +86,7 @@ function candidateIsRated(ratings, id) {
 
 export function canContinue(state) {
   switch (state?.step) {
+    case 'landing':
     case 'welcome':
       return true;
     case 'themes':
@@ -159,7 +161,9 @@ export function sanitizeRestoredState(value) {
   const defaults = createInitialState();
   if (!isRecord(value)) return defaults;
 
-  const step = STEPS.includes(value.step) ? value.step : defaults.step;
+  const sourceVersion = Number.isInteger(value.version) ? value.version : 1;
+  const restoredStep = STEPS.includes(value.step) ? value.step : defaults.step;
+  const step = sourceVersion < 2 && restoredStep === 'welcome' ? 'landing' : restoredStep;
   const selectedThemes = Array.isArray(value.selectedThemes)
     ? [...new Set(value.selectedThemes.filter((item) => typeof item === 'string'))].slice(0, 3)
     : [];

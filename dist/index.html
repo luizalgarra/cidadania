@@ -28,38 +28,41 @@
       </button>
     </header>
 
-    <main id="app" data-step="welcome" tabindex="-1">
-      <section class="screen welcome-screen" aria-labelledby="welcome-title">
-        <p class="eyebrow">Jornada individual · 6–8 minutos</p>
-        <p class="source-banner" role="note">
-          <strong>Base desta jornada:</strong> Segundo a transcrição fornecida, compromissos apresentados por Lula em seu discurso de vitória após o segundo turno, em outubro de 2026.
-        </p>
-        <div class="responsibility-map" aria-label="Ação cidadã e responsabilidade pública caminham juntas">
-          <div class="map-track map-track--citizen"><span>O que posso fazer</span></div>
-          <div class="map-track map-track--state"><span>O que o Estado deve fazer</span></div>
-          <span class="map-marker" aria-hidden="true"></span>
-        </div>
-        <h1 id="welcome-title">Um compromisso.<br>Um próximo passo possível.</h1>
-        <p class="lede">
-          Reflita sobre esses compromissos, escolha onde sua energia faz sentido agora
-          e monte um plano de ação cidadã para os próximos 30 dias.
-        </p>
-        <button class="primary-button" type="button" data-action="start">
-          Começar minha escolha
-        </button>
-        <details class="how-it-works">
-          <summary>Como funciona</summary>
-          <ol>
-            <li>Você escolhe até três temas.</li>
-            <li>O app sugere compromissos a partir das suas respostas.</li>
-            <li>Você decide qual deles transformar em plano.</li>
-          </ol>
-          <p><strong>Fonte de trabalho:</strong> transcrição fornecida pelo usuário; data, autoria documental e origem externa não foram verificadas independentemente neste app.</p>
-        </details>
-        <p class="privacy-note">
-          Sem cadastro. Suas respostas ficam somente neste aparelho.
-        </p>
-      </section>
+    <main id="app" data-step="landing" tabindex="-1">
+      <div class="landing-page">
+        <section class="landing-hero" aria-labelledby="landing-title">
+          <div class="landing-hero__copy">
+            <p class="eyebrow landing-source">Discurso de vitória · outubro de 2026</p>
+            <p class="landing-source-note">Segundo a transcrição fornecida</p>
+            <h1 id="landing-title">Do compromisso público <span>ao primeiro passo possível.</span></h1>
+            <p class="landing-lede">Uma jornada individual para ler compromissos apresentados por Lula, escolher o que importa no seu entorno e criar um plano cidadão de 30 dias — sem confundir participação com dever do Estado.</p>
+            <div class="landing-actions">
+              <button class="primary-button landing-primary" type="button" data-action="enter-app">Conhecer a jornada <span aria-hidden="true">→</span></button>
+              <a class="landing-text-link" href="#como-funciona">Ver como funciona</a>
+            </div>
+            <ul class="landing-facts" aria-label="Características da jornada">
+              <li><strong>23</strong><span>compromissos</span></li>
+              <li><strong>9</strong><span>temas</span></li>
+              <li><strong>6–8 min</strong><span>para escolher</span></li>
+              <li><strong>0 cadastro</strong><span>dados no navegador</span></li>
+            </ul>
+          </div>
+          <aside class="landing-route-panel" aria-labelledby="route-panel-title">
+            <p class="route-panel-kicker">Do discurso ao entorno</p>
+            <h2 id="route-panel-title">Uma trilha para transformar atenção em ação.</h2>
+            <ol class="landing-journey">
+              <li><span class="journey-node" aria-hidden="true"><b>1</b></span><strong>Compromisso</strong><small>O que foi apresentado no discurso</small></li>
+              <li class="journey-choice"><span class="journey-node" aria-hidden="true"><b>2</b></span><strong>Sua escolha</strong><small>O que encontra sentido no seu entorno</small></li>
+              <li><span class="journey-node" aria-hidden="true"><b>3</b></span><strong>Próximo passo</strong><small>Uma ação segura e acompanhável</small></li>
+            </ol>
+            <div class="landing-public-track" role="note">
+              <span class="public-track-line" aria-hidden="true"></span>
+              <p><strong>Responsabilidade pública continua pública.</strong> O app mostra o limite entre participação cidadã e dever do Estado.</p>
+            </div>
+          </aside>
+        </section>
+      </div>
+      <noscript><p>Ative o JavaScript para iniciar a jornada.</p></noscript>
     </main>
 
     <footer class="site-footer">

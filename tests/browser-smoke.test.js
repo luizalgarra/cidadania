@@ -24,7 +24,7 @@ function findChrome() {
   }) ?? null;
 }
 
-test('contains a recognizable welcome screen when parsed by a real browser', (t) => {
+test('contains a recognizable landing page before the application welcome screen', (t) => {
   if (process.env.RUN_BROWSER_SMOKE !== '1') {
     t.skip('Set RUN_BROWSER_SMOKE=1 in an environment allowed to launch Chrome');
     return;
@@ -49,9 +49,11 @@ test('contains a recognizable welcome screen when parsed by a real browser', (t)
   rmSync(profileDirectory, { recursive: true, force: true });
 
   assert.equal(result.status, 0, result.stderr);
-  assert.match(result.stdout, /data-step="welcome"/);
-  assert.match(result.stdout, /Começar minha escolha/);
-  assert.match(result.stdout, /Base desta jornada/);
+  assert.match(result.stdout, /data-step="landing"/);
+  assert.match(result.stdout, /Do compromisso público/i);
+  assert.match(result.stdout, /ao primeiro passo possível/i);
+  assert.match(result.stdout, /Conhecer a jornada/);
+  assert.match(result.stdout, /Segundo a transcrição fornecida/i);
   assert.match(result.stdout, /discurso de vitória de Lula/i);
   assert.match(result.stdout, /outubro de 2026/i);
 });

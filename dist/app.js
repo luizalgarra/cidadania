@@ -101,7 +101,7 @@ function normalizeReferences() {
     state.selectedRouteId = null;
   }
 
-  const needsThemes = !['welcome', 'themes'].includes(state.step);
+  const needsThemes = !['landing', 'welcome', 'themes'].includes(state.step);
   if (needsThemes && state.selectedThemes.length === 0) state.step = 'themes';
 
   const needsCandidates = ['ratings', 'finalists', 'reflection', 'route', 'plan', 'complete'].includes(state.step);
@@ -231,10 +231,139 @@ function responsibilities(commitment) {
   `;
 }
 
+function renderLanding() {
+  return `
+    <div class="landing-page">
+      <section class="landing-hero" aria-labelledby="landing-title">
+        <div class="landing-hero__copy">
+          <p class="eyebrow landing-source">Discurso de vitória · outubro de 2026</p>
+          <p class="landing-source-note">Segundo a transcrição fornecida</p>
+          <h1 id="landing-title">Do compromisso público <span>ao primeiro passo possível.</span></h1>
+          <p class="landing-lede">Uma jornada individual para ler compromissos apresentados por Lula, escolher o que importa no seu entorno e criar um plano cidadão de 30 dias — sem confundir participação com dever do Estado.</p>
+          <div class="landing-actions">
+            <button class="primary-button landing-primary" type="button" data-action="enter-app">Conhecer a jornada <span aria-hidden="true">→</span></button>
+            <a class="landing-text-link" href="#como-funciona">Ver como funciona</a>
+          </div>
+          <ul class="landing-facts" aria-label="Características da jornada">
+            <li><strong>23</strong><span>compromissos</span></li>
+            <li><strong>9</strong><span>temas</span></li>
+            <li><strong>6–8 min</strong><span>para escolher</span></li>
+            <li><strong>0 cadastro</strong><span>dados no navegador</span></li>
+          </ul>
+        </div>
+
+        <aside class="landing-route-panel" aria-labelledby="route-panel-title">
+          <p class="route-panel-kicker">Do discurso ao entorno</p>
+          <h2 id="route-panel-title">Uma trilha para transformar atenção em ação.</h2>
+          <ol class="landing-journey">
+            <li>
+              <span class="journey-node" aria-hidden="true"><b>1</b></span>
+              <strong>Compromisso</strong>
+              <small>O que foi apresentado no discurso</small>
+            </li>
+            <li class="journey-choice">
+              <span class="journey-node" aria-hidden="true"><b>2</b></span>
+              <strong>Sua escolha</strong>
+              <small>O que encontra sentido no seu entorno</small>
+            </li>
+            <li>
+              <span class="journey-node" aria-hidden="true"><b>3</b></span>
+              <strong>Próximo passo</strong>
+              <small>Uma ação segura e acompanhável</small>
+            </li>
+          </ol>
+          <div class="landing-public-track" role="note">
+            <span class="public-track-line" aria-hidden="true"></span>
+            <p><strong>Responsabilidade pública continua pública.</strong> O app mostra o limite entre participação cidadã e dever do Estado.</p>
+          </div>
+        </aside>
+      </section>
+
+      <section class="landing-section landing-process" id="como-funciona" aria-labelledby="process-title">
+        <div class="landing-section-heading">
+          <p class="eyebrow">Uma escolha, não um teste</p>
+          <h2 id="process-title">Você não recebe um slogan.<br>Você constrói uma decisão.</h2>
+          <p>A ordem sugerida serve para comparar caminhos. A escolha final é sempre sua.</p>
+        </div>
+        <ol class="landing-steps">
+          <li>
+            <span>01</span>
+            <h3>Leia no contexto</h3>
+            <p>Explore sínteses e trechos de compromissos em temas como democracia, educação, saúde, clima e ambiente digital.</p>
+          </li>
+          <li>
+            <span>02</span>
+            <h3>Compare com honestidade</h3>
+            <p>Reflita sobre interesse, impacto no entorno, capacidade de agir e disposição real para os próximos 30 dias.</p>
+          </li>
+          <li>
+            <span>03</span>
+            <h3>Defina um passo possível</h3>
+            <p>Escolha uma rota, registre um primeiro passo, um indicador de avanço e uma revisão em sete dias.</p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="landing-section landing-boundary" aria-labelledby="boundary-title">
+        <div class="landing-boundary__copy">
+          <p class="eyebrow">Um limite essencial</p>
+          <h2 id="boundary-title">Ação cidadã não substitui política pública.</h2>
+          <p>Participar, ajudar, mobilizar ou cobrar pode abrir caminhos. Garantir direitos, financiar serviços e executar políticas continua sendo responsabilidade do poder público.</p>
+        </div>
+        <div class="landing-boundary-map" aria-label="Distinção entre ação cidadã e responsabilidade pública">
+          <article class="boundary-card boundary-card--citizen">
+            <p class="source-label">O que pode partir de você</p>
+            <h3>Conhecer, apoiar, mobilizar e acompanhar.</h3>
+          </article>
+          <span class="boundary-diamond" aria-hidden="true"></span>
+          <article class="boundary-card boundary-card--state">
+            <p class="source-label">O que cabe ao Estado</p>
+            <h3>Garantir direitos, implementar e prestar contas.</h3>
+          </article>
+        </div>
+      </section>
+
+      <section class="landing-section landing-outcome" aria-labelledby="outcome-title">
+        <div class="landing-outcome__copy">
+          <p class="eyebrow">Resultado concreto</p>
+          <h2 id="outcome-title">Você termina com um plano que cabe na vida real.</h2>
+          <ul>
+            <li>um compromisso escolhido por você;</li>
+            <li>uma rota de atuação cidadã;</li>
+            <li>um primeiro passo e um indicador;</li>
+            <li>um ciclo de 30 dias com revisão em sete.</li>
+          </ul>
+        </div>
+        <article class="landing-plan-preview" aria-label="Exemplo da estrutura do plano final">
+          <p class="source-label">Exemplo de estrutura</p>
+          <p class="landing-plan-sentence">Até <span>uma data definida</span>, vou <span>dar meu primeiro passo</span> em <span>meu território</span>.</p>
+          <div class="landing-preview-meta">
+            <p><strong>Como saberei que avancei</strong><br>Um resultado observável registrado.</p>
+            <p><strong>Revisão</strong><br>Daqui a sete dias.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="landing-final" aria-labelledby="landing-final-title">
+        <p class="eyebrow">Comece pela escolha</p>
+        <h2 id="landing-final-title">Qual compromisso merece sua atenção agora?</h2>
+        <p>Sem cadastro, sem resposta “certa” e sem substituir o papel do Estado.</p>
+        <button class="primary-button landing-primary" type="button" data-action="enter-app">Quero conhecer a jornada <span aria-hidden="true">→</span></button>
+        <details class="landing-method">
+          <summary>Fonte e critérios editoriais</summary>
+          <p>${escapeHtml(SOURCE_CONTEXT.provenance)}</p>
+          <p>Sínteses, classificações, rotas e ações sugeridas são editoriais. A ordenação ajuda a comparar respostas; não mede alinhamento político, mérito ou probabilidade de sucesso.</p>
+        </details>
+      </section>
+    </div>
+  `;
+}
+
 function renderWelcome() {
   const sourceLabel = sourceAttributionLabel(SOURCE_CONTEXT);
   return `
     <section class="screen welcome-screen" aria-labelledby="welcome-title">
+      <button class="quiet-button welcome-back" type="button" data-action="return-to-landing">← Voltar à apresentação</button>
       <p class="eyebrow">Jornada individual · 6–8 minutos</p>
       <p class="source-banner" role="note"><strong>Base desta jornada:</strong> ${escapeHtml(sourceLabel)}</p>
       <div class="responsibility-map" aria-label="Ação cidadã e responsabilidade pública caminham juntas">
@@ -631,9 +760,11 @@ function renderRecovery(message) {
 }
 
 function render({ focus = false, restoreControl = null } = {}) {
-  document.body.classList.toggle('has-progress', state.step !== 'welcome');
+  document.body.classList.toggle('has-progress', !['landing', 'welcome'].includes(state.step));
+  document.body.classList.toggle('is-landing', state.step === 'landing');
   root.dataset.step = state.step;
   const screens = {
+    landing: renderLanding,
     welcome: renderWelcome,
     themes: renderThemes,
     reactions: renderReactions,
@@ -644,7 +775,7 @@ function render({ focus = false, restoreControl = null } = {}) {
     plan: renderPlan,
     complete: renderComplete
   };
-  root.innerHTML = (screens[state.step] ?? renderWelcome)();
+  root.innerHTML = (screens[state.step] ?? renderLanding)();
   if (restoreControl) {
     window.requestAnimationFrame(() => {
       const control = [...root.querySelectorAll('[name]')].find((candidate) => (
@@ -825,6 +956,14 @@ root.addEventListener('click', async (event) => {
   if (!button) return;
   const action = button.dataset.action;
 
+  if (action === 'enter-app') {
+    goTo('welcome');
+    return;
+  }
+  if (action === 'return-to-landing') {
+    goTo('landing');
+    return;
+  }
   if (action === 'start') {
     goTo('themes');
     return;
