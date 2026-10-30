@@ -44,7 +44,7 @@ function dumpLandingDom(chrome, search = '') {
   return result.stdout;
 }
 
-test('contains a recognizable landing page before the application welcome screen', (t) => {
+test('renders the direct popular landing on the main URL', (t) => {
   if (process.env.RUN_BROWSER_SMOKE !== '1') {
     t.skip('Set RUN_BROWSER_SMOKE=1 in an environment allowed to launch Chrome');
     return;
@@ -58,23 +58,14 @@ test('contains a recognizable landing page before the application welcome screen
   const dom = dumpLandingDom(chrome);
 
   assert.match(dom, /data-step="landing"/);
-  assert.match(dom, /Do compromisso público/i);
-  assert.match(dom, /ao primeiro passo possível/i);
-  assert.match(dom, /Conhecer a jornada/);
-  assert.match(dom, /Íntegra e vídeo do pronunciamento/i);
-  assert.match(
-    dom,
-    /href="https:\/\/www\.poder360\.com\.br\/poder-eleicoes-2026\/leia-a-integra-do-pronunciamento-da-vitoria-de-lula-2\/"/
-  );
-  assert.doesNotMatch(dom, /transcrição fornecida/i);
-  assert.match(dom, /discurso de vitória de Lula/i);
-  assert.match(dom, /outubro de 2026/i);
-  assert.match(dom, /class="national-color-ribbon"/);
-  assert.match(dom, /class="national-color-ribbon__green"/);
-  assert.match(dom, /class="national-color-ribbon__yellow"/);
+  assert.match(dom, /data-landing-variant="popular"/);
+  assert.match(dom, /class="popular-landing"/);
+  assert.match(dom, /O que você pode fazer/i);
+  assert.match(dom, /Descobrir meu primeiro passo/i);
+  assert.doesNotMatch(dom, /class="landing-process"/);
 });
 
-test('renders the direct popular landing when the A/B URL requests it', (t) => {
+test('does not restore the archived editorial landing from its old URL', (t) => {
   if (process.env.RUN_BROWSER_SMOKE !== '1') {
     t.skip('Set RUN_BROWSER_SMOKE=1 in an environment allowed to launch Chrome');
     return;
@@ -85,12 +76,9 @@ test('renders the direct popular landing when the A/B URL requests it', (t) => {
     return;
   }
 
-  const dom = dumpLandingDom(chrome, '?landing=popular');
+  const dom = dumpLandingDom(chrome, '?landing=editorial');
 
   assert.match(dom, /class="popular-landing"/);
   assert.match(dom, /O que você pode fazer/i);
-  assert.match(dom, /por um Brasil melhor/i);
-  assert.match(dom, /Descobrir meu primeiro passo/i);
-  assert.match(dom, /100% gratuito/i);
   assert.doesNotMatch(dom, /class="landing-process"/);
 });

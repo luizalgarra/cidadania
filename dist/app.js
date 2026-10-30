@@ -8,7 +8,6 @@ import {
 } from './logic.js';
 import {
   createInitialState,
-  getLandingVariant,
   getPreviousStep,
   canContinue,
   sanitizeRestoredState
@@ -27,12 +26,6 @@ const STORAGE_KEY = 'compromisso-em-acao:v1';
 const MAX_CANDIDATES = 4;
 const root = document.querySelector('#app');
 const toast = document.querySelector('.toast');
-const landingVariant = getLandingVariant(window.location.search);
-const brandLink = document.querySelector('.brand');
-
-if (landingVariant === 'popular' && brandLink) {
-  brandLink.href = '?landing=popular';
-}
 
 const commitmentById = new Map(COMMITMENTS.map((item) => [item.id, item]));
 const themeById = new Map(THEMES.map((item) => [item.id, item]));
@@ -274,9 +267,10 @@ function renderPopularLanding() {
 }
 
 function renderLanding() {
-  return landingVariant === 'popular' ? renderPopularLanding() : renderEditorialLanding();
+  return renderPopularLanding();
 }
 
+// Arquivada na versão pública 5; mantida no código apenas para recuperação histórica.
 function renderEditorialLanding() {
   return `
     <div class="landing-page">
@@ -815,9 +809,9 @@ function renderRecovery(message) {
 function render({ focus = false, restoreControl = null } = {}) {
   document.body.classList.toggle('has-progress', !['landing', 'welcome'].includes(state.step));
   document.body.classList.toggle('is-landing', state.step === 'landing');
-  document.body.classList.toggle('is-popular-landing', state.step === 'landing' && landingVariant === 'popular');
+  document.body.classList.toggle('is-popular-landing', state.step === 'landing');
   root.dataset.step = state.step;
-  root.dataset.landingVariant = landingVariant;
+  root.dataset.landingVariant = 'popular';
   const screens = {
     landing: renderLanding,
     welcome: renderWelcome,
