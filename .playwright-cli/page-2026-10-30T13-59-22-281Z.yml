@@ -1,0 +1,68 @@
+- generic [ref=e1]:
+  - link "Pular para o conteúdo" [ref=e2] [cursor=pointer]:
+    - /url: "#app"
+  - banner [ref=e3]:
+    - link "Compromisso em Ação — início" [ref=e4] [cursor=pointer]:
+      - /url: ./
+      - generic [ref=e9]:
+        - text: Compromisso
+        - strong [ref=e10]: em Ação
+    - button "Recomeçar" [ref=e68] [cursor=pointer]
+  - main [ref=e11]:
+    - region [ref=e407]:
+      - generic [ref=e408]:
+        - generic [ref=e409]:
+          - button "← Voltar" [ref=e410] [cursor=pointer]
+          - generic [ref=e411]: Compromisso 3 de 3
+        - progressbar [ref=e412]: 2 de 8
+        - paragraph [ref=e413]: Explore os compromissos
+        - heading "Quais compromissos você quer comparar?" [active] [level=2] [ref=e414]
+        - paragraph [ref=e415]: Marque no máximo quatro entre “Quero explorar” e “Talvez”. Nenhuma opção mede seu valor moral.
+        - note [ref=e416]:
+          - strong [ref=e417]: Base desta jornada
+          - generic [ref=e418]:
+            - text: Compromissos apresentados por Lula em seu discurso de vitória após o segundo turno, em outubro de 2026.
+            - link "Ler a íntegra e assistir ao vídeo ↗" [ref=e419] [cursor=pointer]:
+              - /url: https://www.poder360.com.br/poder-eleicoes-2026/leia-a-integra-do-pronunciamento-da-vitoria-de-lula-2/
+      - article [ref=e420]:
+        - paragraph [ref=e421]: Democracia e governo participativo
+        - heading "Governo para todos" [level=3] [ref=e422]
+        - paragraph [ref=e423]: Governar toda a população com respeito à Constituição e manter relação institucional com o Congresso eleito.
+        - paragraph [ref=e424]:
+          - strong [ref=e425]: "Grau de especificidade:"
+          - text: Direção de governo sem execução completa definida no discurso.
+        - paragraph [ref=e426]:
+          - text: Trecho do discurso de vitória de Lula · outubro de 2026 ·
+          - link "conferir íntegra ↗" [ref=e427] [cursor=pointer]:
+            - /url: https://www.poder360.com.br/poder-eleicoes-2026/leia-a-integra-do-pronunciamento-da-vitoria-de-lula-2/
+        - blockquote [ref=e428]: “Ele foi eleito para governar para todos [...] com base no respeito à Constituição, na relação com o Congresso.”
+        - group [ref=e429]:
+          - generic "Quem pode fazer o quê?" [ref=e430] [cursor=pointer]
+      - group "Como este compromisso entra na sua lista?" [ref=e431]:
+        - generic [ref=e433] [cursor=pointer]:
+          - radio "Quero explorar Quero considerar este compromisso para o meu plano." [ref=e434]
+          - generic [ref=e435]:
+            - strong [ref=e436]: Quero explorar
+            - generic [ref=e437]: Quero considerar este compromisso para o meu plano.
+        - generic [ref=e438] [cursor=pointer]:
+          - radio "Talvez Ainda tenho dúvida, mas quero mantê-lo na comparação." [ref=e439]
+          - generic [ref=e440]:
+            - strong [ref=e441]: Talvez
+            - generic [ref=e442]: Ainda tenho dúvida, mas quero mantê-lo na comparação.
+        - generic [ref=e443] [cursor=pointer]:
+          - radio "Não agora É legítimo, mas não é onde desejo concentrar energia neste momento." [ref=e444]
+          - generic [ref=e445]:
+            - strong [ref=e446]: Não agora
+            - generic [ref=e447]: É legítimo, mas não é onde desejo concentrar energia neste momento.
+        - generic [ref=e448] [cursor=pointer]:
+          - radio "Não sei o que penso Ainda não tenho informação suficiente para avaliar." [ref=e449]
+          - generic [ref=e450]:
+            - strong [ref=e451]: Não sei o que penso
+            - generic [ref=e452]: Ainda não tenho informação suficiente para avaliar.
+      - paragraph [ref=e453]: 1 de 4 compromissos separados para comparação.
+      - generic [ref=e454]:
+        - button "Compromisso anterior" [ref=e455] [cursor=pointer]
+        - button "Comparar minha lista" [ref=e456] [cursor=pointer]
+  - contentinfo [ref=e49]:
+    - paragraph [ref=e50]: Uma ferramenta de reflexão cidadã. Não substitui políticas públicas nem orientação profissional.
+  - status

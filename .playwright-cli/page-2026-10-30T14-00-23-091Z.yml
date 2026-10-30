@@ -1,0 +1,46 @@
+- generic [ref=e1]:
+  - link "Pular para o conteúdo" [ref=e2] [cursor=pointer]:
+    - /url: "#app"
+  - banner [ref=e3]:
+    - link "Compromisso em Ação — início" [ref=e4] [cursor=pointer]:
+      - /url: ./
+      - generic [ref=e9]:
+        - text: Compromisso
+        - strong [ref=e10]: em Ação
+    - button "Recomeçar" [ref=e68] [cursor=pointer]
+  - main [ref=e11]:
+    - region [ref=e915]:
+      - generic [ref=e916]:
+        - generic [ref=e917]:
+          - button "← Voltar" [ref=e918] [cursor=pointer]
+          - generic [ref=e919]: Etapa 4 de 8
+        - progressbar [ref=e920]: 4 de 8
+        - paragraph [ref=e921]: Compare seus caminhos
+        - heading "Seus caminhos possíveis" [active] [level=2] [ref=e922]
+        - paragraph [ref=e923]: A ordem é apenas uma sugestão transparente. Compare todos os caminhos e escolha explicitamente o que deseja transformar em plano.
+        - note [ref=e924]:
+          - strong [ref=e925]: Base desta jornada
+          - generic [ref=e926]:
+            - text: Compromissos apresentados por Lula em seu discurso de vitória após o segundo turno, em outubro de 2026.
+            - link "Ler a íntegra e assistir ao vídeo ↗" [ref=e927] [cursor=pointer]:
+              - /url: https://www.poder360.com.br/poder-eleicoes-2026/leia-a-integra-do-pronunciamento-da-vitoria-de-lula-2/
+      - group "Qual compromisso você quer levar adiante?" [ref=e928]:
+        - generic [ref=e931] [cursor=pointer]:
+          - 'radio "Democracia e governo participativo Participação nas decisões Ampliar a participação da população nas decisões governamentais e ouvir diferentes setores sociais. Grau de especificidade: Direção de governo sem execução completa definida no discurso. Importância: alta Prontidão: alta Informação: completa Por que apareceu? Você indicou alta importância e alta possibilidade de agir nos próximos 30 dias." [ref=e932]'
+          - generic [ref=e933]:
+            - generic [ref=e934]: Democracia e governo participativo
+            - strong [ref=e935]: Participação nas decisões
+            - generic [ref=e936]: Ampliar a participação da população nas decisões governamentais e ouvir diferentes setores sociais.
+            - generic [ref=e937]:
+              - strong [ref=e938]: "Grau de especificidade:"
+              - text: Direção de governo sem execução completa definida no discurso.
+            - generic [ref=e939]: "Importância: alta Prontidão: alta Informação: completa"
+            - generic [ref=e940]:
+              - strong [ref=e941]: Por que apareceu?
+              - text: Você indicou alta importância e alta possibilidade de agir nos próximos 30 dias.
+      - group [ref=e942]:
+        - generic "Como a sugestão foi formada?" [ref=e943]
+      - button "Refletir sobre esta escolha" [disabled] [ref=e945]
+  - contentinfo [ref=e49]:
+    - paragraph [ref=e50]: Uma ferramenta de reflexão cidadã. Não substitui políticas públicas nem orientação profissional.
+  - status

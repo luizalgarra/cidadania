@@ -1,0 +1,66 @@
+- generic [ref=e1]:
+  - link "Pular para o conteúdo" [ref=e2] [cursor=pointer]:
+    - /url: "#app"
+  - banner [ref=e3]:
+    - link "Compromisso em Ação — início" [ref=e4] [cursor=pointer]:
+      - /url: ./
+      - generic [ref=e9]:
+        - text: Compromisso
+        - strong [ref=e10]: em Ação
+    - button "Recomeçar" [ref=e68] [cursor=pointer]
+  - main [ref=e11]:
+    - region [ref=e609]:
+      - generic [ref=e610]:
+        - generic [ref=e611]:
+          - button "← Voltar" [ref=e612] [cursor=pointer]
+          - generic [ref=e613]: Item 2 de 4
+        - progressbar [ref=e614]: 3 de 8
+        - paragraph [ref=e615]: Reflita sobre suas respostas
+        - heading "Participação nas decisões" [active] [level=2] [ref=e616]
+        - paragraph [ref=e617]: Ampliar a participação da população nas decisões governamentais e ouvir diferentes setores sociais.
+        - note [ref=e618]:
+          - strong [ref=e619]: Base desta jornada
+          - generic [ref=e620]:
+            - text: Compromissos apresentados por Lula em seu discurso de vitória após o segundo turno, em outubro de 2026.
+            - link "Ler a íntegra e assistir ao vídeo ↗" [ref=e621] [cursor=pointer]:
+              - /url: https://www.poder360.com.br/poder-eleicoes-2026/leia-a-integra-do-pronunciamento-da-vitoria-de-lula-2/
+      - paragraph [ref=e622]: Democracia e governo participativo
+      - group "Quanto este tema afeta pessoas no seu entorno hoje?" [ref=e623]:
+        - paragraph [ref=e625]: Considere sua rua, bairro, escola, trabalho ou comunidade.
+        - generic [ref=e626]:
+          - generic [ref=e627] [cursor=pointer]:
+            - radio "1 Não percebo impacto" [ref=e628]
+            - generic [ref=e629]:
+              - strong [ref=e630]: "1"
+              - generic [ref=e631]: Não percebo impacto
+          - generic [ref=e632] [cursor=pointer]:
+            - radio "2 Impacto pequeno" [ref=e633]
+            - generic [ref=e634]:
+              - strong [ref=e635]: "2"
+              - generic [ref=e636]: Impacto pequeno
+          - generic [ref=e637] [cursor=pointer]:
+            - radio "3 Impacto moderado" [ref=e638]
+            - generic [ref=e639]:
+              - strong [ref=e640]: "3"
+              - generic [ref=e641]: Impacto moderado
+          - generic [ref=e642] [cursor=pointer]:
+            - radio "4 Impacto grande" [ref=e643]
+            - generic [ref=e644]:
+              - strong [ref=e645]: "4"
+              - generic [ref=e646]: Impacto grande
+          - generic [ref=e647] [cursor=pointer]:
+            - radio "5 Impacto muito grande" [ref=e648]
+            - generic [ref=e649]:
+              - strong [ref=e650]: "5"
+              - generic [ref=e651]: Impacto muito grande
+          - generic [ref=e652] [cursor=pointer]:
+            - radio "Não sei Não tenho informação suficiente para responder agora." [ref=e653]
+            - generic [ref=e654]:
+              - strong [ref=e655]: Não sei
+              - generic [ref=e656]: Não tenho informação suficiente para responder agora.
+      - generic [ref=e657]:
+        - button "Pergunta anterior" [ref=e658] [cursor=pointer]
+        - button "Continuar" [ref=e659] [cursor=pointer]
+  - contentinfo [ref=e49]:
+    - paragraph [ref=e50]: Uma ferramenta de reflexão cidadã. Não substitui políticas públicas nem orientação profissional.
+  - status

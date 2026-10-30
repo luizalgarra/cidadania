@@ -1,0 +1,68 @@
+- generic [ref=e1]:
+  - link "Pular para o conteúdo" [ref=e2] [cursor=pointer]:
+    - /url: "#app"
+  - banner [ref=e3]:
+    - link "Compromisso em Ação — início" [ref=e4] [cursor=pointer]:
+      - /url: ./
+      - generic [ref=e9]:
+        - text: Compromisso
+        - strong [ref=e10]: em Ação
+    - button "Recomeçar" [ref=e68] [cursor=pointer]
+  - main [ref=e11]:
+    - region [ref=e457]:
+      - generic [ref=e458]:
+        - generic [ref=e459]:
+          - button "← Voltar" [ref=e460] [cursor=pointer]
+          - generic [ref=e461]: Compromisso 3 de 3
+        - progressbar [ref=e462]: 2 de 8
+        - paragraph [ref=e463]: Explore os compromissos
+        - heading "Quais compromissos você quer comparar?" [level=2] [ref=e464]
+        - paragraph [ref=e465]: Marque no máximo quatro entre “Quero explorar” e “Talvez”. Nenhuma opção mede seu valor moral.
+        - note [ref=e466]:
+          - strong [ref=e467]: Base desta jornada
+          - generic [ref=e468]:
+            - text: Compromissos apresentados por Lula em seu discurso de vitória após o segundo turno, em outubro de 2026.
+            - link "Ler a íntegra e assistir ao vídeo ↗" [ref=e469] [cursor=pointer]:
+              - /url: https://www.poder360.com.br/poder-eleicoes-2026/leia-a-integra-do-pronunciamento-da-vitoria-de-lula-2/
+      - article [ref=e470]:
+        - paragraph [ref=e471]: Democracia e governo participativo
+        - heading "Governo para todos" [level=3] [ref=e472]
+        - paragraph [ref=e473]: Governar toda a população com respeito à Constituição e manter relação institucional com o Congresso eleito.
+        - paragraph [ref=e474]:
+          - strong [ref=e475]: "Grau de especificidade:"
+          - text: Direção de governo sem execução completa definida no discurso.
+        - paragraph [ref=e476]:
+          - text: Trecho do discurso de vitória de Lula · outubro de 2026 ·
+          - link "conferir íntegra ↗" [ref=e477] [cursor=pointer]:
+            - /url: https://www.poder360.com.br/poder-eleicoes-2026/leia-a-integra-do-pronunciamento-da-vitoria-de-lula-2/
+        - blockquote [ref=e478]: “Ele foi eleito para governar para todos [...] com base no respeito à Constituição, na relação com o Congresso.”
+        - group [ref=e479]:
+          - generic "Quem pode fazer o quê?" [ref=e480] [cursor=pointer]
+      - group "Como este compromisso entra na sua lista?" [ref=e481]:
+        - generic [ref=e483] [cursor=pointer]:
+          - radio "Quero explorar Quero considerar este compromisso para o meu plano." [ref=e484]
+          - generic [ref=e485]:
+            - strong [ref=e486]: Quero explorar
+            - generic [ref=e487]: Quero considerar este compromisso para o meu plano.
+        - generic [ref=e488] [cursor=pointer]:
+          - radio "Talvez Ainda tenho dúvida, mas quero mantê-lo na comparação." [ref=e489]
+          - generic [ref=e490]:
+            - strong [ref=e491]: Talvez
+            - generic [ref=e492]: Ainda tenho dúvida, mas quero mantê-lo na comparação.
+        - generic [ref=e493] [cursor=pointer]:
+          - radio "Não agora É legítimo, mas não é onde desejo concentrar energia neste momento." [checked] [active] [ref=e494]
+          - generic [ref=e495]:
+            - strong [ref=e496]: Não agora
+            - generic [ref=e497]: É legítimo, mas não é onde desejo concentrar energia neste momento.
+        - generic [ref=e498] [cursor=pointer]:
+          - radio "Não sei o que penso Ainda não tenho informação suficiente para avaliar." [ref=e499]
+          - generic [ref=e500]:
+            - strong [ref=e501]: Não sei o que penso
+            - generic [ref=e502]: Ainda não tenho informação suficiente para avaliar.
+      - paragraph [ref=e503]: 1 de 4 compromissos separados para comparação.
+      - generic [ref=e504]:
+        - button "Compromisso anterior" [ref=e505] [cursor=pointer]
+        - button "Comparar minha lista" [ref=e506] [cursor=pointer]
+  - contentinfo [ref=e49]:
+    - paragraph [ref=e50]: Uma ferramenta de reflexão cidadã. Não substitui políticas públicas nem orientação profissional.
+  - status

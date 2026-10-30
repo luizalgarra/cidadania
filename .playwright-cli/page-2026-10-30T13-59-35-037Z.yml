@@ -1,0 +1,66 @@
+- generic [ref=e1]:
+  - link "Pular para o conteúdo" [ref=e2] [cursor=pointer]:
+    - /url: "#app"
+  - banner [ref=e3]:
+    - link "Compromisso em Ação — início" [ref=e4] [cursor=pointer]:
+      - /url: ./
+      - generic [ref=e9]:
+        - text: Compromisso
+        - strong [ref=e10]: em Ação
+    - button "Recomeçar" [ref=e68] [cursor=pointer]
+  - main [ref=e11]:
+    - region [ref=e507]:
+      - generic [ref=e508]:
+        - generic [ref=e509]:
+          - button "← Voltar" [ref=e510] [cursor=pointer]
+          - generic [ref=e511]: Item 1 de 4
+        - progressbar [ref=e512]: 3 de 8
+        - paragraph [ref=e513]: Reflita sobre suas respostas
+        - heading "Participação nas decisões" [active] [level=2] [ref=e514]
+        - paragraph [ref=e515]: Ampliar a participação da população nas decisões governamentais e ouvir diferentes setores sociais.
+        - note [ref=e516]:
+          - strong [ref=e517]: Base desta jornada
+          - generic [ref=e518]:
+            - text: Compromissos apresentados por Lula em seu discurso de vitória após o segundo turno, em outubro de 2026.
+            - link "Ler a íntegra e assistir ao vídeo ↗" [ref=e519] [cursor=pointer]:
+              - /url: https://www.poder360.com.br/poder-eleicoes-2026/leia-a-integra-do-pronunciamento-da-vitoria-de-lula-2/
+      - paragraph [ref=e520]: Democracia e governo participativo
+      - group "Quanto este compromisso interessa a você pessoalmente?" [ref=e521]:
+        - paragraph [ref=e523]: Pense no tema que você deseja compreender ou acompanhar, não em qual resposta pareceria mais correta.
+        - generic [ref=e524]:
+          - generic [ref=e525] [cursor=pointer]:
+            - radio "1 Não me interessa agora" [ref=e526]
+            - generic [ref=e527]:
+              - strong [ref=e528]: "1"
+              - generic [ref=e529]: Não me interessa agora
+          - generic [ref=e530] [cursor=pointer]:
+            - radio "2 Interessa pouco" [ref=e531]
+            - generic [ref=e532]:
+              - strong [ref=e533]: "2"
+              - generic [ref=e534]: Interessa pouco
+          - generic [ref=e535] [cursor=pointer]:
+            - radio "3 Interesse moderado" [ref=e536]
+            - generic [ref=e537]:
+              - strong [ref=e538]: "3"
+              - generic [ref=e539]: Interesse moderado
+          - generic [ref=e540] [cursor=pointer]:
+            - radio "4 Interessa muito" [ref=e541]
+            - generic [ref=e542]:
+              - strong [ref=e543]: "4"
+              - generic [ref=e544]: Interessa muito
+          - generic [ref=e545] [cursor=pointer]:
+            - radio "5 É prioridade para mim" [ref=e546]
+            - generic [ref=e547]:
+              - strong [ref=e548]: "5"
+              - generic [ref=e549]: É prioridade para mim
+          - generic [ref=e550] [cursor=pointer]:
+            - radio "Não sei Não tenho informação suficiente para responder agora." [ref=e551]
+            - generic [ref=e552]:
+              - strong [ref=e553]: Não sei
+              - generic [ref=e554]: Não tenho informação suficiente para responder agora.
+      - generic [ref=e555]:
+        - button "Pergunta anterior" [disabled] [ref=e556]
+        - button "Continuar" [ref=e557] [cursor=pointer]
+  - contentinfo [ref=e49]:
+    - paragraph [ref=e50]: Uma ferramenta de reflexão cidadã. Não substitui políticas públicas nem orientação profissional.
+  - status

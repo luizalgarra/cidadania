@@ -1,0 +1,68 @@
+- generic [ref=e1]:
+  - link "Pular para o conteúdo" [ref=e2] [cursor=pointer]:
+    - /url: "#app"
+  - banner [ref=e3]:
+    - link "Compromisso em Ação — início" [ref=e4] [cursor=pointer]:
+      - /url: ./
+      - generic [ref=e9]:
+        - text: Compromisso
+        - strong [ref=e10]: em Ação
+    - button "Recomeçar" [ref=e68] [cursor=pointer]
+  - main [ref=e11]:
+    - region [ref=e307]:
+      - generic [ref=e308]:
+        - generic [ref=e309]:
+          - button "← Voltar" [ref=e310] [cursor=pointer]
+          - generic [ref=e311]: Compromisso 2 de 3
+        - progressbar [ref=e312]: 2 de 8
+        - paragraph [ref=e313]: Explore os compromissos
+        - heading "Quais compromissos você quer comparar?" [active] [level=2] [ref=e314]
+        - paragraph [ref=e315]: Marque no máximo quatro entre “Quero explorar” e “Talvez”. Nenhuma opção mede seu valor moral.
+        - note [ref=e316]:
+          - strong [ref=e317]: Base desta jornada
+          - generic [ref=e318]:
+            - text: Compromissos apresentados por Lula em seu discurso de vitória após o segundo turno, em outubro de 2026.
+            - link "Ler a íntegra e assistir ao vídeo ↗" [ref=e319] [cursor=pointer]:
+              - /url: https://www.poder360.com.br/poder-eleicoes-2026/leia-a-integra-do-pronunciamento-da-vitoria-de-lula-2/
+      - article [ref=e320]:
+        - paragraph [ref=e321]: Democracia e governo participativo
+        - heading "Comunicação pública direta" [level=3] [ref=e322]
+        - paragraph [ref=e323]: Ampliar o uso de canais digitais para o presidente e o governo comunicarem diretamente decisões e ações.
+        - paragraph [ref=e324]:
+          - strong [ref=e325]: "Grau de especificidade:"
+          - text: Direção de governo sem execução completa definida no discurso.
+        - paragraph [ref=e326]:
+          - text: Trecho do discurso de vitória de Lula · outubro de 2026 ·
+          - link "conferir íntegra ↗" [ref=e327] [cursor=pointer]:
+            - /url: https://www.poder360.com.br/poder-eleicoes-2026/leia-a-integra-do-pronunciamento-da-vitoria-de-lula-2/
+        - blockquote [ref=e328]: “A comunicação digital vai ganhar um espaço muito grande no meu governo.”
+        - group [ref=e329]:
+          - generic "Quem pode fazer o quê?" [ref=e330] [cursor=pointer]
+      - group "Como este compromisso entra na sua lista?" [ref=e331]:
+        - generic [ref=e333] [cursor=pointer]:
+          - radio "Quero explorar Quero considerar este compromisso para o meu plano." [ref=e334]
+          - generic [ref=e335]:
+            - strong [ref=e336]: Quero explorar
+            - generic [ref=e337]: Quero considerar este compromisso para o meu plano.
+        - generic [ref=e338] [cursor=pointer]:
+          - radio "Talvez Ainda tenho dúvida, mas quero mantê-lo na comparação." [ref=e339]
+          - generic [ref=e340]:
+            - strong [ref=e341]: Talvez
+            - generic [ref=e342]: Ainda tenho dúvida, mas quero mantê-lo na comparação.
+        - generic [ref=e343] [cursor=pointer]:
+          - radio "Não agora É legítimo, mas não é onde desejo concentrar energia neste momento." [ref=e344]
+          - generic [ref=e345]:
+            - strong [ref=e346]: Não agora
+            - generic [ref=e347]: É legítimo, mas não é onde desejo concentrar energia neste momento.
+        - generic [ref=e348] [cursor=pointer]:
+          - radio "Não sei o que penso Ainda não tenho informação suficiente para avaliar." [ref=e349]
+          - generic [ref=e350]:
+            - strong [ref=e351]: Não sei o que penso
+            - generic [ref=e352]: Ainda não tenho informação suficiente para avaliar.
+      - paragraph [ref=e353]: 1 de 4 compromissos separados para comparação.
+      - generic [ref=e354]:
+        - button "Compromisso anterior" [ref=e355] [cursor=pointer]
+        - button "Próximo compromisso" [ref=e356] [cursor=pointer]
+  - contentinfo [ref=e49]:
+    - paragraph [ref=e50]: Uma ferramenta de reflexão cidadã. Não substitui políticas públicas nem orientação profissional.
+  - status

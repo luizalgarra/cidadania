@@ -1,0 +1,68 @@
+- generic [ref=e1]:
+  - link "Pular para o conteúdo" [ref=e2] [cursor=pointer]:
+    - /url: "#app"
+  - banner [ref=e3]:
+    - link "Compromisso em Ação — início" [ref=e4] [cursor=pointer]:
+      - /url: ./
+      - generic [ref=e9]:
+        - text: Compromisso
+        - strong [ref=e10]: em Ação
+    - button "Recomeçar" [ref=e68] [cursor=pointer]
+  - main [ref=e11]:
+    - region [ref=e207]:
+      - generic [ref=e208]:
+        - generic [ref=e209]:
+          - button "← Voltar" [ref=e210] [cursor=pointer]
+          - generic [ref=e211]: Compromisso 1 de 3
+        - progressbar [ref=e212]: 2 de 8
+        - paragraph [ref=e213]: Explore os compromissos
+        - heading "Quais compromissos você quer comparar?" [active] [level=2] [ref=e214]
+        - paragraph [ref=e215]: Marque no máximo quatro entre “Quero explorar” e “Talvez”. Nenhuma opção mede seu valor moral.
+        - note [ref=e216]:
+          - strong [ref=e217]: Base desta jornada
+          - generic [ref=e218]:
+            - text: Compromissos apresentados por Lula em seu discurso de vitória após o segundo turno, em outubro de 2026.
+            - link "Ler a íntegra e assistir ao vídeo ↗" [ref=e219] [cursor=pointer]:
+              - /url: https://www.poder360.com.br/poder-eleicoes-2026/leia-a-integra-do-pronunciamento-da-vitoria-de-lula-2/
+      - article [ref=e220]:
+        - paragraph [ref=e221]: Democracia e governo participativo
+        - heading "Participação nas decisões" [level=3] [ref=e222]
+        - paragraph [ref=e223]: Ampliar a participação da população nas decisões governamentais e ouvir diferentes setores sociais.
+        - paragraph [ref=e224]:
+          - strong [ref=e225]: "Grau de especificidade:"
+          - text: Direção de governo sem execução completa definida no discurso.
+        - paragraph [ref=e226]:
+          - text: Trecho do discurso de vitória de Lula · outubro de 2026 ·
+          - link "conferir íntegra ↗" [ref=e227] [cursor=pointer]:
+            - /url: https://www.poder360.com.br/poder-eleicoes-2026/leia-a-integra-do-pronunciamento-da-vitoria-de-lula-2/
+        - blockquote [ref=e228]: “Nós vamos fazer o povo participar mais das nossas decisões.”
+        - group [ref=e229]:
+          - generic "Quem pode fazer o quê?" [ref=e230] [cursor=pointer]
+      - group "Como este compromisso entra na sua lista?" [ref=e231]:
+        - generic [ref=e233] [cursor=pointer]:
+          - radio "Quero explorar Quero considerar este compromisso para o meu plano." [ref=e234]
+          - generic [ref=e235]:
+            - strong [ref=e236]: Quero explorar
+            - generic [ref=e237]: Quero considerar este compromisso para o meu plano.
+        - generic [ref=e238] [cursor=pointer]:
+          - radio "Talvez Ainda tenho dúvida, mas quero mantê-lo na comparação." [ref=e239]
+          - generic [ref=e240]:
+            - strong [ref=e241]: Talvez
+            - generic [ref=e242]: Ainda tenho dúvida, mas quero mantê-lo na comparação.
+        - generic [ref=e243] [cursor=pointer]:
+          - radio "Não agora É legítimo, mas não é onde desejo concentrar energia neste momento." [ref=e244]
+          - generic [ref=e245]:
+            - strong [ref=e246]: Não agora
+            - generic [ref=e247]: É legítimo, mas não é onde desejo concentrar energia neste momento.
+        - generic [ref=e248] [cursor=pointer]:
+          - radio "Não sei o que penso Ainda não tenho informação suficiente para avaliar." [ref=e249]
+          - generic [ref=e250]:
+            - strong [ref=e251]: Não sei o que penso
+            - generic [ref=e252]: Ainda não tenho informação suficiente para avaliar.
+      - paragraph [ref=e253]: 0 de 4 compromissos separados para comparação.
+      - generic [ref=e254]:
+        - button "Compromisso anterior" [disabled] [ref=e255]
+        - button "Próximo compromisso" [ref=e256] [cursor=pointer]
+  - contentinfo [ref=e49]:
+    - paragraph [ref=e50]: Uma ferramenta de reflexão cidadã. Não substitui políticas públicas nem orientação profissional.
+  - status

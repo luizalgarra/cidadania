@@ -1,0 +1,68 @@
+- generic [ref=e1]:
+  - link "Pular para o conteúdo" [ref=e2] [cursor=pointer]:
+    - /url: "#app"
+  - banner [ref=e3]:
+    - link "Compromisso em Ação — início" [ref=e4] [cursor=pointer]:
+      - /url: ./
+      - generic [ref=e9]:
+        - text: Compromisso
+        - strong [ref=e10]: em Ação
+    - button "Recomeçar" [ref=e68] [cursor=pointer]
+  - main [ref=e11]:
+    - region [ref=e357]:
+      - generic [ref=e358]:
+        - generic [ref=e359]:
+          - button "← Voltar" [ref=e360] [cursor=pointer]
+          - generic [ref=e361]: Compromisso 2 de 3
+        - progressbar [ref=e362]: 2 de 8
+        - paragraph [ref=e363]: Explore os compromissos
+        - heading "Quais compromissos você quer comparar?" [level=2] [ref=e364]
+        - paragraph [ref=e365]: Marque no máximo quatro entre “Quero explorar” e “Talvez”. Nenhuma opção mede seu valor moral.
+        - note [ref=e366]:
+          - strong [ref=e367]: Base desta jornada
+          - generic [ref=e368]:
+            - text: Compromissos apresentados por Lula em seu discurso de vitória após o segundo turno, em outubro de 2026.
+            - link "Ler a íntegra e assistir ao vídeo ↗" [ref=e369] [cursor=pointer]:
+              - /url: https://www.poder360.com.br/poder-eleicoes-2026/leia-a-integra-do-pronunciamento-da-vitoria-de-lula-2/
+      - article [ref=e370]:
+        - paragraph [ref=e371]: Democracia e governo participativo
+        - heading "Comunicação pública direta" [level=3] [ref=e372]
+        - paragraph [ref=e373]: Ampliar o uso de canais digitais para o presidente e o governo comunicarem diretamente decisões e ações.
+        - paragraph [ref=e374]:
+          - strong [ref=e375]: "Grau de especificidade:"
+          - text: Direção de governo sem execução completa definida no discurso.
+        - paragraph [ref=e376]:
+          - text: Trecho do discurso de vitória de Lula · outubro de 2026 ·
+          - link "conferir íntegra ↗" [ref=e377] [cursor=pointer]:
+            - /url: https://www.poder360.com.br/poder-eleicoes-2026/leia-a-integra-do-pronunciamento-da-vitoria-de-lula-2/
+        - blockquote [ref=e378]: “A comunicação digital vai ganhar um espaço muito grande no meu governo.”
+        - group [ref=e379]:
+          - generic "Quem pode fazer o quê?" [ref=e380] [cursor=pointer]
+      - group "Como este compromisso entra na sua lista?" [ref=e381]:
+        - generic [ref=e383] [cursor=pointer]:
+          - radio "Quero explorar Quero considerar este compromisso para o meu plano." [ref=e384]
+          - generic [ref=e385]:
+            - strong [ref=e386]: Quero explorar
+            - generic [ref=e387]: Quero considerar este compromisso para o meu plano.
+        - generic [ref=e388] [cursor=pointer]:
+          - radio "Talvez Ainda tenho dúvida, mas quero mantê-lo na comparação." [ref=e389]
+          - generic [ref=e390]:
+            - strong [ref=e391]: Talvez
+            - generic [ref=e392]: Ainda tenho dúvida, mas quero mantê-lo na comparação.
+        - generic [ref=e393] [cursor=pointer]:
+          - radio "Não agora É legítimo, mas não é onde desejo concentrar energia neste momento." [checked] [active] [ref=e394]
+          - generic [ref=e395]:
+            - strong [ref=e396]: Não agora
+            - generic [ref=e397]: É legítimo, mas não é onde desejo concentrar energia neste momento.
+        - generic [ref=e398] [cursor=pointer]:
+          - radio "Não sei o que penso Ainda não tenho informação suficiente para avaliar." [ref=e399]
+          - generic [ref=e400]:
+            - strong [ref=e401]: Não sei o que penso
+            - generic [ref=e402]: Ainda não tenho informação suficiente para avaliar.
+      - paragraph [ref=e403]: 1 de 4 compromissos separados para comparação.
+      - generic [ref=e404]:
+        - button "Compromisso anterior" [ref=e405] [cursor=pointer]
+        - button "Próximo compromisso" [ref=e406] [cursor=pointer]
+  - contentinfo [ref=e49]:
+    - paragraph [ref=e50]: Uma ferramenta de reflexão cidadã. Não substitui políticas públicas nem orientação profissional.
+  - status

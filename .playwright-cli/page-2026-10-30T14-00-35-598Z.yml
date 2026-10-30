@@ -1,0 +1,76 @@
+- generic [ref=e1]:
+  - link "Pular para o conteúdo" [ref=e2] [cursor=pointer]:
+    - /url: "#app"
+  - banner [ref=e3]:
+    - link "Compromisso em Ação — início" [ref=e4] [cursor=pointer]:
+      - /url: ./
+      - generic [ref=e9]:
+        - text: Compromisso
+        - strong [ref=e10]: em Ação
+    - button "Recomeçar" [ref=e68] [cursor=pointer]
+  - main [ref=e11]:
+    - region [ref=e977]:
+      - generic [ref=e978]:
+        - generic [ref=e979]:
+          - button "← Voltar" [ref=e980] [cursor=pointer]
+          - generic [ref=e981]: Etapa 5 de 8
+        - progressbar [ref=e982]: 5 de 8
+        - paragraph [ref=e983]: Aprofunde a escolha
+        - heading "Participação nas decisões" [active] [level=2] [ref=e984]
+        - paragraph [ref=e985]: Antes de agir, faça uma pausa para enxergar pessoas, responsabilidades e riscos.
+        - note [ref=e986]:
+          - strong [ref=e987]: Base desta jornada
+          - generic [ref=e988]:
+            - text: Compromissos apresentados por Lula em seu discurso de vitória após o segundo turno, em outubro de 2026.
+            - link "Ler a íntegra e assistir ao vídeo ↗" [ref=e989] [cursor=pointer]:
+              - /url: https://www.poder360.com.br/poder-eleicoes-2026/leia-a-integra-do-pronunciamento-da-vitoria-de-lula-2/
+      - article [ref=e990]:
+        - generic [ref=e991]:
+          - generic [ref=e992]:
+            - strong [ref=e993]: O que cidadãos podem fazer
+            - paragraph [ref=e994]: Pode reunir demandas, participar de consultas e cobrar devolutivas públicas.
+          - generic [ref=e995]:
+            - strong [ref=e996]: O que o poder público deve fazer
+            - paragraph [ref=e997]: Deve criar canais acessíveis de participação, considerar contribuições e prestar contas das decisões.
+        - complementary [ref=e998]:
+          - paragraph [ref=e999]: Informação para agir melhor
+          - heading "Onde se informar e acompanhar" [level=3] [ref=e1000]
+          - paragraph [ref=e1001]: Use estas fontes públicas para entender o ponto de partida, acompanhar decisões e conferir resultados deste compromisso.
+          - list [ref=e1002]:
+            - listitem [ref=e1003]:
+              - link "Brasil Participativo" [ref=e1004] [cursor=pointer]:
+                - /url: https://brasilparticipativo.presidencia.gov.br/
+                - text: Brasil Participativo ↗
+              - paragraph [ref=e1005]: Consulte processos participativos, propostas, consultas e dados abertos.
+            - listitem [ref=e1006]:
+              - link "Portal da Transparência" [ref=e1007] [cursor=pointer]:
+                - /url: https://portaldatransparencia.gov.br/
+                - text: Portal da Transparência ↗
+              - paragraph [ref=e1008]: Acompanhe despesas, receitas, programas e transferências federais.
+            - listitem [ref=e1009]:
+              - link "Portal Brasileiro de Dados Abertos" [ref=e1010] [cursor=pointer]:
+                - /url: https://dados.gov.br/
+                - text: Portal Brasileiro de Dados Abertos ↗
+              - paragraph [ref=e1011]: Busque bases públicas e verifique órgão responsável, período e atualização.
+          - paragraph [ref=e1012]: Fontes externas abrem em outra aba. Confira a data, o território e a metodologia de cada informação.
+        - generic [ref=e1013]:
+          - generic [ref=e1014]:
+            - generic [ref=e1015]: Quem é afetado por esse problema? *
+            - generic [ref=e1016]: Pense em pessoas e grupos concretos, sem registrar nomes ou dados pessoais.
+            - textbox "Quem é afetado por esse problema?" [ref=e1017]
+          - generic [ref=e1018]:
+            - generic [ref=e1019]: Que mudança concreta você gostaria de observar? *
+            - generic [ref=e1020]: Descreva algo pequeno o bastante para ser reconhecido.
+            - textbox "Que mudança concreta você gostaria de observar?" [ref=e1021]
+          - generic [ref=e1022]:
+            - generic [ref=e1023]: O que cabe a cidadãos e o que cabe ao Estado? (opcional)
+            - generic [ref=e1024]: Você pode complementar a distinção sugerida pelo app.
+            - textbox "O que cabe a cidadãos e o que cabe ao Estado? (opcional)" [ref=e1025]
+          - generic [ref=e1026]:
+            - generic [ref=e1027]: Que risco, objeção ou efeito indesejado deve ser evitado? (opcional)
+            - generic [ref=e1028]: Uma boa ação também considera limites e consequências.
+            - textbox "Que risco, objeção ou efeito indesejado deve ser evitado? (opcional)" [ref=e1029]
+      - button "Escolher como agir" [ref=e1031] [cursor=pointer]
+  - contentinfo [ref=e49]:
+    - paragraph [ref=e50]: Uma ferramenta de reflexão cidadã. Não substitui políticas públicas nem orientação profissional.
+  - status

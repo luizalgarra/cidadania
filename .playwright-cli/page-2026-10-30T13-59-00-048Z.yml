@@ -1,0 +1,68 @@
+- generic [ref=e1]:
+  - link "Pular para o conteúdo" [ref=e2] [cursor=pointer]:
+    - /url: "#app"
+  - banner [ref=e3]:
+    - link "Compromisso em Ação — início" [ref=e4] [cursor=pointer]:
+      - /url: ./
+      - generic [ref=e9]:
+        - text: Compromisso
+        - strong [ref=e10]: em Ação
+    - button "Recomeçar" [ref=e68] [cursor=pointer]
+  - main [ref=e11]:
+    - region [ref=e257]:
+      - generic [ref=e258]:
+        - generic [ref=e259]:
+          - button "← Voltar" [ref=e260] [cursor=pointer]
+          - generic [ref=e261]: Compromisso 1 de 3
+        - progressbar [ref=e262]: 2 de 8
+        - paragraph [ref=e263]: Explore os compromissos
+        - heading "Quais compromissos você quer comparar?" [level=2] [ref=e264]
+        - paragraph [ref=e265]: Marque no máximo quatro entre “Quero explorar” e “Talvez”. Nenhuma opção mede seu valor moral.
+        - note [ref=e266]:
+          - strong [ref=e267]: Base desta jornada
+          - generic [ref=e268]:
+            - text: Compromissos apresentados por Lula em seu discurso de vitória após o segundo turno, em outubro de 2026.
+            - link "Ler a íntegra e assistir ao vídeo ↗" [ref=e269] [cursor=pointer]:
+              - /url: https://www.poder360.com.br/poder-eleicoes-2026/leia-a-integra-do-pronunciamento-da-vitoria-de-lula-2/
+      - article [ref=e270]:
+        - paragraph [ref=e271]: Democracia e governo participativo
+        - heading "Participação nas decisões" [level=3] [ref=e272]
+        - paragraph [ref=e273]: Ampliar a participação da população nas decisões governamentais e ouvir diferentes setores sociais.
+        - paragraph [ref=e274]:
+          - strong [ref=e275]: "Grau de especificidade:"
+          - text: Direção de governo sem execução completa definida no discurso.
+        - paragraph [ref=e276]:
+          - text: Trecho do discurso de vitória de Lula · outubro de 2026 ·
+          - link "conferir íntegra ↗" [ref=e277] [cursor=pointer]:
+            - /url: https://www.poder360.com.br/poder-eleicoes-2026/leia-a-integra-do-pronunciamento-da-vitoria-de-lula-2/
+        - blockquote [ref=e278]: “Nós vamos fazer o povo participar mais das nossas decisões.”
+        - group [ref=e279]:
+          - generic "Quem pode fazer o quê?" [ref=e280] [cursor=pointer]
+      - group "Como este compromisso entra na sua lista?" [ref=e281]:
+        - generic [ref=e283] [cursor=pointer]:
+          - radio "Quero explorar Quero considerar este compromisso para o meu plano." [checked] [active] [ref=e284]
+          - generic [ref=e285]:
+            - strong [ref=e286]: Quero explorar
+            - generic [ref=e287]: Quero considerar este compromisso para o meu plano.
+        - generic [ref=e288] [cursor=pointer]:
+          - radio "Talvez Ainda tenho dúvida, mas quero mantê-lo na comparação." [ref=e289]
+          - generic [ref=e290]:
+            - strong [ref=e291]: Talvez
+            - generic [ref=e292]: Ainda tenho dúvida, mas quero mantê-lo na comparação.
+        - generic [ref=e293] [cursor=pointer]:
+          - radio "Não agora É legítimo, mas não é onde desejo concentrar energia neste momento." [ref=e294]
+          - generic [ref=e295]:
+            - strong [ref=e296]: Não agora
+            - generic [ref=e297]: É legítimo, mas não é onde desejo concentrar energia neste momento.
+        - generic [ref=e298] [cursor=pointer]:
+          - radio "Não sei o que penso Ainda não tenho informação suficiente para avaliar." [ref=e299]
+          - generic [ref=e300]:
+            - strong [ref=e301]: Não sei o que penso
+            - generic [ref=e302]: Ainda não tenho informação suficiente para avaliar.
+      - paragraph [ref=e303]: 1 de 4 compromissos separados para comparação.
+      - generic [ref=e304]:
+        - button "Compromisso anterior" [disabled] [ref=e305]
+        - button "Próximo compromisso" [ref=e306] [cursor=pointer]
+  - contentinfo [ref=e49]:
+    - paragraph [ref=e50]: Uma ferramenta de reflexão cidadã. Não substitui políticas públicas nem orientação profissional.
+  - status

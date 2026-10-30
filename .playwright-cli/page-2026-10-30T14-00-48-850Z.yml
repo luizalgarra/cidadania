@@ -1,0 +1,53 @@
+- generic [ref=e1]:
+  - link "Pular para o conteúdo" [ref=e2] [cursor=pointer]:
+    - /url: "#app"
+  - banner [ref=e3]:
+    - link "Compromisso em Ação — início" [ref=e4] [cursor=pointer]:
+      - /url: ./
+      - generic [ref=e9]:
+        - text: Compromisso
+        - strong [ref=e10]: em Ação
+    - button "Recomeçar" [ref=e68] [cursor=pointer]
+  - main [ref=e11]:
+    - region [ref=e1032]:
+      - generic [ref=e1033]:
+        - generic [ref=e1034]:
+          - button "← Voltar" [ref=e1035] [cursor=pointer]
+          - generic [ref=e1036]: Etapa 6 de 8
+        - progressbar [ref=e1037]: 6 de 8
+        - paragraph [ref=e1038]: Escolha como agir
+        - heading "Como você prefere contribuir?" [active] [level=2] [ref=e1039]
+        - paragraph [ref=e1040]: Todas as rotas podem gerar um plano válido para “Participação nas decisões”. A sugestão não é uma obrigação.
+        - note [ref=e1041]:
+          - strong [ref=e1042]: Base desta jornada
+          - generic [ref=e1043]:
+            - text: Compromissos apresentados por Lula em seu discurso de vitória após o segundo turno, em outubro de 2026.
+            - link "Ler a íntegra e assistir ao vídeo ↗" [ref=e1044] [cursor=pointer]:
+              - /url: https://www.poder360.com.br/poder-eleicoes-2026/leia-a-integra-do-pronunciamento-da-vitoria-de-lula-2/
+      - group "Escolha uma rota de atuação" [ref=e1045]:
+        - generic [ref=e1047]:
+          - generic [ref=e1048] [cursor=pointer]:
+            - radio "Conhecer e mapear Entender o problema, reunir dados confiáveis e ouvir quem é afetado." [ref=e1049]
+            - generic [ref=e1050]:
+              - strong [ref=e1051]: Conhecer e mapear
+              - generic [ref=e1052]: Entender o problema, reunir dados confiáveis e ouvir quem é afetado.
+          - generic [ref=e1053] [cursor=pointer]:
+            - radio "Ajudar diretamente Apoiar pessoas ou iniciativas existentes sem substituir serviços públicos." [ref=e1054]
+            - generic [ref=e1055]:
+              - strong [ref=e1056]: Ajudar diretamente
+              - generic [ref=e1057]: Apoiar pessoas ou iniciativas existentes sem substituir serviços públicos.
+          - generic [ref=e1058] [cursor=pointer]:
+            - radio "Mobilizar pessoas Conectar pessoas, promover conversas e organizar uma ação coletiva segura. Rota sugerida para este compromisso" [ref=e1059]
+            - generic [ref=e1060]:
+              - strong [ref=e1061]: Mobilizar pessoas
+              - generic [ref=e1062]: Conectar pessoas, promover conversas e organizar uma ação coletiva segura.
+              - emphasis [ref=e1063]: Rota sugerida para este compromisso
+          - generic [ref=e1064] [cursor=pointer]:
+            - radio "Acompanhar e cobrar Monitorar decisões e resultados e dialogar com os órgãos responsáveis." [ref=e1065]
+            - generic [ref=e1066]:
+              - strong [ref=e1067]: Acompanhar e cobrar
+              - generic [ref=e1068]: Monitorar decisões e resultados e dialogar com os órgãos responsáveis.
+      - button "Montar meu plano" [disabled] [ref=e1070]
+  - contentinfo [ref=e49]:
+    - paragraph [ref=e50]: Uma ferramenta de reflexão cidadã. Não substitui políticas públicas nem orientação profissional.
+  - status

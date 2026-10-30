@@ -1,0 +1,59 @@
+- generic [ref=e1]:
+  - link "Pular para o conteúdo" [ref=e2] [cursor=pointer]:
+    - /url: "#app"
+  - banner [ref=e3]:
+    - link "Compromisso em Ação — início" [ref=e4] [cursor=pointer]:
+      - /url: ./
+      - generic [ref=e9]:
+        - text: Compromisso
+        - strong [ref=e10]: em Ação
+    - button "Recomeçar" [ref=e68] [cursor=pointer]
+  - main [ref=e11]:
+    - region [ref=e1110]:
+      - generic [ref=e1111]:
+        - generic [ref=e1112]:
+          - button "← Voltar" [ref=e1113] [cursor=pointer]
+          - generic [ref=e1114]: Etapa 7 de 8
+        - progressbar [ref=e1115]: 7 de 8
+        - paragraph [ref=e1116]: Monte seu plano
+        - heading "Transforme intenção em próximo passo" [active] [level=2] [ref=e1117]
+        - paragraph [ref=e1118]: Participação nas decisões · Acompanhar e cobrar
+        - note [ref=e1119]:
+          - strong [ref=e1120]: Base desta jornada
+          - generic [ref=e1121]:
+            - text: Compromissos apresentados por Lula em seu discurso de vitória após o segundo turno, em outubro de 2026.
+            - link "Ler a íntegra e assistir ao vídeo ↗" [ref=e1122] [cursor=pointer]:
+              - /url: https://www.poder360.com.br/poder-eleicoes-2026/leia-a-integra-do-pronunciamento-da-vitoria-de-lula-2/
+      - generic [ref=e1123]:
+        - generic [ref=e1124]:
+          - generic [ref=e1125]:
+            - generic [ref=e1126]: Onde você quer começar? *
+            - textbox "Onde você quer começar?" [ref=e1127]: meu bairro ou comunidade
+          - generic [ref=e1128]:
+            - generic [ref=e1129]: Quanto tempo você realmente dispõe? *
+            - combobox "Quanto tempo você realmente dispõe?" [ref=e1130]:
+              - option "15 minutos nesta semana"
+              - option "1 hora por mês"
+              - option "2 horas por mês" [selected]
+              - option "1 hora por semana"
+              - option "Quero definir depois"
+          - generic [ref=e1131]:
+            - generic [ref=e1132]: Que resultado você quer buscar? *
+            - textbox "Que resultado você quer buscar?" [ref=e1133]: acompanhar uma entrega concreta ligada a participação nas decisões
+          - generic [ref=e1134]:
+            - generic [ref=e1135]: Qual será seu primeiro passo? *
+            - textbox "Qual será seu primeiro passo?" [ref=e1136]: identificar o órgão responsável e formular uma pergunta objetiva sobre participação nas decisões
+          - generic [ref=e1137]:
+            - generic [ref=e1138]: Quem pode fazer isso com você? (opcional)
+            - textbox "Quem pode fazer isso com você? (opcional)" [ref=e1139]
+          - generic [ref=e1140]:
+            - generic [ref=e1141]: Como você saberá que avançou? *
+            - textbox "Como você saberá que avançou?" [ref=e1142]: uma resposta oficial ou atualização verificável registrada
+          - generic [ref=e1143]:
+            - generic [ref=e1144]: Data para concluir este ciclo de 30 dias *
+            - generic [ref=e1145]: Ciclo iniciado em 30 de outubro de 2026; a data final permanece válida se você retomar o plano outro dia.
+            - textbox "Data para concluir este ciclo de 30 dias" [ref=e1146]: 2026-11-29
+        - button "Gerar meu plano" [ref=e1148] [cursor=pointer]
+  - contentinfo [ref=e49]:
+    - paragraph [ref=e50]: Uma ferramenta de reflexão cidadã. Não substitui políticas públicas nem orientação profissional.
+  - status

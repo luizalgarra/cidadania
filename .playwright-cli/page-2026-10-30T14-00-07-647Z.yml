@@ -1,0 +1,66 @@
+- generic [ref=e1]:
+  - link "Pular para o conteúdo" [ref=e2] [cursor=pointer]:
+    - /url: "#app"
+  - banner [ref=e3]:
+    - link "Compromisso em Ação — início" [ref=e4] [cursor=pointer]:
+      - /url: ./
+      - generic [ref=e9]:
+        - text: Compromisso
+        - strong [ref=e10]: em Ação
+    - button "Recomeçar" [ref=e68] [cursor=pointer]
+  - main [ref=e11]:
+    - region [ref=e762]:
+      - generic [ref=e763]:
+        - generic [ref=e764]:
+          - button "← Voltar" [ref=e765] [cursor=pointer]
+          - generic [ref=e766]: Item 3 de 4
+        - progressbar [ref=e767]: 3 de 8
+        - paragraph [ref=e768]: Reflita sobre suas respostas
+        - heading "Participação nas decisões" [level=2] [ref=e769]
+        - paragraph [ref=e770]: Ampliar a participação da população nas decisões governamentais e ouvir diferentes setores sociais.
+        - note [ref=e771]:
+          - strong [ref=e772]: Base desta jornada
+          - generic [ref=e773]:
+            - text: Compromissos apresentados por Lula em seu discurso de vitória após o segundo turno, em outubro de 2026.
+            - link "Ler a íntegra e assistir ao vídeo ↗" [ref=e774] [cursor=pointer]:
+              - /url: https://www.poder360.com.br/poder-eleicoes-2026/leia-a-integra-do-pronunciamento-da-vitoria-de-lula-2/
+      - paragraph [ref=e775]: Democracia e governo participativo
+      - group "Quanto você se sente capaz de realizar uma ação segura sobre este tema?" [ref=e776]:
+        - paragraph [ref=e778]: "Não é preciso resolver o problema: basta conseguir dar um primeiro passo possível."
+        - generic [ref=e779]:
+          - generic [ref=e780] [cursor=pointer]:
+            - radio "1 Nada capaz agora" [ref=e781]
+            - generic [ref=e782]:
+              - strong [ref=e783]: "1"
+              - generic [ref=e784]: Nada capaz agora
+          - generic [ref=e785] [cursor=pointer]:
+            - radio "2 Pouco capaz" [ref=e786]
+            - generic [ref=e787]:
+              - strong [ref=e788]: "2"
+              - generic [ref=e789]: Pouco capaz
+          - generic [ref=e790] [cursor=pointer]:
+            - radio "3 Talvez consiga" [ref=e791]
+            - generic [ref=e792]:
+              - strong [ref=e793]: "3"
+              - generic [ref=e794]: Talvez consiga
+          - generic [ref=e795] [cursor=pointer]:
+            - radio "4 Consigo com alguma segurança" [ref=e796]
+            - generic [ref=e797]:
+              - strong [ref=e798]: "4"
+              - generic [ref=e799]: Consigo com alguma segurança
+          - generic [ref=e800] [cursor=pointer]:
+            - radio "5 Consigo começar com segurança" [checked] [active] [ref=e801]
+            - generic [ref=e802]:
+              - strong [ref=e803]: "5"
+              - generic [ref=e804]: Consigo começar com segurança
+          - generic [ref=e805] [cursor=pointer]:
+            - radio "Não sei Não tenho informação suficiente para responder agora." [ref=e806]
+            - generic [ref=e807]:
+              - strong [ref=e808]: Não sei
+              - generic [ref=e809]: Não tenho informação suficiente para responder agora.
+      - generic [ref=e810]:
+        - button "Pergunta anterior" [ref=e811] [cursor=pointer]
+        - button "Continuar" [ref=e812] [cursor=pointer]
+  - contentinfo [ref=e49]:
+    - paragraph [ref=e50]: Uma ferramenta de reflexão cidadã. Não substitui políticas públicas nem orientação profissional.
+  - status

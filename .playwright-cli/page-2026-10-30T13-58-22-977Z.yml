@@ -1,0 +1,57 @@
+- generic [active] [ref=e1]:
+  - link "Pular para o conteúdo" [ref=e2] [cursor=pointer]:
+    - /url: "#app"
+  - banner [ref=e3]:
+    - link "Compromisso em Ação — início" [ref=e4] [cursor=pointer]:
+      - /url: ./
+      - generic [ref=e9]:
+        - text: Compromisso
+        - strong [ref=e10]: em Ação
+  - main [ref=e11]:
+    - generic [ref=e12]:
+      - region [ref=e13]:
+        - generic [ref=e14]:
+          - paragraph [ref=e15]: 100% gratuito · sem cadastro
+          - heading "O que você pode fazer por um Brasil melhor?" [level=1] [ref=e16]:
+            - text: O que você pode fazer
+            - generic [ref=e17]: por um Brasil melhor?
+          - paragraph [ref=e18]: Lula assumiu compromissos em seu discurso da vitória. Você pode escolher um deles e descobrir uma ação que cabe na sua vida, no seu entorno e no tempo que você tem.
+          - paragraph [ref=e19]:
+            - strong [ref=e20]: Você não precisa fazer tudo.
+            - text: O mínimo possível, bem escolhido, pode fazer diferença.
+          - button "Descobrir meu primeiro passo" [ref=e21] [cursor=pointer]:
+            - text: Descobrir meu primeiro passo
+            - generic [aria-hidden] [ref=e22]: →
+          - paragraph [ref=e23]:
+            - strong [ref=e24]: Leva de 6 a 8 minutos.
+            - text: Suas respostas ficam somente neste navegador.
+          - paragraph [ref=e25]:
+            - text: Baseado nos compromissos apresentados no discurso de vitória de Lula, em outubro de 2026.
+            - link "Ver discurso ↗" [ref=e26] [cursor=pointer]:
+              - /url: https://www.poder360.com.br/poder-eleicoes-2026/leia-a-integra-do-pronunciamento-da-vitoria-de-lula-2/
+        - complementary "O que você leva desta jornada" [ref=e27]:
+          - paragraph [ref=e28]: Comece pelo que é possível
+          - generic [aria-hidden] [ref=e29]: "1"
+          - paragraph [ref=e30]:
+            - strong [ref=e31]: compromisso
+            - text: escolhido por você
+          - generic [aria-hidden] [ref=e33]: ↓
+          - paragraph [ref=e34]:
+            - strong [ref=e35]: 1 ação simples
+            - text: para começar agora
+          - generic [aria-hidden] [ref=e37]: ↓
+          - paragraph [ref=e38]:
+            - strong [ref=e39]: 30 dias
+            - text: para acompanhar seu avanço
+          - paragraph [ref=e41]:
+            - strong [ref=e42]: Seu passo é cidadão.
+            - text: Garantir direitos e executar políticas continua sendo dever do poder público.
+      - generic "Onde uma ação possível pode começar" [ref=e43]:
+        - generic [ref=e44]: na sua vida
+        - generic [aria-hidden] [ref=e45]: +
+        - generic [ref=e46]: no seu entorno
+        - generic [aria-hidden] [ref=e47]: +
+        - generic [ref=e48]: para o Brasil
+  - contentinfo [ref=e49]:
+    - paragraph [ref=e50]: Uma ferramenta de reflexão cidadã. Não substitui políticas públicas nem orientação profissional.
+  - status

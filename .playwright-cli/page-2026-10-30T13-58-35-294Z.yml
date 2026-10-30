@@ -1,0 +1,28 @@
+- generic [ref=e1]:
+  - link "Pular para o conteúdo" [ref=e2] [cursor=pointer]:
+    - /url: "#app"
+  - banner [ref=e3]:
+    - link "Compromisso em Ação — início" [ref=e4] [cursor=pointer]:
+      - /url: ./
+      - generic [ref=e9]:
+        - text: Compromisso
+        - strong [ref=e10]: em Ação
+  - main [ref=e11]:
+    - region [ref=e51]:
+      - button "← Voltar à apresentação" [ref=e52] [cursor=pointer]
+      - paragraph [ref=e53]: Jornada individual · 6–8 minutos
+      - note [ref=e54]:
+        - strong [ref=e55]: "Base desta jornada:"
+        - text: Compromissos apresentados por Lula em seu discurso de vitória após o segundo turno, em outubro de 2026.
+      - generic "Ação cidadã e responsabilidade pública caminham juntas" [ref=e56]:
+        - generic [ref=e57]: O que posso fazer
+        - generic [ref=e59]: O que o Estado deve fazer
+      - heading "Um compromisso. Um próximo passo possível." [active] [level=1] [ref=e62]: Um compromisso.Um próximo passo possível.
+      - paragraph [ref=e63]: Reflita sobre esses compromissos, escolha onde sua energia faz sentido agora e monte um plano de ação cidadã para os próximos 30 dias.
+      - button "Começar minha escolha" [ref=e64] [cursor=pointer]
+      - group [ref=e65]:
+        - generic "Como funciona" [ref=e66] [cursor=pointer]
+      - paragraph [ref=e67]: Sem cadastro. Suas respostas ficam neste navegador até você usar “Recomeçar” ou apagar os dados do site. Em aparelho compartilhado, apague-as ao terminar.
+  - contentinfo [ref=e49]:
+    - paragraph [ref=e50]: Uma ferramenta de reflexão cidadã. Não substitui políticas públicas nem orientação profissional.
+  - status

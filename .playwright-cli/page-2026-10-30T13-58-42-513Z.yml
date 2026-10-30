@@ -1,0 +1,83 @@
+- generic [ref=e1]:
+  - link "Pular para o conteúdo" [ref=e2] [cursor=pointer]:
+    - /url: "#app"
+  - banner [ref=e3]:
+    - link "Compromisso em Ação — início" [ref=e4] [cursor=pointer]:
+      - /url: ./
+      - generic [ref=e9]:
+        - text: Compromisso
+        - strong [ref=e10]: em Ação
+    - button "Recomeçar" [ref=e68] [cursor=pointer]
+  - main [ref=e11]:
+    - region [ref=e69]:
+      - generic [ref=e70]:
+        - generic [ref=e71]:
+          - button "← Voltar" [ref=e72] [cursor=pointer]
+          - generic [ref=e73]: Etapa 1 de 8
+        - progressbar [ref=e74]: 1 de 8
+        - paragraph [ref=e75]: Escolha os temas
+        - heading "O que merece sua energia agora?" [active] [level=2] [ref=e76]
+        - paragraph [ref=e77]: Escolha até três temas. Isso reduz o questionário sem esconder os demais compromissos.
+        - note [ref=e78]:
+          - strong [ref=e79]: Base desta jornada
+          - generic [ref=e80]:
+            - text: Compromissos apresentados por Lula em seu discurso de vitória após o segundo turno, em outubro de 2026.
+            - link "Ler a íntegra e assistir ao vídeo ↗" [ref=e81] [cursor=pointer]:
+              - /url: https://www.poder360.com.br/poder-eleicoes-2026/leia-a-integra-do-pronunciamento-da-vitoria-de-lula-2/
+      - group "Escolha de um a três temas" [ref=e82]:
+        - generic [ref=e84]:
+          - generic [ref=e85] [cursor=pointer]:
+            - checkbox "Democracia e governo participativo Participação social, comunicação pública e respeito às instituições." [ref=e86]
+            - generic [ref=e87]:
+              - strong [ref=e88]: Democracia e governo participativo
+              - generic [ref=e89]: Participação social, comunicação pública e respeito às instituições.
+          - generic [ref=e90] [cursor=pointer]:
+            - checkbox "Ambiente digital Regras, segurança e tributação no espaço digital." [ref=e91]
+            - generic [ref=e92]:
+              - strong [ref=e93]: Ambiente digital
+              - generic [ref=e94]: Regras, segurança e tributação no espaço digital.
+          - generic [ref=e95] [cursor=pointer]:
+            - checkbox "Direitos e cuidado Proteção, respeito e liberdade para diferentes grupos da população." [ref=e96]
+            - generic [ref=e97]:
+              - strong [ref=e98]: Direitos e cuidado
+              - generic [ref=e99]: Proteção, respeito e liberdade para diferentes grupos da população.
+          - generic [ref=e100] [cursor=pointer]:
+            - checkbox "Educação e permanência estudantil Jornada escolar, apoio a estudantes e formação científica." [ref=e101]
+            - generic [ref=e102]:
+              - strong [ref=e103]: Educação e permanência estudantil
+              - generic [ref=e104]: Jornada escolar, apoio a estudantes e formação científica.
+          - generic [ref=e105] [cursor=pointer]:
+            - checkbox "Tecnologia e soberania de dados Capacidade tecnológica nacional, infraestrutura e proteção de dados." [ref=e106]
+            - generic [ref=e107]:
+              - strong [ref=e108]: Tecnologia e soberania de dados
+              - generic [ref=e109]: Capacidade tecnológica nacional, infraestrutura e proteção de dados.
+          - generic [ref=e110] [cursor=pointer]:
+            - checkbox "Desenvolvimento econômico Economias digital, verde e criativa com desenvolvimento inclusivo." [ref=e111]
+            - generic [ref=e112]:
+              - strong [ref=e113]: Desenvolvimento econômico
+              - generic [ref=e114]: Economias digital, verde e criativa com desenvolvimento inclusivo.
+          - generic [ref=e115] [cursor=pointer]:
+            - checkbox "Clima e atuação internacional Política climática, cooperação, autonomia e paz." [ref=e116]
+            - generic [ref=e117]:
+              - strong [ref=e118]: Clima e atuação internacional
+              - generic [ref=e119]: Política climática, cooperação, autonomia e paz.
+          - generic [ref=e120] [cursor=pointer]:
+            - checkbox "Saúde e SUS Fortalecimento do sistema público, oncologia e inovação no cuidado." [ref=e121]
+            - generic [ref=e122]:
+              - strong [ref=e123]: Saúde e SUS
+              - generic [ref=e124]: Fortalecimento do sistema público, oncologia e inovação no cuidado.
+          - generic [ref=e125] [cursor=pointer]:
+            - checkbox "Segurança pública Coordenação federativa, prevenção, proteção e responsabilização legal." [ref=e126]
+            - generic [ref=e127]:
+              - strong [ref=e128]: Segurança pública
+              - generic [ref=e129]: Coordenação federativa, prevenção, proteção e responsabilização legal.
+          - generic [ref=e130] [cursor=pointer]:
+            - checkbox "Quero explorar todos A jornada ficará mais longa e mostrará todos os compromissos." [ref=e131]
+            - generic [ref=e132]:
+              - strong [ref=e133]: Quero explorar todos
+              - generic [ref=e134]: A jornada ficará mais longa e mostrará todos os compromissos.
+      - paragraph [ref=e135]: 0 de 3 temas escolhidos.
+      - button "Ver compromissos" [disabled] [ref=e137]
+  - contentinfo [ref=e49]:
+    - paragraph [ref=e50]: Uma ferramenta de reflexão cidadã. Não substitui políticas públicas nem orientação profissional.
+  - status

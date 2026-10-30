@@ -1,0 +1,66 @@
+- generic [ref=e1]:
+  - link "Pular para o conteúdo" [ref=e2] [cursor=pointer]:
+    - /url: "#app"
+  - banner [ref=e3]:
+    - link "Compromisso em Ação — início" [ref=e4] [cursor=pointer]:
+      - /url: ./
+      - generic [ref=e9]:
+        - text: Compromisso
+        - strong [ref=e10]: em Ação
+    - button "Recomeçar" [ref=e68] [cursor=pointer]
+  - main [ref=e11]:
+    - region [ref=e813]:
+      - generic [ref=e814]:
+        - generic [ref=e815]:
+          - button "← Voltar" [ref=e816] [cursor=pointer]
+          - generic [ref=e817]: Item 4 de 4
+        - progressbar [ref=e818]: 3 de 8
+        - paragraph [ref=e819]: Reflita sobre suas respostas
+        - heading "Participação nas decisões" [active] [level=2] [ref=e820]
+        - paragraph [ref=e821]: Ampliar a participação da população nas decisões governamentais e ouvir diferentes setores sociais.
+        - note [ref=e822]:
+          - strong [ref=e823]: Base desta jornada
+          - generic [ref=e824]:
+            - text: Compromissos apresentados por Lula em seu discurso de vitória após o segundo turno, em outubro de 2026.
+            - link "Ler a íntegra e assistir ao vídeo ↗" [ref=e825] [cursor=pointer]:
+              - /url: https://www.poder360.com.br/poder-eleicoes-2026/leia-a-integra-do-pronunciamento-da-vitoria-de-lula-2/
+      - paragraph [ref=e826]: Democracia e governo participativo
+      - group "Qual a chance de você agir sobre este tema nos próximos 30 dias?" [ref=e827]:
+        - paragraph [ref=e829]: Responda pensando no tempo e na energia que você realmente tem.
+        - generic [ref=e830]:
+          - generic [ref=e831] [cursor=pointer]:
+            - radio "1 Nenhuma chance agora" [ref=e832]
+            - generic [ref=e833]:
+              - strong [ref=e834]: "1"
+              - generic [ref=e835]: Nenhuma chance agora
+          - generic [ref=e836] [cursor=pointer]:
+            - radio "2 Pouca chance" [ref=e837]
+            - generic [ref=e838]:
+              - strong [ref=e839]: "2"
+              - generic [ref=e840]: Pouca chance
+          - generic [ref=e841] [cursor=pointer]:
+            - radio "3 Talvez" [ref=e842]
+            - generic [ref=e843]:
+              - strong [ref=e844]: "3"
+              - generic [ref=e845]: Talvez
+          - generic [ref=e846] [cursor=pointer]:
+            - radio "4 Boa chance" [ref=e847]
+            - generic [ref=e848]:
+              - strong [ref=e849]: "4"
+              - generic [ref=e850]: Boa chance
+          - generic [ref=e851] [cursor=pointer]:
+            - radio "5 Vou tentar começar" [ref=e852]
+            - generic [ref=e853]:
+              - strong [ref=e854]: "5"
+              - generic [ref=e855]: Vou tentar começar
+          - generic [ref=e856] [cursor=pointer]:
+            - radio "Não sei Não tenho informação suficiente para responder agora." [ref=e857]
+            - generic [ref=e858]:
+              - strong [ref=e859]: Não sei
+              - generic [ref=e860]: Não tenho informação suficiente para responder agora.
+      - generic [ref=e861]:
+        - button "Pergunta anterior" [ref=e862] [cursor=pointer]
+        - button "Ver meus caminhos" [ref=e863] [cursor=pointer]
+  - contentinfo [ref=e49]:
+    - paragraph [ref=e50]: Uma ferramenta de reflexão cidadã. Não substitui políticas públicas nem orientação profissional.
+  - status

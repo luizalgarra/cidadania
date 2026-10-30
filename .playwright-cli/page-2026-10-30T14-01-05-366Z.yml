@@ -1,0 +1,97 @@
+- generic [ref=e1]:
+  - link "Pular para o conteúdo" [ref=e2] [cursor=pointer]:
+    - /url: "#app"
+  - banner [ref=e3]:
+    - link "Compromisso em Ação — início" [ref=e4] [cursor=pointer]:
+      - /url: ./
+      - generic [ref=e9]:
+        - text: Compromisso
+        - strong [ref=e10]: em Ação
+    - button "Recomeçar" [ref=e68] [cursor=pointer]
+  - main [ref=e11]:
+    - region [ref=e1149]:
+      - generic [ref=e1150]:
+        - generic [ref=e1151]:
+          - button "← Voltar" [ref=e1152] [cursor=pointer]
+          - generic [ref=e1153]: Etapa 8 de 8
+        - progressbar [ref=e1154]: 8 de 8
+        - paragraph [ref=e1155]: Seu próximo passo
+        - heading "Seu plano de ação" [active] [level=2] [ref=e1156]
+        - paragraph [ref=e1157]: Ele está salvo somente neste aparelho. Você pode imprimir ou copiar o texto.
+        - note [ref=e1158]:
+          - strong [ref=e1159]: Base desta jornada
+          - generic [ref=e1160]:
+            - text: Compromissos apresentados por Lula em seu discurso de vitória após o segundo turno, em outubro de 2026.
+            - link "Ler a íntegra e assistir ao vídeo ↗" [ref=e1161] [cursor=pointer]:
+              - /url: https://www.poder360.com.br/poder-eleicoes-2026/leia-a-integra-do-pronunciamento-da-vitoria-de-lula-2/
+      - article [ref=e1162]:
+        - region [ref=e1163]:
+          - paragraph [ref=e1164]: Origem do compromisso
+          - paragraph [ref=e1165]:
+            - strong [ref=e1166]: Este plano de ação cidadã parte de um compromisso apresentado por Luiz Inácio Lula da Silva em seu discurso de vitória após o segundo turno, em outubro de 2026.
+          - blockquote [ref=e1167]: “Nós vamos fazer o povo participar mais das nossas decisões.”
+          - paragraph [ref=e1168]: As ações concretas deste plano foram definidas por você; não são citações nem instruções diretas de Lula.
+          - paragraph [ref=e1169]:
+            - text: Íntegra e vídeo publicados pelo Poder360 em 25 de outubro de 2026; registro audiovisual também disponível no Senado Notícias.
+            - link "Ler a íntegra e assistir ao vídeo ↗" [ref=e1170] [cursor=pointer]:
+              - /url: https://www.poder360.com.br/poder-eleicoes-2026/leia-a-integra-do-pronunciamento-da-vitoria-de-lula-2/
+        - paragraph [ref=e1171]: Democracia e governo participativo
+        - heading "Participação nas decisões" [level=3] [ref=e1172]
+        - generic "Sua ação encontra a responsabilidade pública" [ref=e1173]:
+          - generic [ref=e1174]: Sua ação
+          - generic [ref=e1176]: Responsabilidade pública
+        - paragraph [ref=e1179]: Até 29 de novembro de 2026, vou identificar o órgão responsável e formular uma pergunta objetiva sobre participação nas decisões em meu bairro ou comunidade.
+        - generic [ref=e1180]:
+          - generic [ref=e1181]:
+            - paragraph [ref=e1182]: Rota escolhida
+            - paragraph [ref=e1183]: Acompanhar e cobrar
+          - generic [ref=e1184]:
+            - paragraph [ref=e1185]: Tempo disponível
+            - paragraph [ref=e1186]: 2 horas por mês
+          - generic [ref=e1187]:
+            - paragraph [ref=e1188]: Resultado buscado
+            - paragraph [ref=e1189]: acompanhar uma entrega concreta ligada a participação nas decisões
+          - generic [ref=e1190]:
+            - paragraph [ref=e1191]: Como saberei que avancei
+            - paragraph [ref=e1192]: uma resposta oficial ou atualização verificável registrada
+        - generic [ref=e1193]:
+          - generic [ref=e1194]:
+            - strong [ref=e1195]: O que cidadãos podem fazer
+            - paragraph [ref=e1196]: Pode reunir demandas, participar de consultas e cobrar devolutivas públicas.
+          - generic [ref=e1197]:
+            - strong [ref=e1198]: O que o poder público deve fazer
+            - paragraph [ref=e1199]: Deve criar canais acessíveis de participação, considerar contribuições e prestar contas das decisões.
+        - complementary [ref=e1200]:
+          - paragraph [ref=e1201]: Informação para agir melhor
+          - heading "Onde se informar e acompanhar" [level=3] [ref=e1202]
+          - paragraph [ref=e1203]: Use estas fontes públicas para entender o ponto de partida, acompanhar decisões e conferir resultados deste compromisso.
+          - list [ref=e1204]:
+            - listitem [ref=e1205]:
+              - link "Brasil Participativo" [ref=e1206] [cursor=pointer]:
+                - /url: https://brasilparticipativo.presidencia.gov.br/
+                - text: Brasil Participativo ↗
+              - paragraph [ref=e1207]: Consulte processos participativos, propostas, consultas e dados abertos.
+            - listitem [ref=e1208]:
+              - link "Portal da Transparência" [ref=e1209] [cursor=pointer]:
+                - /url: https://portaldatransparencia.gov.br/
+                - text: Portal da Transparência ↗
+              - paragraph [ref=e1210]: Acompanhe despesas, receitas, programas e transferências federais.
+            - listitem [ref=e1211]:
+              - link "Portal Brasileiro de Dados Abertos" [ref=e1212] [cursor=pointer]:
+                - /url: https://dados.gov.br/
+                - text: Portal Brasileiro de Dados Abertos ↗
+              - paragraph [ref=e1213]: Busque bases públicas e verifique órgão responsável, período e atualização.
+          - paragraph [ref=e1214]: Fontes externas abrem em outra aba. Confira a data, o território e a metodologia de cada informação.
+        - generic [ref=e1215] [cursor=pointer]:
+          - checkbox "Revisar em 7 dias Marque quando tiver conferido o que avançou, o que bloqueou e o que precisa mudar." [ref=e1216]
+          - generic [ref=e1217]:
+            - strong [ref=e1218]: Revisar em 7 dias
+            - text: Marque quando tiver conferido o que avançou, o que bloqueou e o que precisa mudar.
+      - generic [ref=e1219]:
+        - button "Copiar plano" [ref=e1220] [cursor=pointer]
+        - button "Imprimir ou salvar em PDF" [ref=e1221] [cursor=pointer]
+        - button "Editar plano" [ref=e1222] [cursor=pointer]
+      - paragraph [ref=e1223]: Ao compartilhar, lembre que o plano pode revelar preferências políticas ou informações sobre seu território.
+  - contentinfo [ref=e49]:
+    - paragraph [ref=e50]: Uma ferramenta de reflexão cidadã. Não substitui políticas públicas nem orientação profissional.
+  - status
