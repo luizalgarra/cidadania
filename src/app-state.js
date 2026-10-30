@@ -20,6 +20,11 @@ const RATING_DIMENSIONS = Object.freeze([
 
 const REACTIONS = new Set(['explore', 'maybe', 'not-now', 'unknown']);
 
+export function getLandingVariant(search = '') {
+  const params = new URLSearchParams(search);
+  return params.get('landing') === 'popular' ? 'popular' : 'editorial';
+}
+
 const emptyReflections = () => ({
   affected: '',
   change: '',

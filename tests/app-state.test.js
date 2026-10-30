@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import * as appStateModule from '../src/app-state.js';
 
 import {
   createInitialState,
@@ -8,6 +9,12 @@ import {
   canContinue,
   sanitizeRestoredState
 } from '../src/app-state.js';
+
+test('selects the popular landing only when the A/B URL requests it', () => {
+  assert.equal(appStateModule.getLandingVariant?.('?landing=popular'), 'popular');
+  assert.equal(appStateModule.getLandingVariant?.('?landing=editorial'), 'editorial');
+  assert.equal(appStateModule.getLandingVariant?.('?utm_source=instagram'), 'editorial');
+});
 
 test('creates independent state objects so one session cannot mutate another', () => {
   const first = createInitialState();

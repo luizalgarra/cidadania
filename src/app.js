@@ -8,6 +8,7 @@ import {
 } from './logic.js';
 import {
   createInitialState,
+  getLandingVariant,
   getPreviousStep,
   canContinue,
   sanitizeRestoredState
@@ -26,6 +27,12 @@ const STORAGE_KEY = 'compromisso-em-acao:v1';
 const MAX_CANDIDATES = 4;
 const root = document.querySelector('#app');
 const toast = document.querySelector('.toast');
+const landingVariant = getLandingVariant(window.location.search);
+const brandLink = document.querySelector('.brand');
+
+if (landingVariant === 'popular' && brandLink) {
+  brandLink.href = '?landing=popular';
+}
 
 const commitmentById = new Map(COMMITMENTS.map((item) => [item.id, item]));
 const themeById = new Map(THEMES.map((item) => [item.id, item]));
@@ -231,7 +238,46 @@ function responsibilities(commitment) {
   `;
 }
 
+function renderPopularLanding() {
+  return `
+    <div class="popular-landing">
+      <section class="popular-hero" aria-labelledby="popular-landing-title">
+        <div class="popular-hero__copy">
+          <p class="popular-kicker"><span>100% gratuito</span> · sem cadastro</p>
+          <h1 id="popular-landing-title">O que você pode fazer <span>por um Brasil melhor?</span></h1>
+          <p class="popular-lede">Lula assumiu compromissos em seu discurso da vitória. Você pode escolher um deles e descobrir uma ação que cabe na sua vida, no seu entorno e no tempo que você tem.</p>
+          <p class="popular-minimum"><strong>Você não precisa fazer tudo.</strong> O mínimo possível, bem escolhido, pode fazer diferença.</p>
+          <button class="primary-button popular-cta" type="button" data-action="enter-app">
+            Descobrir meu primeiro passo <span aria-hidden="true">→</span>
+          </button>
+          <p class="popular-reassurance"><strong>Leva de 6 a 8 minutos.</strong> Suas respostas ficam somente neste navegador.</p>
+          <p class="popular-source">Baseado nos compromissos apresentados no discurso de vitória de Lula, em outubro de 2026. <a href="${escapeHtml(SOURCE_CONTEXT.sourceUrl)}" target="_blank" rel="noopener noreferrer">Ver discurso ↗</a></p>
+        </div>
+
+        <aside class="popular-action-card" aria-label="O que você leva desta jornada">
+          <p class="popular-card-label">Comece pelo que é possível</p>
+          <div class="popular-action-number" aria-hidden="true">1</div>
+          <p class="popular-action-promise"><strong>compromisso</strong><br>escolhido por você</p>
+          <div class="popular-action-arrow" aria-hidden="true">↓</div>
+          <p class="popular-action-promise"><strong>1 ação simples</strong><br>para começar agora</p>
+          <div class="popular-action-arrow" aria-hidden="true">↓</div>
+          <p class="popular-action-promise"><strong>30 dias</strong><br>para acompanhar seu avanço</p>
+          <p class="popular-public-note"><strong>Seu passo é cidadão.</strong> Garantir direitos e executar políticas continua sendo dever do poder público.</p>
+        </aside>
+      </section>
+
+      <div class="popular-impact-line" aria-label="Onde uma ação possível pode começar">
+        <span>na sua vida</span><i aria-hidden="true">+</i><span>no seu entorno</span><i aria-hidden="true">+</i><span>para o Brasil</span>
+      </div>
+    </div>
+  `;
+}
+
 function renderLanding() {
+  return landingVariant === 'popular' ? renderPopularLanding() : renderEditorialLanding();
+}
+
+function renderEditorialLanding() {
   return `
     <div class="landing-page">
       <section class="landing-hero" aria-labelledby="landing-title">
@@ -769,7 +815,9 @@ function renderRecovery(message) {
 function render({ focus = false, restoreControl = null } = {}) {
   document.body.classList.toggle('has-progress', !['landing', 'welcome'].includes(state.step));
   document.body.classList.toggle('is-landing', state.step === 'landing');
+  document.body.classList.toggle('is-popular-landing', state.step === 'landing' && landingVariant === 'popular');
   root.dataset.step = state.step;
+  root.dataset.landingVariant = landingVariant;
   const screens = {
     landing: renderLanding,
     welcome: renderWelcome,
