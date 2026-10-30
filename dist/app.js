@@ -1,4 +1,10 @@
-import { THEMES, COMMITMENTS, ROUTES, SOURCE_CONTEXT } from './commitments.js';
+import {
+  THEMES,
+  COMMITMENTS,
+  ROUTES,
+  SOURCE_CONTEXT,
+  publicSourcesFor
+} from './commitments.js';
 import {
   getThemeCommitments,
   selectCandidates,
@@ -228,6 +234,28 @@ function responsibilities(commitment) {
         <p>${escapeHtml(commitment.responsibility.state)}</p>
       </div>
     </div>
+  `;
+}
+
+function publicSources(commitment, placement) {
+  const sources = publicSourcesFor(commitment.id);
+  if (sources.length === 0) return '';
+  const headingId = `public-sources-${placement}`;
+  const items = sources.map((source) => `
+    <li>
+      <a href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.title)} <span aria-hidden="true">↗</span></a>
+      <p>${escapeHtml(source.description)}</p>
+    </li>
+  `).join('');
+
+  return `
+    <aside class="public-sources" aria-labelledby="${escapeHtml(headingId)}">
+      <p class="source-label">Informação para agir melhor</p>
+      <h3 id="${escapeHtml(headingId)}">Onde se informar e acompanhar</h3>
+      <p>Use estas fontes públicas para entender o ponto de partida, acompanhar decisões e conferir resultados deste compromisso.</p>
+      <ul>${items}</ul>
+      <p class="public-sources__note">Fontes externas abrem em outra aba. Confira a data, o território e a metodologia de cada informação.</p>
+    </aside>
   `;
 }
 
@@ -649,6 +677,7 @@ function renderReflection() {
       ${stageHeader('reflection', commitment.title, 'Antes de agir, faça uma pausa para enxergar pessoas, responsabilidades e riscos.')}
       <article>
         ${responsibilities(commitment)}
+        ${publicSources(commitment, 'reflection')}
         <div class="prompt-list">${prompts}</div>
       </article>
       <p class="error-message" tabindex="-1" role="alert"></p>
@@ -780,6 +809,7 @@ function renderComplete() {
           ${caution}
         </div>
         ${responsibilities(commitment)}
+        ${publicSources(commitment, 'complete')}
         <label class="review-check">
           <input type="checkbox" data-review-done ${checked(state.reviewDone)}>
           <span><strong>Revisar em 7 dias</strong><br>Marque quando tiver conferido o que avançou, o que bloqueou e o que precisa mudar.</span>
@@ -873,7 +903,12 @@ function resetDownstreamFromThemes() {
 function planAsText() {
   const plan = state.plan;
   const commitment = chosenCommitment();
-  return formatPlanAsText({ plan, commitment, sourceContext: SOURCE_CONTEXT });
+  return formatPlanAsText({
+    plan,
+    commitment,
+    sourceContext: SOURCE_CONTEXT,
+    publicSources: publicSourcesFor(commitment?.id)
+  });
 }
 
 async function copyPlan() {

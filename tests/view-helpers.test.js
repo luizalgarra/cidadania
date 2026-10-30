@@ -51,6 +51,13 @@ test('keeps the Lula victory-speech origin and the editorial boundary in copied 
       title: 'Participação nas decisões',
       excerpt: '“Nós vamos fazer o povo participar mais das nossas decisões.”'
     },
+    publicSources: [
+      {
+        title: 'Brasil Participativo',
+        url: 'https://brasilparticipativo.presidencia.gov.br/',
+        description: 'Consulte processos participativos, propostas e dados abertos.'
+      }
+    ],
     sourceContext: {
       speaker: 'Luiz Inácio Lula da Silva',
       shortName: 'Lula',
@@ -66,6 +73,9 @@ test('keeps the Lula victory-speech origin and the editorial boundary in copied 
   assert.match(text, /As ações concretas deste plano foram definidas por você; não são citações nem instruções diretas de Lula\./);
   assert.match(text, /Fonte pública: https:\/\/www\.poder360\.com\.br\/poder-eleicoes-2026\/leia-a-integra-do-pronunciamento-da-vitoria-de-lula-2\//);
   assert.match(text, /Íntegra e vídeo publicados pelo Poder360 em 25 de outubro de 2026\./);
+  assert.match(text, /ONDE SE INFORMAR E ACOMPANHAR/);
+  assert.match(text, /Brasil Participativo — Consulte processos participativos, propostas e dados abertos\./);
+  assert.match(text, /https:\/\/brasilparticipativo\.presidencia\.gov\.br\//);
   assert.doesNotMatch(text, /transcrição fornecida/i);
 });
 

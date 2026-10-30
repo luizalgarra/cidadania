@@ -1472,6 +1472,62 @@ progress::-moz-progress-bar {
   font-size: 0.91rem;
 }
 
+.public-sources {
+  margin-top: 22px;
+  padding: clamp(18px, 4vw, 24px);
+  background: linear-gradient(135deg, var(--brasil-green-soft), var(--surface) 78%);
+  border: 1px solid rgba(11, 107, 58, 0.28);
+  border-left: 5px solid var(--brasil-green);
+  border-radius: var(--radius-small);
+}
+
+.public-sources h3 {
+  margin: 2px 0 6px;
+  font-size: 1.16rem;
+}
+
+.public-sources > p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.93rem;
+}
+
+.public-sources ul {
+  display: grid;
+  gap: 12px;
+  margin: 16px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.public-sources li {
+  padding-top: 12px;
+  border-top: 1px solid rgba(11, 107, 58, 0.18);
+}
+
+.public-sources li:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.public-sources a {
+  color: var(--brasil-green);
+  font-weight: 780;
+  text-underline-offset: 3px;
+}
+
+.public-sources li p {
+  margin: 3px 0 0;
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+}
+
+.public-sources .public-sources__note {
+  padding-top: 12px;
+  border-top: 1px solid rgba(11, 107, 58, 0.18);
+  font-size: 0.8rem;
+}
+
 .option-list {
   display: grid;
   gap: 10px;

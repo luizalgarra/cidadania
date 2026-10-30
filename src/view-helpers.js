@@ -41,11 +41,15 @@ export function sourceAttributionLabel(sourceContext, { fullName = false } = {})
   return `Compromissos apresentados por ${speaker} em seu ${event}, em ${dateLabel}.`;
 }
 
-export function formatPlanAsText({ plan, commitment, sourceContext }) {
+export function formatPlanAsText({ plan, commitment, sourceContext, publicSources = [] }) {
   if (!plan || !commitment) return '';
   const origin = sourceContext?.speaker && sourceContext?.event && sourceContext?.dateLabel
     ? `compromisso apresentado por ${sourceContext.speaker} em seu ${sourceContext.event}, em ${sourceContext.dateLabel}.`
     : sourceAttributionLabel(sourceContext, { fullName: true });
+  const sourceLines = publicSources.flatMap((source) => [
+    `${source.title} — ${source.description}`,
+    source.url
+  ]);
   return [
     'COMPROMISSO EM AÇÃO',
     '',
@@ -70,6 +74,7 @@ export function formatPlanAsText({ plan, commitment, sourceContext }) {
     `Ação cidadã: ${plan.citizenBoundary}`,
     `Responsabilidade pública: ${plan.publicResponsibility}`,
     '',
+    ...(sourceLines.length > 0 ? ['ONDE SE INFORMAR E ACOMPANHAR', ...sourceLines, ''] : []),
     'Revisão: daqui a 7 dias.'
   ].filter((line, index, lines) => line !== '' || lines[index - 1] !== '').join('\n');
 }

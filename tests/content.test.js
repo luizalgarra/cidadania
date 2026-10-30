@@ -1,7 +1,13 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
-import { COMMITMENTS, ROUTES, SOURCE_CONTEXT, THEMES } from '../src/commitments.js';
+import {
+  COMMITMENTS,
+  ROUTES,
+  SOURCE_CONTEXT,
+  THEMES,
+  publicSourcesFor
+} from '../src/commitments.js';
 
 const idsAreUnique = (items) => new Set(items.map((item) => item.id)).size === items.length;
 const hasText = (value) => typeof value === 'string' && value.trim().length > 0;
@@ -125,5 +131,28 @@ test('every commitment distinguishes citizen scope from state responsibility', (
       true,
       `${commitment.id} needs a valid suggested route`
     );
+  }
+});
+
+test('every commitment offers a small set of useful public information sources', () => {
+  for (const commitment of COMMITMENTS) {
+    const sources = publicSourcesFor(commitment.id);
+    assert.equal(
+      sources.length >= 2 && sources.length <= 4,
+      true,
+      `${commitment.id} needs between two and four public sources`
+    );
+    assert.equal(
+      new Set(sources.map((source) => source.url)).size,
+      sources.length,
+      `${commitment.id} repeats a source`
+    );
+
+    for (const source of sources) {
+      assert.equal(hasText(source.title), true, `${commitment.id} has a source without a title`);
+      assert.equal(hasText(source.description), true, `${commitment.id} has a source without guidance`);
+      assert.doesNotThrow(() => new URL(source.url), `${commitment.id} has an invalid source URL`);
+      assert.match(source.url, /^https:\/\//, `${commitment.id} source must use HTTPS`);
+    }
   }
 });

@@ -82,6 +82,261 @@ export const ROUTES = [
   }
 ];
 
+const PUBLIC_SOURCE_LIBRARY = {
+  brasilParticipativo: {
+    title: 'Brasil Participativo',
+    url: 'https://brasilparticipativo.presidencia.gov.br/',
+    description: 'Consulte processos participativos, propostas, consultas e dados abertos.'
+  },
+  portalTransparencia: {
+    title: 'Portal da Transparência',
+    url: 'https://portaldatransparencia.gov.br/',
+    description: 'Acompanhe despesas, receitas, programas e transferências federais.'
+  },
+  dadosGov: {
+    title: 'Portal Brasileiro de Dados Abertos',
+    url: 'https://dados.gov.br/',
+    description: 'Busque bases públicas e verifique órgão responsável, período e atualização.'
+  },
+  constituicao: {
+    title: 'Constituição Federal',
+    url: 'https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm',
+    description: 'Confira direitos, deveres e competências dos Poderes e entes federativos.'
+  },
+  camara: {
+    title: 'Proposições da Câmara dos Deputados',
+    url: 'https://www.camara.leg.br/busca-portal/proposicoes/pesquisa-simplificada',
+    description: 'Pesquise projetos, tramitação, textos, votações e autoria.'
+  },
+  senado: {
+    title: 'Atividade Legislativa do Senado',
+    url: 'https://www25.senado.leg.br/web/atividade',
+    description: 'Acompanhe matérias, comissões, agendas e votações no Senado.'
+  },
+  anpdMarcoCivil: {
+    title: 'ANPD — Marco Civil da Internet',
+    url: 'https://www.gov.br/anpd/pt-br/assuntos/marco-civil-da-internet',
+    description: 'Veja normas, fiscalização e deveres de plataformas e provedores.'
+  },
+  anpd: {
+    title: 'Autoridade Nacional de Proteção de Dados',
+    url: 'https://www.gov.br/anpd/pt-br',
+    description: 'Acompanhe regulação, consultas e orientações sobre proteção de dados.'
+  },
+  mjOuvidoria: {
+    title: 'Ouvidoria do Ministério da Justiça',
+    url: 'https://www.gov.br/mj/pt-br/canais_atendimento/pgouvidoria',
+    description: 'Consulte os canais adequados para manifestações e encaminhamentos.'
+  },
+  mjDados: {
+    title: 'Dados Abertos do Ministério da Justiça',
+    url: 'https://www.gov.br/mj/pt-br/acesso-a-informacao/dados-abertos/capa',
+    description: 'Consulte bases públicas, inclusive ocorrências e estatísticas de segurança.'
+  },
+  receitaDados: {
+    title: 'Dados Abertos da Receita Federal',
+    url: 'https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos',
+    description: 'Procure bases e informações oficiais sobre arrecadação e administração tributária.'
+  },
+  pessoaIdosa: {
+    title: 'Direitos da Pessoa Idosa — MDHC',
+    url: 'https://www.gov.br/mdh/pt-br/navegue-por-temas/pessoa-idosa/',
+    description: 'Consulte políticas, direitos, conselhos e materiais de proteção.'
+  },
+  mulheres: {
+    title: 'Ministério das Mulheres',
+    url: 'https://www.gov.br/mulheres/pt-br',
+    description: 'Acompanhe políticas, programas, dados e canais de atendimento às mulheres.'
+  },
+  ligue180: {
+    title: 'Ligue 180',
+    url: 'https://www.gov.br/mulheres/pt-br/ligue180',
+    description: 'Veja orientações e o canal público de atendimento e denúncia de violência contra a mulher.'
+  },
+  disque100: {
+    title: 'Disque 100 — Direitos Humanos',
+    url: 'https://www.gov.br/mdh/pt-br/ondh',
+    description: 'Conheça o canal para registrar e acompanhar denúncias de violações de direitos humanos.'
+  },
+  censo2022: {
+    title: 'Censo Demográfico 2022 — IBGE',
+    url: 'https://censo2022.ibge.gov.br/',
+    description: 'Consulte dados populacionais e territoriais, inclusive sobre religião.'
+  },
+  censoEscolar: {
+    title: 'Censo Escolar — Inep',
+    url: 'https://www.gov.br/inep/pt-br/areas-de-atuacao/pesquisas-estatisticas-e-indicadores/censo-escolar',
+    description: 'Acompanhe matrículas, jornada, escolas, profissionais e infraestrutura.'
+  },
+  escolaIntegral: {
+    title: 'Programa Escola em Tempo Integral — MEC',
+    url: 'https://www.gov.br/mec/pt-br/escola-em-tempo-integral',
+    description: 'Consulte normas, adesões, recursos e materiais do programa.'
+  },
+  peDeMeia: {
+    title: 'Pé-de-Meia — MEC',
+    url: 'https://www.gov.br/mec/pt-br/assuntos/pe-de-meia',
+    description: 'Confira regras, público, calendário e canais oficiais do programa.'
+  },
+  censoSuperior: {
+    title: 'Censo da Educação Superior — Inep',
+    url: 'https://www.gov.br/inep/pt-br/areas-de-atuacao/pesquisas-estatisticas-e-indicadores/censo-da-educacao-superior',
+    description: 'Consulte matrículas, cursos, instituições, permanência e conclusão.'
+  },
+  capesDados: {
+    title: 'Produtos de dados da CAPES',
+    url: 'https://www.gov.br/capes/pt-br/centrais-de-conteudo/produtos-digitais-da-capes',
+    description: 'Explore GeoCAPES, indicadores e dados abertos sobre formação e pesquisa.'
+  },
+  mctiIndicadores: {
+    title: 'Indicadores de Ciência, Tecnologia e Inovação — MCTI',
+    url: 'https://www.gov.br/mcti/pt-br/acesso-a-informacao/dados-abertos/dados-abertos/paginas/indicadores-nacionais-de-ciencia-tecnologia-e-inovacao',
+    description: 'Acompanhe investimento, formação, pesquisa, inovação e capacidade tecnológica.'
+  },
+  epeDataCenters: {
+    title: 'EPE — Energia e data centers',
+    url: 'https://epe.gov.br/pt/areas-de-atuacao/energia-eletrica/coleta-de-dados-de-data-center',
+    description: 'Entenda a demanda elétrica prevista e o planejamento associado a data centers.'
+  },
+  aneelDados: {
+    title: 'Dados Abertos da ANEEL',
+    url: 'https://dadosabertos.aneel.gov.br/pt_BR/',
+    description: 'Consulte geração, transmissão, distribuição, tarifas e qualidade do serviço elétrico.'
+  },
+  snirh: {
+    title: 'Sistema Nacional de Informações sobre Recursos Hídricos',
+    url: 'https://www.snirh.gov.br/',
+    description: 'Verifique disponibilidade, uso e gestão de água nos territórios.'
+  },
+  ibamaLicenciamento: {
+    title: 'Licenciamento Ambiental Federal — Ibama',
+    url: 'https://www.gov.br/ibama/pt-br/assuntos/laf',
+    description: 'Acompanhe processos, estudos e decisões de licenciamento ambiental federal.'
+  },
+  ctir: {
+    title: 'Centro de Prevenção, Tratamento e Resposta a Incidentes Cibernéticos',
+    url: 'https://www.gov.br/ctir/pt-br',
+    description: 'Consulte alertas, recomendações e estatísticas de incidentes cibernéticos no governo.'
+  },
+  cetic: {
+    title: 'Cetic.br — Indicadores digitais',
+    url: 'https://cetic.br/',
+    description: 'Use pesquisas e indicadores sobre acesso, uso da internet e transformação digital.'
+  },
+  bndesVerde: {
+    title: 'BNDES — Economia verde e desenvolvimento social',
+    url: 'https://bndes.gov.br/wps/portal/site/home/desenvolvimento-sustentavel/resultados/desembolsos-em-economia-verde-e-desenvolvimento-social',
+    description: 'Acompanhe desembolsos e critérios de apoio a iniciativas verdes e sociais.'
+  },
+  ipeadata: {
+    title: 'Ipeadata',
+    url: 'https://www.ipeadata.gov.br/',
+    description: 'Consulte séries econômicas, sociais, regionais e ambientais.'
+  },
+  sniic: {
+    title: 'Sistema Nacional de Informações e Indicadores Culturais',
+    url: 'https://www.gov.br/cultura/pt-br/assuntos/sistema-nacional-de-informacoes-e-indicadores-culturais-sniic',
+    description: 'Busque dados, agentes, espaços e indicadores da economia e da política cultural.'
+  },
+  adaptaBrasil: {
+    title: 'AdaptaBrasil MCTI',
+    url: 'https://adaptabrasil.mcti.gov.br/',
+    description: 'Consulte riscos e impactos climáticos atuais e projetados por território.'
+  },
+  terraBrasilis: {
+    title: 'TerraBrasilis — INPE',
+    url: 'https://terrabrasilis.dpi.inpe.br/',
+    description: 'Acompanhe mapas e dados oficiais de desmatamento e cobertura da terra.'
+  },
+  mmaClima: {
+    title: 'Mudança do Clima — MMA',
+    url: 'https://www.gov.br/mma/pt-br/assuntos/mudanca-do-clima',
+    description: 'Acompanhe planos, metas, governança e políticas climáticas federais.'
+  },
+  concordia: {
+    title: 'Concórdia — Atos Internacionais do Brasil',
+    url: 'https://concordia.itamaraty.gov.br/',
+    description: 'Pesquise acordos, tratados e outros atos internacionais firmados pelo Brasil.'
+  },
+  abc: {
+    title: 'Agência Brasileira de Cooperação',
+    url: 'https://www.gov.br/abc/pt-br',
+    description: 'Acompanhe programas, projetos e acordos de cooperação técnica internacional.'
+  },
+  datasus: {
+    title: 'DATASUS',
+    url: 'https://datasus.saude.gov.br/',
+    description: 'Consulte sistemas e indicadores públicos sobre atendimento, saúde e gestão do SUS.'
+  },
+  siops: {
+    title: 'SIOPS — Orçamentos Públicos em Saúde',
+    url: 'https://portalfns.saude.gov.br/siops/',
+    description: 'Acompanhe receitas e despesas em saúde declaradas por estados e municípios.'
+  },
+  conselhoSaude: {
+    title: 'Conselho Nacional de Saúde',
+    url: 'https://www.gov.br/conselho-nacional-de-saude/pt-br',
+    description: 'Veja resoluções, agendas e caminhos de participação e controle social do SUS.'
+  },
+  incaPainel: {
+    title: 'Painel Público de Indicadores do INCA',
+    url: 'https://www.gov.br/inca/pt-br/acesso-a-informacao/transparencia-e-prestacao-de-contas/painel-publico-de-indicadores-do-inca',
+    description: 'Acompanhe resultados e indicadores públicos do Instituto Nacional de Câncer.'
+  },
+  saes: {
+    title: 'Dados da Atenção Especializada — Ministério da Saúde',
+    url: 'https://www.gov.br/saude/pt-br/acesso-a-informacao/sic/dados-em-transparencia-ativa/saes',
+    description: 'Consulte internações, atendimentos e produção ambulatorial e hospitalar.'
+  },
+  leitos: {
+    title: 'Hospitais e leitos — OpenDataSUS',
+    url: 'https://opendatasus.saude.gov.br/pt_BR/dataset/hospitais-e-leitos',
+    description: 'Explore dados do CNES sobre estabelecimentos e leitos, inclusive complementares.'
+  },
+  susDigital: {
+    title: 'SUS Digital — Ministério da Saúde',
+    url: 'https://www.gov.br/saude/pt-br/composicao/seidigi/sus-digital',
+    description: 'Acompanhe diretrizes, programas e iniciativas de transformação digital do SUS.'
+  },
+  sinesp: {
+    title: 'Dados Nacionais de Segurança Pública — Sinesp',
+    url: 'https://dados.mj.gov.br/dataset/sistema-nacional-de-estatisticas-de-seguranca-publica',
+    description: 'Consulte indicadores oficiais por município e unidade da Federação, com notas metodológicas.'
+  }
+};
+
+const PUBLIC_SOURCE_KEYS_BY_COMMITMENT = {
+  'participacao-decisoes': ['brasilParticipativo', 'portalTransparencia', 'dadosGov'],
+  'comunicacao-publica-direta': ['portalTransparencia', 'dadosGov', 'brasilParticipativo'],
+  'governo-constitucional-plural': ['constituicao', 'camara', 'senado'],
+  'regulacao-plataformas': ['anpdMarcoCivil', 'camara', 'senado'],
+  'crimes-digitais': ['anpdMarcoCivil', 'mjOuvidoria', 'ctir'],
+  'tributacao-digital': ['receitaDados', 'camara', 'portalTransparencia'],
+  'cuidado-pessoa-idosa': ['pessoaIdosa', 'disque100', 'datasus'],
+  'mulheres-politicas-publicas': ['mulheres', 'ligue180', 'portalTransparencia'],
+  'liberdade-religiosa': ['constituicao', 'disque100', 'censo2022'],
+  'educacao-tempo-integral': ['escolaIntegral', 'censoEscolar', 'portalTransparencia'],
+  'pe-de-meia-ensino-medio': ['peDeMeia', 'censoEscolar', 'portalTransparencia'],
+  'pe-de-meia-universitario': ['censoSuperior', 'portalTransparencia', 'brasilParticipativo'],
+  'matematica-engenharia': ['censoEscolar', 'capesDados', 'mctiIndicadores'],
+  'ia-brasileira': ['mctiIndicadores', 'anpd', 'cetic'],
+  'data-centers-brasil': ['epeDataCenters', 'aneelDados', 'snirh', 'ibamaLicenciamento'],
+  'reserva-protecao-dados': ['anpd', 'ctir', 'cetic'],
+  'economias-do-futuro': ['bndesVerde', 'ipeadata', 'sniic', 'mctiIndicadores'],
+  'lideranca-climatica': ['mmaClima', 'adaptaBrasil', 'terraBrasilis'],
+  'cooperacao-internacional': ['concordia', 'abc', 'senado'],
+  'fortalecimento-sus': ['datasus', 'siops', 'conselhoSaude'],
+  'cuidado-oncologico': ['incaPainel', 'saes', 'datasus'],
+  'saude-inteligente': ['susDigital', 'leitos', 'saes'],
+  'coordenacao-federal-seguranca': ['sinesp', 'mjDados', 'portalTransparencia']
+};
+
+export function publicSourcesFor(commitmentId) {
+  return (PUBLIC_SOURCE_KEYS_BY_COMMITMENT[commitmentId] ?? [])
+    .map((sourceKey) => PUBLIC_SOURCE_LIBRARY[sourceKey])
+    .filter(Boolean);
+}
+
 export const COMMITMENTS = [
   {
     id: 'participacao-decisoes',
