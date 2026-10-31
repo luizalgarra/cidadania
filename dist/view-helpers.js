@@ -41,6 +41,55 @@ export function sourceAttributionLabel(sourceContext, { fullName = false } = {})
   return `Compromissos apresentados por ${speaker} em seu ${event}, em ${dateLabel}.`;
 }
 
+export function renderSourcesCatalogue({ commitments, themes, publicSourcesFor }) {
+  return themes.map((theme) => {
+    const themeCommitments = commitments.filter((commitment) => commitment.themeId === theme.id);
+    const cards = themeCommitments.map((commitment) => {
+      const sources = publicSourcesFor(commitment.id);
+      const searchText = [
+        commitment.title,
+        commitment.summary,
+        theme.title,
+        ...sources.flatMap((source) => [source.title, source.description])
+      ].join(' ').toLocaleLowerCase('pt-BR');
+      const sourceItems = sources.map((source) => `
+        <li>
+          <a class="catalogue-source-link" href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer">
+            <span>${escapeHtml(source.title)}</span><span aria-hidden="true">↗</span>
+          </a>
+          <p>${escapeHtml(source.description)}</p>
+        </li>
+      `).join('');
+
+      return `
+        <article class="source-catalogue-card" data-commitment-id="${escapeHtml(commitment.id)}" data-search-text="${escapeHtml(searchText)}">
+          <div class="source-catalogue-card__heading">
+            <h3>${escapeHtml(commitment.title)}</h3>
+            <span>${sources.length} fontes</span>
+          </div>
+          <p class="source-catalogue-card__summary">${escapeHtml(commitment.summary)}</p>
+          <blockquote>${escapeHtml(commitment.excerpt)}</blockquote>
+          <div class="source-catalogue-card__sources">
+            <h4>Fontes públicas para acompanhar</h4>
+            <ul>${sourceItems}</ul>
+          </div>
+        </article>
+      `;
+    }).join('');
+
+    return `
+      <section class="source-theme-section" data-theme-section="${escapeHtml(theme.id)}" aria-labelledby="theme-${escapeHtml(theme.id)}">
+        <header class="source-theme-section__header">
+          <p>${themeCommitments.length} ${themeCommitments.length === 1 ? 'compromisso' : 'compromissos'}</p>
+          <h2 id="theme-${escapeHtml(theme.id)}">${escapeHtml(theme.title)}</h2>
+          <span>${escapeHtml(theme.description)}</span>
+        </header>
+        <div class="source-catalogue-grid">${cards}</div>
+      </section>
+    `;
+  }).join('');
+}
+
 export function formatPlanAsText({ plan, commitment, sourceContext, publicSources = [] }) {
   if (!plan || !commitment) return '';
   const origin = sourceContext?.speaker && sourceContext?.event && sourceContext?.dateLabel

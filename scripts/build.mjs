@@ -4,8 +4,10 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 
 export const SOURCE_FILES = Object.freeze([
   'index.html',
+  'fontes.html',
   'styles.css',
   'app.js',
+  'sources-page.js',
   'app-state.js',
   'logic.js',
   'commitments.js',

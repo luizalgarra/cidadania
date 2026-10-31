@@ -271,6 +271,7 @@ function renderPopularLanding() {
           <button class="primary-button popular-cta" type="button" data-action="enter-app">
             Descobrir meu primeiro passo <span aria-hidden="true">→</span>
           </button>
+          <a class="popular-catalogue-link" href="./fontes.html">Ver os 23 compromissos e suas fontes públicas →</a>
           <p class="popular-reassurance"><strong>Leva de 6 a 8 minutos.</strong> Suas respostas ficam somente neste navegador.</p>
           <p class="popular-source">Baseado nos compromissos apresentados no discurso de vitória de Lula, em outubro de 2026. <a href="${escapeHtml(SOURCE_CONTEXT.sourceUrl)}" target="_blank" rel="noopener noreferrer">Ver discurso ↗</a></p>
         </div>

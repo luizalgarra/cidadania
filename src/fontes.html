@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#f3f7f8">
+    <meta name="color-scheme" content="light">
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'"
+    >
+    <meta
+      name="description"
+      content="Consulte os 23 compromissos apresentados por Lula em seu discurso de vitória de outubro de 2026 e as fontes públicas para acompanhar cada um."
+    >
+    <title>Compromissos e fontes públicas — Compromisso em Ação</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body class="sources-page-body">
+    <a class="skip-link" href="#sources-main">Pular para o conteúdo</a>
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="Compromisso em Ação — início">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><b></b></span>
+        <span>Compromisso <strong>em Ação</strong></span>
+      </a>
+      <nav class="header-actions" aria-label="Navegação principal">
+        <a class="header-catalogue-link" href="./fontes.html" aria-current="page">Compromissos e fontes</a>
+        <a class="quiet-button header-plan-link" href="./">Criar meu plano</a>
+      </nav>
+    </header>
+
+    <main id="sources-main" class="sources-main" tabindex="-1">
+      <section class="sources-hero" aria-labelledby="sources-title">
+        <div>
+          <p class="eyebrow">Consulta pública · 23 compromissos</p>
+          <h1 id="sources-title">Compromissos e <span>fontes para acompanhar</span></h1>
+          <p class="sources-hero__lede">Veja, em um só lugar, os compromissos apresentados por Lula em seu discurso de vitória de outubro de 2026 e as fontes públicas que ajudam a entender o ponto de partida, acompanhar decisões e conferir resultados.</p>
+          <div class="sources-hero__actions">
+            <a class="primary-button" href="./">Escolher um compromisso e criar meu plano</a>
+            <a class="source-link" href="https://www.poder360.com.br/poder-eleicoes-2026/leia-a-integra-do-pronunciamento-da-vitoria-de-lula-2/" target="_blank" rel="noopener noreferrer">Ler a íntegra do discurso ↗</a>
+          </div>
+        </div>
+        <aside class="sources-hero__note" aria-label="Como usar esta página">
+          <strong>Como usar esta página</strong>
+          <ol>
+            <li>Encontre um compromisso por tema ou palavra.</li>
+            <li>Abra as fontes e confira data, território e metodologia.</li>
+            <li>Volte ao aplicativo para transformar a reflexão em um passo possível.</li>
+          </ol>
+          <p>As fontes ajudam a acompanhar a ação pública. Elas não transferem para o cidadão a responsabilidade de executar políticas do Estado.</p>
+        </aside>
+      </section>
+
+      <section class="sources-toolbar" aria-label="Filtros dos compromissos">
+        <div class="sources-search-field">
+          <label for="sources-search">Buscar compromisso ou fonte</label>
+          <input id="sources-search" type="search" placeholder="Ex.: SUS, educação, clima, DATASUS…" autocomplete="off">
+        </div>
+        <div class="sources-filter-field">
+          <label for="sources-theme-filter">Filtrar por tema</label>
+          <select id="sources-theme-filter">
+            <option value="all">Todos os temas</option>
+          </select>
+        </div>
+        <p id="sources-result-count" class="sources-result-count" aria-live="polite">23 compromissos encontrados</p>
+      </section>
+
+      <aside class="sources-data-hub" aria-labelledby="sources-data-hub-title">
+        <div>
+          <p class="eyebrow">Recurso complementar</p>
+          <h2 id="sources-data-hub-title">Cruze e explore dados na Base dos Dados</h2>
+          <p>A Base dos Dados organiza tabelas e variáveis de diferentes instituições para facilitar buscas, séries históricas e cruzamentos. Use-a como porta de entrada e sempre confira a metodologia, a atualização e a fonte pública original.</p>
+        </div>
+        <a class="secondary-button" href="https://basedosdados.org/search" target="_blank" rel="noopener noreferrer">Explorar a Base dos Dados ↗</a>
+      </aside>
+
+      <div id="sources-catalogue" class="sources-catalogue"></div>
+      <p id="sources-empty" class="sources-empty" hidden>Nenhum compromisso corresponde à busca. Tente outra palavra ou selecione todos os temas.</p>
+      <noscript><p>Ative o JavaScript para consultar os compromissos e suas fontes.</p></noscript>
+
+      <section class="sources-closing" aria-labelledby="sources-closing-title">
+        <p class="eyebrow">Da informação à ação</p>
+        <h2 id="sources-closing-title">Encontrou um compromisso que importa para você?</h2>
+        <p>O aplicativo ajuda a refletir sobre responsabilidades, escolher uma forma segura de contribuir e montar um plano cidadão de 30 dias.</p>
+        <a class="primary-button" href="./">Começar meu plano →</a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Uma ferramenta de reflexão cidadã. Fontes externas podem ser atualizadas pelos órgãos responsáveis.</p>
+    </footer>
+
+    <script type="module" src="./sources-page.js"></script>
+  </body>
+</html>
