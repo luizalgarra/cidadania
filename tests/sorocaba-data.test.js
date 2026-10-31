@@ -44,6 +44,7 @@ test('associates the verified snapshots only with the relevant commitments', asy
   assert.equal(elderly.length, 1);
   assert.equal(elderly[0].displayValue, '114.769 pessoas');
   assert.equal(elderly[0].supportingValue, '15,9% da população');
+  assert.match(elderly[0].illustration.alt, /moradores idosos.*banco.*bairro.*cadeira de rodas/i);
   assert.equal(education.length, 1);
   assert.equal(education[0].displayValue, '19.784 matrículas');
   assert.equal(education[0].supportingValue, '52,3% das matrículas dos anos finais');

@@ -17,7 +17,7 @@ export const SOROCABA_INDICATORS = Object.freeze([
     relationLabel: 'Dado de contexto',
     illustration: Object.freeze({
       src: './assets/sorocaba-cuidado-pessoas-idosas.jpg',
-      alt: 'Ilustração de cinco pessoas idosas diversas caminhando e conversando em uma praça arborizada; uma delas usa cadeira de rodas.'
+      alt: 'Ilustração de cinco moradores idosos conversando em um banco de bairro, perto de uma padaria e de um ponto de ônibus; uma delas usa cadeira de rodas.'
     }),
     methodology: 'Soma das faixas de 60 a 64, 65 a 69, 70 a 74, 75 a 79, 80 a 84, 85 a 89, 90 a 94, 95 a 99 e 100 anos ou mais; proporção calculada sobre 723.682 habitantes.',
     caveat: 'O Censo descreve o tamanho e o perfil da população idosa em 2022; não mede acesso, continuidade ou qualidade do cuidado.',
