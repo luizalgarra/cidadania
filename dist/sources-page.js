@@ -5,6 +5,7 @@ import { renderSourcesCatalogue } from './view-helpers.js';
 const catalogue = document.querySelector('#sources-catalogue');
 const searchInput = document.querySelector('#sources-search');
 const themeFilter = document.querySelector('#sources-theme-filter');
+const localDataSelect = document.querySelector('#sorocaba-commitment-select');
 const resultCount = document.querySelector('#sources-result-count');
 const emptyState = document.querySelector('#sources-empty');
 
@@ -34,6 +35,7 @@ function normalizeSearch(value) {
 function updateCatalogue() {
   const query = normalizeSearch(searchInput.value);
   const selectedTheme = themeFilter.value;
+  const selectedLocalCommitment = localDataSelect?.value ?? '';
   let visibleCount = 0;
 
   for (const section of catalogue.querySelectorAll('[data-theme-section]')) {
@@ -42,7 +44,10 @@ function updateCatalogue() {
 
     for (const card of section.querySelectorAll('[data-commitment-id]')) {
       const matchesQuery = normalizeSearch(card.dataset.searchText).includes(query);
-      const visible = inSelectedTheme && matchesQuery;
+      const matchesLocalSelection = !selectedLocalCommitment
+        || selectedLocalCommitment === 'all'
+        || card.dataset.commitmentId === selectedLocalCommitment;
+      const visible = inSelectedTheme && matchesQuery && matchesLocalSelection;
       card.hidden = !visible;
       if (visible) {
         visibleCount += 1;
@@ -57,8 +62,34 @@ function updateCatalogue() {
   emptyState.hidden = visibleCount !== 0;
 }
 
-searchInput.addEventListener('input', updateCatalogue);
-themeFilter.addEventListener('change', updateCatalogue);
+function clearLocalSelection() {
+  if (localDataSelect) localDataSelect.value = '';
+}
+
+searchInput.addEventListener('input', () => {
+  clearLocalSelection();
+  updateCatalogue();
+});
+themeFilter.addEventListener('change', () => {
+  clearLocalSelection();
+  updateCatalogue();
+});
+localDataSelect?.addEventListener('change', () => {
+  searchInput.value = '';
+  themeFilter.value = 'all';
+  updateCatalogue();
+
+  if (localDataSelect.value === 'all') {
+    catalogue.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    return;
+  }
+
+  const selectedCard = catalogue.querySelector(`[data-commitment-id="${localDataSelect.value}"]`);
+  if (!selectedCard) return;
+  const behavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+  selectedCard.scrollIntoView({ behavior, block: 'start' });
+  selectedCard.focus({ preventScroll: true });
+});
 
 document.querySelector('.sources-hero__lede').setAttribute(
   'data-source-context',

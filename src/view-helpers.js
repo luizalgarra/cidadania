@@ -132,7 +132,7 @@ export function renderSourcesCatalogue({
       `).join('');
 
       return `
-        <article class="source-catalogue-card" data-commitment-id="${escapeHtml(commitment.id)}" data-search-text="${escapeHtml(searchText)}">
+        <article id="compromisso-${escapeHtml(commitment.id)}" class="source-catalogue-card" data-commitment-id="${escapeHtml(commitment.id)}" data-search-text="${escapeHtml(searchText)}" tabindex="-1">
           <div class="source-catalogue-card__heading">
             <h3>${escapeHtml(commitment.title)}</h3>
             <span>${sources.length} fontes</span>

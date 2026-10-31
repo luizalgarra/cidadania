@@ -71,7 +71,16 @@
           <h2 id="sources-data-hub-title">Retrato de Sorocaba</h2>
           <p>Os cartões identificados como “Dados do território” usam somente resultados municipais verificados para Sorocaba. Nesta primeira versão, há indicadores de população idosa e educação em tempo integral. A fonte original, o tratamento, o período, o método e os limites acompanham cada número.</p>
         </div>
-        <a class="secondary-button" href="https://basedosdados.org/search?spatial_coverage=br_sp&amp;page=1" target="_blank" rel="noopener noreferrer">Explorar dados de São Paulo ↗</a>
+        <div class="sources-data-hub__actions">
+          <label for="sorocaba-commitment-select">Ver dados de um compromisso</label>
+          <select id="sorocaba-commitment-select">
+            <option value="" selected disabled>Escolha um compromisso</option>
+            <option value="cuidado-pessoa-idosa">Cuidado com pessoas idosas</option>
+            <option value="educacao-tempo-integral">Educação em tempo integral</option>
+            <option value="all">Ver todos os compromissos</option>
+          </select>
+          <a class="secondary-button" href="https://basedosdados.org/search?spatial_coverage=br_sp&amp;page=1" target="_blank" rel="noopener noreferrer">Explorar dados de São Paulo ↗</a>
+        </div>
       </aside>
 
       <div id="sources-catalogue" class="sources-catalogue"></div>
