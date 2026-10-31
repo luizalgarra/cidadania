@@ -41,15 +41,85 @@ export function sourceAttributionLabel(sourceContext, { fullName = false } = {})
   return `Compromissos apresentados por ${speaker} em seu ${event}, em ${dateLabel}.`;
 }
 
-export function renderSourcesCatalogue({ commitments, themes, publicSourcesFor }) {
+export function renderLocalSnapshot({ territory, indicators = [] } = {}) {
+  if (!territory?.name || indicators.length === 0) return '';
+
+  const cards = indicators.map((indicator) => {
+    const source = indicator.source ?? {};
+    const originalLink = source.originalUrl
+      ? `<a href="${escapeHtml(source.originalUrl)}" target="_blank" rel="noopener noreferrer">Fonte original: ${escapeHtml(source.originalOrganization)} ↗</a>`
+      : `<span>Fonte original: ${escapeHtml(source.originalOrganization)}</span>`;
+    const treatmentLink = source.datasetUrl
+      ? `<a href="${escapeHtml(source.datasetUrl)}" target="_blank" rel="noopener noreferrer">Tratamento: ${escapeHtml(source.treatmentOrganization)} ↗</a>`
+      : `<span>Tratamento: ${escapeHtml(source.treatmentOrganization)}</span>`;
+
+    return `
+      <article class="local-indicator-card">
+        <div class="local-indicator-card__heading">
+          <span>${escapeHtml(indicator.relationLabel)}</span>
+          <h4>${escapeHtml(indicator.title)}</h4>
+        </div>
+        <p class="local-indicator-card__value">${escapeHtml(indicator.displayValue)}</p>
+        ${indicator.supportingValue ? `<p class="local-indicator-card__supporting">${escapeHtml(indicator.supportingValue)}</p>` : ''}
+        <dl class="local-indicator-card__metadata">
+          <div aria-label="Período: ${escapeHtml(indicator.referencePeriod)}"><dt>Período</dt><dd>${escapeHtml(indicator.referencePeriod)}</dd></div>
+          <div><dt>Território</dt><dd>${escapeHtml(territory.name)} · código IBGE ${escapeHtml(territory.ibgeCode)}</dd></div>
+        </dl>
+        <details>
+          <summary>Como ler este dado</summary>
+          <p><strong>Método:</strong> ${escapeHtml(indicator.methodology)}</p>
+          <p><strong>Limite:</strong> ${escapeHtml(indicator.caveat)}</p>
+        </details>
+        <p class="local-indicator-card__sources">${originalLink}${treatmentLink}</p>
+      </article>
+    `;
+  }).join('');
+
+  return `
+    <aside class="local-snapshot" aria-label="Retrato de ${escapeHtml(territory.name)}">
+      <p class="source-label">Dados do território</p>
+      <h3>Retrato de ${escapeHtml(territory.name)}</h3>
+      <p>Estes dados ajudam a compreender o ponto de partida local. Um indicador municipal não prova, isoladamente, o cumprimento do compromisso nacional nem permite atribuir mudanças a um governo.</p>
+      <div class="local-snapshot__grid">${cards}</div>
+    </aside>
+  `;
+}
+
+export function renderCommitmentLocalSnapshot({
+  commitmentId,
+  territory,
+  indicatorsForCommitment = () => []
+} = {}) {
+  if (!commitmentId) return '';
+  return renderLocalSnapshot({
+    territory,
+    indicators: indicatorsForCommitment(commitmentId)
+  });
+}
+
+export function renderSourcesCatalogue({
+  commitments,
+  themes,
+  publicSourcesFor,
+  territory,
+  indicatorsForCommitment = () => []
+}) {
   return themes.map((theme) => {
     const themeCommitments = commitments.filter((commitment) => commitment.themeId === theme.id);
     const cards = themeCommitments.map((commitment) => {
       const sources = publicSourcesFor(commitment.id);
+      const indicators = indicatorsForCommitment(commitment.id);
       const searchText = [
         commitment.title,
         commitment.summary,
         theme.title,
+        ...(indicators.length > 0 ? [territory?.name] : []),
+        ...indicators.flatMap((indicator) => [
+          indicator.title,
+          indicator.displayValue,
+          indicator.supportingValue,
+          indicator.relationLabel
+        ]),
         ...sources.flatMap((source) => [source.title, source.description])
       ].join(' ').toLocaleLowerCase('pt-BR');
       const sourceItems = sources.map((source) => `
@@ -69,6 +139,7 @@ export function renderSourcesCatalogue({ commitments, themes, publicSourcesFor }
           </div>
           <p class="source-catalogue-card__summary">${escapeHtml(commitment.summary)}</p>
           <blockquote>${escapeHtml(commitment.excerpt)}</blockquote>
+          ${renderLocalSnapshot({ territory, indicators })}
           <div class="source-catalogue-card__sources">
             <h4>Fontes públicas para acompanhar</h4>
             <ul>${sourceItems}</ul>
@@ -90,7 +161,14 @@ export function renderSourcesCatalogue({ commitments, themes, publicSourcesFor }
   }).join('');
 }
 
-export function formatPlanAsText({ plan, commitment, sourceContext, publicSources = [] }) {
+export function formatPlanAsText({
+  plan,
+  commitment,
+  sourceContext,
+  publicSources = [],
+  localTerritory,
+  localIndicators = []
+}) {
   if (!plan || !commitment) return '';
   const origin = sourceContext?.speaker && sourceContext?.event && sourceContext?.dateLabel
     ? `compromisso apresentado por ${sourceContext.speaker} em seu ${sourceContext.event}, em ${sourceContext.dateLabel}.`
@@ -99,6 +177,14 @@ export function formatPlanAsText({ plan, commitment, sourceContext, publicSource
     `${source.title} — ${source.description}`,
     source.url
   ]);
+  const localLines = localIndicators.flatMap((indicator) => [
+    `${indicator.title}: ${indicator.displayValue}${indicator.supportingValue ? ` · ${indicator.supportingValue}` : ''}`,
+    `Relação com o compromisso: ${indicator.relationLabel}`,
+    `Período: ${indicator.referencePeriod}`,
+    `Como ler: ${indicator.caveat}`,
+    indicator.source?.originalUrl ? `Fonte original: ${indicator.source.originalUrl}` : '',
+    indicator.source?.datasetUrl ? `Base dos Dados: ${indicator.source.datasetUrl}` : ''
+  ].filter(Boolean));
   return [
     'COMPROMISSO EM AÇÃO',
     '',
@@ -123,6 +209,12 @@ export function formatPlanAsText({ plan, commitment, sourceContext, publicSource
     `Ação cidadã: ${plan.citizenBoundary}`,
     `Responsabilidade pública: ${plan.publicResponsibility}`,
     '',
+    ...(localLines.length > 0 ? [
+      `RETRATO DE ${String(localTerritory?.name ?? 'SOROCABA').toLocaleUpperCase('pt-BR')}`,
+      ...localLines,
+      'Este dado descreve uma dimensão da realidade local. Ele não prova, isoladamente, o cumprimento do compromisso nacional nem permite atribuir mudanças a um governo.',
+      ''
+    ] : []),
     ...(sourceLines.length > 0 ? ['ONDE SE INFORMAR E ACOMPANHAR', ...sourceLines, ''] : []),
     'Revisão: daqui a 7 dias.'
   ].filter((line, index, lines) => line !== '' || lines[index - 1] !== '').join('\n');

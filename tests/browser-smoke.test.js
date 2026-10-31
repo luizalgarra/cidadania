@@ -44,6 +44,24 @@ function dumpLandingDom(chrome, search = '') {
   return result.stdout;
 }
 
+function dumpSourcesDom(chrome) {
+  const profileDirectory = mkdtempSync(join(tmpdir(), 'compromisso-sources-chrome-'));
+  const sourcesPath = fileURLToPath(new URL('../src/fontes.html', import.meta.url));
+  const result = spawnSync(chrome, [
+    '--headless=new',
+    '--disable-gpu',
+    '--no-first-run',
+    '--no-default-browser-check',
+    '--allow-file-access-from-files',
+    `--user-data-dir=${profileDirectory}`,
+    '--dump-dom',
+    pathToFileURL(sourcesPath).href
+  ], { encoding: 'utf8', timeout: 15_000 });
+  rmSync(profileDirectory, { recursive: true, force: true });
+  assert.equal(result.status, 0, result.stderr);
+  return result.stdout;
+}
+
 test('renders the direct popular landing on the main URL', (t) => {
   if (process.env.RUN_BROWSER_SMOKE !== '1') {
     t.skip('Set RUN_BROWSER_SMOKE=1 in an environment allowed to launch Chrome');
@@ -81,4 +99,23 @@ test('does not restore the archived editorial landing from its old URL', (t) => 
   assert.match(dom, /class="popular-landing"/);
   assert.match(dom, /O que você pode fazer/i);
   assert.doesNotMatch(dom, /class="landing-process"/);
+});
+
+test('shows the verified Sorocaba snapshots in the public sources catalogue', (t) => {
+  if (process.env.RUN_BROWSER_SMOKE !== '1') {
+    t.skip('Set RUN_BROWSER_SMOKE=1 in an environment allowed to launch Chrome');
+    return;
+  }
+  const chrome = findChrome();
+  if (!chrome) {
+    t.skip('Chrome/Chromium is not available on this host');
+    return;
+  }
+
+  const dom = dumpSourcesDom(chrome);
+
+  assert.equal((dom.match(/class="local-snapshot"/g) ?? []).length, 2);
+  assert.match(dom, /114\.769 pessoas/);
+  assert.match(dom, /19\.784 matrículas/);
+  assert.match(dom, /código IBGE 3552205/);
 });

@@ -11,6 +11,7 @@ export const SOURCE_FILES = Object.freeze([
   'app-state.js',
   'logic.js',
   'commitments.js',
+  'sorocaba-data.js',
   'view-helpers.js'
 ]);
 

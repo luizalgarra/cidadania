@@ -1,4 +1,5 @@
 import { COMMITMENTS, SOURCE_CONTEXT, THEMES, publicSourcesFor } from './commitments.js';
+import { SOROCABA, indicatorsForCommitment } from './sorocaba-data.js';
 import { renderSourcesCatalogue } from './view-helpers.js';
 
 const catalogue = document.querySelector('#sources-catalogue');
@@ -10,7 +11,9 @@ const emptyState = document.querySelector('#sources-empty');
 catalogue.innerHTML = renderSourcesCatalogue({
   commitments: COMMITMENTS,
   themes: THEMES,
-  publicSourcesFor
+  publicSourcesFor,
+  territory: SOROCABA,
+  indicatorsForCommitment
 });
 
 for (const theme of THEMES) {

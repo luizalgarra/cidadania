@@ -5,6 +5,7 @@ import {
   SOURCE_CONTEXT,
   publicSourcesFor
 } from './commitments.js';
+import { SOROCABA, indicatorsForCommitment } from './sorocaba-data.js';
 import {
   getThemeCommitments,
   selectCandidates,
@@ -25,7 +26,8 @@ import {
   commitmentKindLabel,
   deriveStartDateFromTarget,
   sourceAttributionLabel,
-  formatPlanAsText
+  formatPlanAsText,
+  renderCommitmentLocalSnapshot
 } from './view-helpers.js';
 
 const STORAGE_KEY = 'compromisso-em-acao:v1';
@@ -239,7 +241,12 @@ function responsibilities(commitment) {
 
 function publicSources(commitment, placement) {
   const sources = publicSourcesFor(commitment.id);
-  if (sources.length === 0) return '';
+  const localSnapshot = renderCommitmentLocalSnapshot({
+    commitmentId: commitment.id,
+    territory: SOROCABA,
+    indicatorsForCommitment
+  });
+  if (sources.length === 0) return localSnapshot;
   const headingId = `public-sources-${placement}`;
   const items = sources.map((source) => `
     <li>
@@ -249,6 +256,7 @@ function publicSources(commitment, placement) {
   `).join('');
 
   return `
+    ${localSnapshot}
     <aside class="public-sources" aria-labelledby="${escapeHtml(headingId)}">
       <p class="source-label">Informação para agir melhor</p>
       <h3 id="${escapeHtml(headingId)}">Onde se informar e acompanhar</h3>
@@ -730,8 +738,8 @@ function renderPlan() {
       <form id="plan-form" novalidate>
         <div class="form-grid">
           <div class="field">
-            <label for="territory">Onde você quer começar? <span class="required-mark" aria-hidden="true">*</span></label>
-            <input id="territory" name="territory" data-plan-field value="${escapeHtml(input.territory)}" required autocomplete="off">
+            <label for="territory">Em que bairro ou contexto de Sorocaba você quer começar? <span class="required-mark" aria-hidden="true">*</span></label>
+            <input id="territory" name="territory" data-plan-field value="${escapeHtml(input.territory)}" placeholder="Ex.: meu bairro, escola ou unidade de saúde" required autocomplete="off">
           </div>
           <div class="field">
             <label for="availableTime">Quanto tempo você realmente dispõe? <span class="required-mark" aria-hidden="true">*</span></label>
@@ -908,7 +916,9 @@ function planAsText() {
     plan,
     commitment,
     sourceContext: SOURCE_CONTEXT,
-    publicSources: publicSourcesFor(commitment?.id)
+    publicSources: publicSourcesFor(commitment?.id),
+    localTerritory: SOROCABA,
+    localIndicators: indicatorsForCommitment(commitment?.id)
   });
 }
 
