@@ -29,6 +29,8 @@ test('publishes only verified municipal indicators for Sorocaba', async () => {
     assert.ok(indicator.caveat.length > 0);
     assert.match(indicator.source.datasetUrl, /^https:\/\/basedosdados\.org\//);
     assert.match(indicator.source.originalUrl, /^https:\/\//);
+    assert.match(indicator.illustration.src, /^\.\/assets\/sorocaba-.+\.jpg$/);
+    assert.ok(indicator.illustration.alt.length >= 40);
   }
 });
 

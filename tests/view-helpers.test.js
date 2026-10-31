@@ -27,6 +27,10 @@ test('renders a verified Sorocaba snapshot with provenance and methodological li
       relationLabel: 'Dado de contexto',
       methodology: 'Soma das faixas etárias a partir de 60 anos.',
       caveat: 'O Censo não mede a qualidade do cuidado.',
+      illustration: {
+        src: './assets/sorocaba-cuidado-pessoas-idosas.jpg',
+        alt: 'Grupo diverso de pessoas idosas convivendo em uma praça arborizada.'
+      },
       source: {
         originalOrganization: 'IBGE',
         treatmentOrganization: 'Base dos Dados',
@@ -45,6 +49,10 @@ test('renders a verified Sorocaba snapshot with provenance and methodological li
   assert.match(html, /Período: 2022/);
   assert.match(html, /não prova, isoladamente, o cumprimento/i);
   assert.match(html, /O Censo não mede a qualidade do cuidado/);
+  assert.match(html, /<figure class="local-indicator-card__illustration">/);
+  assert.match(html, /src="\.\/assets\/sorocaba-cuidado-pessoas-idosas\.jpg"/);
+  assert.match(html, /alt="Grupo diverso de pessoas idosas convivendo em uma praça arborizada\."/);
+  assert.match(html, /loading="lazy"/);
 });
 
 test('renders local data for a commitment without leaking another commitment snapshot', () => {

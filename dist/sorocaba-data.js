@@ -15,6 +15,10 @@ export const SOROCABA_INDICATORS = Object.freeze([
     retrievedAt: '2026-10-30',
     relation: 'context',
     relationLabel: 'Dado de contexto',
+    illustration: Object.freeze({
+      src: './assets/sorocaba-cuidado-pessoas-idosas.jpg',
+      alt: 'Ilustração de cinco pessoas idosas diversas caminhando e conversando em uma praça arborizada; uma delas usa cadeira de rodas.'
+    }),
     methodology: 'Soma das faixas de 60 a 64, 65 a 69, 70 a 74, 75 a 79, 80 a 84, 85 a 89, 90 a 94, 95 a 99 e 100 anos ou mais; proporção calculada sobre 723.682 habitantes.',
     caveat: 'O Censo descreve o tamanho e o perfil da população idosa em 2022; não mede acesso, continuidade ou qualidade do cuidado.',
     source: Object.freeze({
@@ -37,6 +41,10 @@ export const SOROCABA_INDICATORS = Object.freeze([
     retrievedAt: '2026-10-30',
     relation: 'direct',
     relationLabel: 'Indicador direto',
+    illustration: Object.freeze({
+      src: './assets/sorocaba-educacao-tempo-integral.jpg',
+      alt: 'Ilustração de estudantes diversos em uma escola, realizando experiências, leitura, arte e esporte; um estudante usa cadeira de rodas.'
+    }),
     methodology: 'Proporção entre 19.784 matrículas em tempo integral e 37.858 matrículas nos anos finais do ensino fundamental, considerando todas as dependências administrativas.',
     caveat: 'A classificação informa jornada e matrículas, mas não mede aprendizagem, alimentação, infraestrutura, proteção ou qualidade da experiência escolar. Um mesmo aluno pode ter mais de uma matrícula.',
     source: Object.freeze({

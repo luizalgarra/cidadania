@@ -46,6 +46,13 @@ export function renderLocalSnapshot({ territory, indicators = [] } = {}) {
 
   const cards = indicators.map((indicator) => {
     const source = indicator.source ?? {};
+    const illustration = indicator.illustration?.src && indicator.illustration?.alt
+      ? `
+        <figure class="local-indicator-card__illustration">
+          <img src="${escapeHtml(indicator.illustration.src)}" alt="${escapeHtml(indicator.illustration.alt)}" width="1200" height="800" loading="lazy" decoding="async">
+        </figure>
+      `
+      : '';
     const originalLink = source.originalUrl
       ? `<a href="${escapeHtml(source.originalUrl)}" target="_blank" rel="noopener noreferrer">Fonte original: ${escapeHtml(source.originalOrganization)} ↗</a>`
       : `<span>Fonte original: ${escapeHtml(source.originalOrganization)}</span>`;
@@ -55,6 +62,7 @@ export function renderLocalSnapshot({ territory, indicators = [] } = {}) {
 
     return `
       <article class="local-indicator-card">
+        ${illustration}
         <div class="local-indicator-card__heading">
           <span>${escapeHtml(indicator.relationLabel)}</span>
           <h4>${escapeHtml(indicator.title)}</h4>

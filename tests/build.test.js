@@ -4,7 +4,12 @@ import { mkdtemp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 
-import { buildSite } from '../scripts/build.mjs';
+import { buildSite, SOURCE_FILES } from '../scripts/build.mjs';
+
+test('declares both Sorocaba illustrations as publishable assets', () => {
+  assert.ok(SOURCE_FILES.includes('assets/sorocaba-cuidado-pessoas-idosas.jpg'));
+  assert.ok(SOURCE_FILES.includes('assets/sorocaba-educacao-tempo-integral.jpg'));
+});
 
 test('build copies only the declared static files and removes stale output', async (t) => {
   const root = await mkdtemp(join(tmpdir(), 'compromisso-build-'));

@@ -12,7 +12,9 @@ export const SOURCE_FILES = Object.freeze([
   'logic.js',
   'commitments.js',
   'sorocaba-data.js',
-  'view-helpers.js'
+  'view-helpers.js',
+  'assets/sorocaba-cuidado-pessoas-idosas.jpg',
+  'assets/sorocaba-educacao-tempo-integral.jpg'
 ]);
 
 export async function buildSite({ sourceDirectory, destinationDirectory, files = SOURCE_FILES }) {
