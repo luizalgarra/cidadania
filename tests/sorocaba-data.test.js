@@ -50,3 +50,70 @@ test('associates the verified snapshots only with the relevant commitments', asy
   assert.equal(education[0].supportingValue, '52,3% das matrículas dos anos finais');
   assert.deepEqual(subject.indicatorsForCommitment('regulacao-plataformas'), []);
 });
+
+test('publishes the complete 60+ age profile without double-counting grouped ages', async () => {
+  const subject = await loadSubject();
+  assert.ok(subject, 'the Sorocaba data module must exist');
+
+  const profile = subject.SOROCABA_ELDERLY_PROFILE;
+  assert.ok(profile, 'the elderly profile must exist');
+  assert.equal(profile.totalPopulation, 723682);
+  assert.equal(profile.elderlyPopulation, 114769);
+  assert.equal(profile.ageBands.length, 9);
+  assert.equal(
+    profile.ageBands.reduce((sum, band) => sum + band.total, 0),
+    114769
+  );
+  assert.equal(
+    profile.ageBands.reduce((sum, band) => sum + band.women, 0),
+    65557
+  );
+  assert.equal(
+    profile.ageBands.reduce((sum, band) => sum + band.men, 0),
+    49212
+  );
+});
+
+test('answers a simple elderly-population search by age band and sex', async () => {
+  const subject = await loadSubject();
+  assert.ok(subject, 'the Sorocaba data module must exist');
+
+  assert.deepEqual(subject.elderlyPopulationFor(), {
+    value: 114769,
+    ageLabel: '60 anos ou mais',
+    sexLabel: 'Todas as pessoas',
+    shareOfElderly: 100,
+    shareOfSorocaba: 15.9
+  });
+  assert.deepEqual(subject.elderlyPopulationFor({ ageBand: '80-84', sex: 'women' }), {
+    value: 5074,
+    ageLabel: '80 a 84 anos',
+    sexLabel: 'Mulheres',
+    shareOfElderly: 4.4,
+    shareOfSorocaba: 0.7
+  });
+  assert.deepEqual(subject.elderlyPopulationFor({ ageBand: '100-plus', sex: 'men' }), {
+    value: 17,
+    ageLabel: '100 anos ou mais',
+    sexLabel: 'Homens',
+    shareOfElderly: 0,
+    shareOfSorocaba: 0
+  });
+  assert.throws(
+    () => subject.elderlyPopulationFor({ ageBand: 'faixa-inexistente' }),
+    /faixa etária/i
+  );
+});
+
+test('derives plain-language highlights from the verified elderly profile', async () => {
+  const subject = await loadSubject();
+  assert.ok(subject, 'the Sorocaba data module must exist');
+
+  assert.deepEqual(subject.SOROCABA_ELDERLY_PROFILE.highlights, {
+    elderlyShareOfPopulation: 15.9,
+    womenShareOfElderly: 57.1,
+    population80Plus: 15130,
+    population80PlusShareOfElderly: 13.2,
+    population90Plus: 2456
+  });
+});

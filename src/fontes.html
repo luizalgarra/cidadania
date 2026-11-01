@@ -83,6 +83,99 @@
         </div>
       </aside>
 
+      <section id="elderly-explorer" class="elderly-explorer" aria-labelledby="elderly-explorer-title">
+        <header class="elderly-explorer__header">
+          <div>
+            <p class="eyebrow">Censo 2022 · Sorocaba</p>
+            <h2 id="elderly-explorer-title">Pesquise a população idosa</h2>
+            <p>Escolha uma faixa de idade e o sexo para conhecer o tamanho desse grupo. Os números mostram pessoas residentes; não informam, sozinhos, quem precisa de cuidado nem se o atendimento existente é suficiente.</p>
+          </div>
+          <a class="elderly-explorer__source" href="https://basedosdados.org/dataset/08a1546e-251f-4546-9fe0-b1e6ab2b203d?table=a886aa3c-cfe3-4885-a40c-54dab2f0cdd0" target="_blank" rel="noopener noreferrer">
+            <span>Fonte tratada</span>
+            Base dos Dados ↗
+          </a>
+        </header>
+
+        <div class="elderly-explorer__workspace">
+          <form class="elderly-explorer__filters" aria-label="Filtros da população idosa">
+            <div>
+              <label for="elderly-age-filter">Faixa de idade</label>
+              <select id="elderly-age-filter">
+                <option value="all">60 anos ou mais</option>
+                <option value="60-64">60 a 64 anos</option>
+                <option value="65-69">65 a 69 anos</option>
+                <option value="70-74">70 a 74 anos</option>
+                <option value="75-79">75 a 79 anos</option>
+                <option value="80-84">80 a 84 anos</option>
+                <option value="85-89">85 a 89 anos</option>
+                <option value="90-94">90 a 94 anos</option>
+                <option value="95-99">95 a 99 anos</option>
+                <option value="100-plus">100 anos ou mais</option>
+              </select>
+            </div>
+            <div>
+              <label for="elderly-sex-filter">Sexo</label>
+              <select id="elderly-sex-filter">
+                <option value="total">Todas as pessoas</option>
+                <option value="women">Mulheres</option>
+                <option value="men">Homens</option>
+              </select>
+            </div>
+          </form>
+
+          <output id="elderly-result" class="elderly-explorer__result" aria-live="polite">
+            <span id="elderly-result-context">Todas as pessoas · 60 anos ou mais</span>
+            <strong id="elderly-result-value">114.769</strong>
+            <b>pessoas</b>
+            <p id="elderly-result-share">15,9% da população de Sorocaba · 100% das pessoas com 60 anos ou mais</p>
+          </output>
+
+          <div class="elderly-ruler" aria-labelledby="elderly-ruler-title">
+            <div class="elderly-ruler__heading">
+              <h3 id="elderly-ruler-title">Régua de gerações</h3>
+              <span>cada linha é uma faixa etária</span>
+            </div>
+            <ol id="elderly-age-chart" class="elderly-ruler__chart"></ol>
+          </div>
+        </div>
+
+        <ul class="elderly-explorer__highlights" aria-label="Destaques do retrato da população idosa">
+          <li><strong>65.557</strong><span>mulheres, 57,1% da população com 60+</span></li>
+          <li><strong>15.130</strong><span>pessoas com 80 anos ou mais</span></li>
+          <li><strong>2.456</strong><span>pessoas com 90 anos ou mais</span></li>
+        </ul>
+
+        <details class="elderly-access">
+          <summary>Ver método, BigQuery e formas de download</summary>
+          <div class="elderly-access__intro">
+            <p><strong>Tabela:</strong> <code>basedosdados.br_ibge_censo_2022.populacao_idade_sexo</code></p>
+            <p>O recorte soma as duas formas disponíveis de declaração da idade — data de nascimento e idade presumida — para o município <code>3552205</code>, a partir de 60 anos. “Total” é calculado pela própria consulta, pois não existe como categoria nessa tabela.</p>
+          </div>
+          <div class="elderly-access__grid">
+            <section>
+              <h3>BigQuery</h3>
+              <pre><code id="elderly-bigquery-code">Carregando consulta…</code></pre>
+            </section>
+            <section>
+              <h3>Consultar com Python</h3>
+              <pre><code>import basedosdados as bd
+
+dados = bd.read_sql(
+    query=consulta,
+    billing_project_id="SEU_PROJETO_GOOGLE"
+)</code></pre>
+            </section>
+            <section>
+              <h3>Consultar com R</h3>
+              <pre><code>library(basedosdados)
+set_billing_id("SEU_PROJETO_GOOGLE")
+dados &lt;- read_sql(consulta)</code></pre>
+            </section>
+          </div>
+          <p class="elderly-access__note">Para executar consultas no BigQuery ou pelos pacotes, é necessário informar um projeto próprio do Google Cloud. A Base dos Dados documenta uma franquia mensal gratuita, sujeita às regras vigentes do Google.</p>
+        </details>
+      </section>
+
       <div id="sources-catalogue" class="sources-catalogue"></div>
       <p id="sources-empty" class="sources-empty" hidden>Nenhum compromisso corresponde à busca. Tente outra palavra ou selecione todos os temas.</p>
       <noscript><p>Ative o JavaScript para consultar os compromissos e suas fontes.</p></noscript>

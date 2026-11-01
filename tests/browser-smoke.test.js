@@ -119,3 +119,22 @@ test('shows the verified Sorocaba snapshots in the public sources catalogue', (t
   assert.match(dom, /19\.784 matrículas/);
   assert.match(dom, /código IBGE 3552205/);
 });
+
+test('renders the elderly search result and all generation rows', (t) => {
+  if (process.env.RUN_BROWSER_SMOKE !== '1') {
+    t.skip('Set RUN_BROWSER_SMOKE=1 in an environment allowed to launch Chrome');
+    return;
+  }
+  const chrome = findChrome();
+  if (!chrome) {
+    t.skip('Chrome/Chromium is not available on this host');
+    return;
+  }
+
+  const dom = dumpSourcesDom(chrome);
+
+  assert.match(dom, /id="elderly-result-value">114\.769</);
+  assert.equal((dom.match(/class="elderly-ruler__row"/g) ?? []).length, 9);
+  assert.match(dom, /60 a 64/);
+  assert.match(dom, /100 ou mais/);
+});

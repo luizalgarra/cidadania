@@ -1,5 +1,12 @@
 import { COMMITMENTS, SOURCE_CONTEXT, THEMES, publicSourcesFor } from './commitments.js';
-import { SOROCABA, indicatorsForCommitment } from './sorocaba-data.js';
+import {
+  SOROCABA,
+  SOROCABA_ELDERLY_PROFILE,
+  elderlyPopulationFor,
+  indicatorsForCommitment
+} from './sorocaba-data.js';
+import { elderlyChartRows, formatElderlyMetric } from './elderly-explorer.js';
+import { buildSorocabaElderlyQuery } from './sorocaba-query.js';
 import { renderSourcesCatalogue } from './view-helpers.js';
 
 const catalogue = document.querySelector('#sources-catalogue');
@@ -8,6 +15,17 @@ const themeFilter = document.querySelector('#sources-theme-filter');
 const localDataSelect = document.querySelector('#sorocaba-commitment-select');
 const resultCount = document.querySelector('#sources-result-count');
 const emptyState = document.querySelector('#sources-empty');
+const elderlyAgeFilter = document.querySelector('#elderly-age-filter');
+const elderlySexFilter = document.querySelector('#elderly-sex-filter');
+const elderlyResultContext = document.querySelector('#elderly-result-context');
+const elderlyResultValue = document.querySelector('#elderly-result-value');
+const elderlyResultShare = document.querySelector('#elderly-result-share');
+const elderlyAgeChart = document.querySelector('#elderly-age-chart');
+const elderlyBigQueryCode = document.querySelector('#elderly-bigquery-code');
+
+if (elderlyBigQueryCode) {
+  elderlyBigQueryCode.textContent = buildSorocabaElderlyQuery();
+}
 
 catalogue.innerHTML = renderSourcesCatalogue({
   commitments: COMMITMENTS,
@@ -66,6 +84,59 @@ function clearLocalSelection() {
   if (localDataSelect) localDataSelect.value = '';
 }
 
+function renderElderlyChart() {
+  if (!elderlyAgeChart || !elderlySexFilter || !elderlyAgeFilter) return;
+  const rows = elderlyChartRows({
+    profile: SOROCABA_ELDERLY_PROFILE,
+    sex: elderlySexFilter.value,
+    activeAgeBand: elderlyAgeFilter.value
+  });
+
+  const elements = rows.map((row) => {
+    const item = document.createElement('li');
+    item.className = 'elderly-ruler__row';
+    item.dataset.ageBand = row.id;
+
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.ariaLabel = `Mostrar ${row.label} anos`;
+    button.setAttribute('aria-pressed', String(row.active));
+
+    const label = document.createElement('span');
+    label.textContent = row.label;
+    const track = document.createElement('i');
+    const bar = document.createElement('b');
+    bar.style.width = `${row.widthPercent}%`;
+    track.append(bar);
+    const value = document.createElement('strong');
+    value.textContent = row.formattedValue;
+
+    button.append(label, track, value);
+    button.addEventListener('click', () => {
+      elderlyAgeFilter.value = row.id;
+      updateElderlyExplorer();
+    });
+    item.append(button);
+    return item;
+  });
+
+  elderlyAgeChart.replaceChildren(...elements);
+}
+
+function updateElderlyExplorer() {
+  if (!elderlyAgeFilter || !elderlySexFilter) return;
+  const metric = elderlyPopulationFor({
+    ageBand: elderlyAgeFilter.value,
+    sex: elderlySexFilter.value
+  });
+  const formatted = formatElderlyMetric(metric);
+
+  elderlyResultContext.textContent = formatted.context;
+  elderlyResultValue.textContent = formatted.value;
+  elderlyResultShare.textContent = formatted.share;
+  renderElderlyChart();
+}
+
 searchInput.addEventListener('input', () => {
   clearLocalSelection();
   updateCatalogue();
@@ -90,6 +161,10 @@ localDataSelect?.addEventListener('change', () => {
   selectedCard.scrollIntoView({ behavior, block: 'start' });
   selectedCard.focus({ preventScroll: true });
 });
+
+elderlyAgeFilter?.addEventListener('change', updateElderlyExplorer);
+elderlySexFilter?.addEventListener('change', updateElderlyExplorer);
+updateElderlyExplorer();
 
 document.querySelector('.sources-hero__lede').setAttribute(
   'data-source-context',

@@ -20,8 +20,10 @@ Os snapshots publicados ficam em `src/sorocaba-data.js`. Cada registro conserva 
 
 Primeira seleção publicada:
 
-- população com 60 anos ou mais, Censo 2022;
+- população com 60 anos ou mais, detalhada por faixa etária e sexo, Censo 2022;
 - matrículas dos anos finais do ensino fundamental em tempo integral, Censo Escolar 2023.
+
+A página `fontes.html` oferece uma pesquisa local da população idosa. O recorte usa a tabela tratada `basedosdados.br_ibge_censo_2022.populacao_idade_sexo`, preserva os nove grupos entre 60 e 100+ anos e permite alternar entre total, mulheres e homens. A consulta reproduzível está em `data/queries/sorocaba-populacao-idosa.sql`. Para executá-la no BigQuery, em Python ou em R, é necessário informar um projeto próprio do Google Cloud; nenhuma credencial fica no navegador.
 
 As consultas à Base dos Dados são executadas fora do navegador. Isso preserva credenciais e custos do BigQuery e mantém a aplicação estática. Antes de atualizar um snapshot, confira a cobertura temporal, o dicionário, a fonte original e se a definição do indicador permaneceu comparável.
 

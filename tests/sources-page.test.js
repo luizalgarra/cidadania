@@ -8,11 +8,38 @@ import * as viewHelpers from '../src/view-helpers.js';
 
 const sourcesPageHtml = readFileSync(new URL('../src/fontes.html', import.meta.url), 'utf8');
 
+test('emits a BigQuery query that sums both age-declaration forms available for Sorocaba', async () => {
+  const queryModule = await import('../src/sorocaba-query.js').catch(() => ({}));
+
+  assert.equal(typeof queryModule.buildSorocabaElderlyQuery, 'function');
+  if (typeof queryModule.buildSorocabaElderlyQuery !== 'function') return;
+
+  const query = queryModule.buildSorocabaElderlyQuery();
+  assert.match(query, /id_municipio\s*=\s*'3552205'/);
+  assert.match(query, /idade_anos\s*>=\s*60/);
+  assert.match(query, /SUM\(populacao\)/);
+  assert.doesNotMatch(query, /forma_declaracao_idade\s*=\s*'Total'/);
+  assert.doesNotMatch(query, /sexo\s*=\s*'Total'/);
+});
+
 test('offers a direct selector for the two commitments with Sorocaba data', () => {
   assert.match(sourcesPageHtml, /id="sorocaba-commitment-select"/);
   assert.match(sourcesPageHtml, /value="cuidado-pessoa-idosa">Cuidado com pessoas idosas<\/option>/);
   assert.match(sourcesPageHtml, /value="educacao-tempo-integral">Educação em tempo integral<\/option>/);
   assert.match(sourcesPageHtml, /value="all">Ver todos os compromissos<\/option>/);
+});
+
+test('offers a simple elderly-data search with reproducible BigQuery access', () => {
+  assert.match(sourcesPageHtml, /id="elderly-explorer"/);
+  assert.match(sourcesPageHtml, /id="elderly-age-filter"/);
+  assert.match(sourcesPageHtml, /id="elderly-sex-filter"/);
+  assert.match(sourcesPageHtml, /id="elderly-result-value"/);
+  assert.match(
+    sourcesPageHtml,
+    /basedosdados\.br_ibge_censo_2022\.populacao_idade_sexo/
+  );
+  assert.match(sourcesPageHtml, /Consultar com Python/);
+  assert.match(sourcesPageHtml, /Consultar com R/);
 });
 
 test('renders the complete public-source catalogue grouped by theme', () => {

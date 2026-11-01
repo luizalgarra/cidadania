@@ -8,6 +8,8 @@ export const SOURCE_FILES = Object.freeze([
   'styles.css',
   'app.js',
   'sources-page.js',
+  'elderly-explorer.js',
+  'sorocaba-query.js',
   'app-state.js',
   'logic.js',
   'commitments.js',
