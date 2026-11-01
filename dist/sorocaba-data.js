@@ -39,6 +39,56 @@ export const SOROCABA_ELDERLY_PROFILE = Object.freeze({
   })
 });
 
+const AUTONOMY_AGE_BANDS = Object.freeze([
+  Object.freeze({
+    id: '60-64',
+    label: '60 a 64 anos',
+    total: Object.freeze({ peopleEstimate: 37819, meanMonthlyIncome: 2841.78, medianMonthlyIncome: 1500 }),
+    men: Object.freeze({ peopleEstimate: 17114, meanMonthlyIncome: 3923.74, medianMonthlyIncome: 2400 }),
+    women: Object.freeze({ peopleEstimate: 20705, meanMonthlyIncome: 1947.51, medianMonthlyIncome: 1212 })
+  }),
+  Object.freeze({
+    id: '65-69',
+    label: '65 a 69 anos',
+    total: Object.freeze({ peopleEstimate: 28437, meanMonthlyIncome: 2653.18, medianMonthlyIncome: 1500 }),
+    men: Object.freeze({ peopleEstimate: 12293, meanMonthlyIncome: 3348, medianMonthlyIncome: 2500 }),
+    women: Object.freeze({ peopleEstimate: 16144, meanMonthlyIncome: 2124.08, medianMonthlyIncome: 1212 })
+  }),
+  Object.freeze({
+    id: '70-74',
+    label: '70 a 74 anos',
+    total: Object.freeze({ peopleEstimate: 21721, meanMonthlyIncome: 2799.53, medianMonthlyIncome: 1500 }),
+    men: Object.freeze({ peopleEstimate: 9442, meanMonthlyIncome: 3936.8, medianMonthlyIncome: 2500 }),
+    women: Object.freeze({ peopleEstimate: 12279, meanMonthlyIncome: 1925.02, medianMonthlyIncome: 1212 })
+  }),
+  Object.freeze({
+    id: '75-79',
+    label: '75 a 79 anos',
+    total: Object.freeze({ peopleEstimate: 13155, meanMonthlyIncome: 2511.26, medianMonthlyIncome: 1400 }),
+    men: Object.freeze({ peopleEstimate: 5585, meanMonthlyIncome: 3203.79, medianMonthlyIncome: 2000 }),
+    women: Object.freeze({ peopleEstimate: 7570, meanMonthlyIncome: 2000.32, medianMonthlyIncome: 1212 })
+  }),
+  Object.freeze({
+    id: '80-plus',
+    label: '80 anos ou mais',
+    total: Object.freeze({ peopleEstimate: 16153, meanMonthlyIncome: 2317.27, medianMonthlyIncome: 1300 }),
+    men: Object.freeze({ peopleEstimate: 5441, meanMonthlyIncome: 2902.87, medianMonthlyIncome: 1950 }),
+    women: Object.freeze({ peopleEstimate: 10712, meanMonthlyIncome: 2019.83, medianMonthlyIncome: 1212 })
+  })
+]);
+
+export const SOROCABA_ELDERLY_AUTONOMY_PROFILE = Object.freeze({
+  referencePeriod: '2022',
+  retrievedAt: '2026-11-01',
+  ageBands: AUTONOMY_AGE_BANDS,
+  source: Object.freeze({
+    organization: 'IBGE · Censo Demográfico 2022',
+    sidraTable: '10299',
+    tableUrl: 'https://sidra.ibge.gov.br/tabela/10299',
+    apiUrl: 'https://servicodados.ibge.gov.br/api/v3/agregados/10299/periodos/2022/variaveis/1641%7C13502%7C13503?localidades=N6%5B3552205%5D&classificacao=2%5B6794,4,5%5D%7C629%5B32385%5D%7C58%5B1152,1153,1154,1155,2503%5D'
+  })
+});
+
 const ELDERLY_SEX_LABELS = Object.freeze({
   total: 'Todas as pessoas',
   women: 'Mulheres',
@@ -71,6 +121,25 @@ export function elderlyPopulationFor({ ageBand = 'all', sex = 'total' } = {}) {
     sexLabel: ELDERLY_SEX_LABELS[sex],
     shareOfElderly: roundOneDecimal(100 * value / SOROCABA_ELDERLY_PROFILE.elderlyPopulation),
     shareOfSorocaba: roundOneDecimal(100 * value / SOROCABA_ELDERLY_PROFILE.totalPopulation)
+  };
+}
+
+export function elderlyAutonomyFor({ ageBand = '60-64', sex = 'total' } = {}) {
+  if (!(sex in ELDERLY_SEX_LABELS)) {
+    throw new RangeError(`Sexo não disponível: ${sex}`);
+  }
+
+  const selectedBand = SOROCABA_ELDERLY_AUTONOMY_PROFILE.ageBands.find((band) => (
+    band.id === ageBand
+  ));
+  if (!selectedBand) {
+    throw new RangeError(`Faixa etária não disponível: ${ageBand}`);
+  }
+
+  return {
+    ageLabel: selectedBand.label,
+    sexLabel: ELDERLY_SEX_LABELS[sex],
+    ...selectedBand[sex]
   };
 }
 

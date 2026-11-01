@@ -117,3 +117,29 @@ test('derives plain-language highlights from the verified elderly profile', asyn
     population90Plus: 2456
   });
 });
+
+test('answers an elderly autonomy search without merging sample estimates into the population universe', async () => {
+  const subject = await loadSubject();
+  assert.ok(subject, 'the Sorocaba data module must exist');
+
+  assert.deepEqual(subject.elderlyAutonomyFor(), {
+    ageLabel: '60 a 64 anos',
+    sexLabel: 'Todas as pessoas',
+    peopleEstimate: 37819,
+    meanMonthlyIncome: 2841.78,
+    medianMonthlyIncome: 1500
+  });
+  assert.deepEqual(subject.elderlyAutonomyFor({ ageBand: '80-plus', sex: 'women' }), {
+    ageLabel: '80 anos ou mais',
+    sexLabel: 'Mulheres',
+    peopleEstimate: 10712,
+    meanMonthlyIncome: 2019.83,
+    medianMonthlyIncome: 1212
+  });
+  assert.equal(subject.SOROCABA_ELDERLY_AUTONOMY_PROFILE.ageBands.length, 5);
+  assert.equal(subject.SOROCABA_ELDERLY_AUTONOMY_PROFILE.source.sidraTable, '10299');
+  assert.throws(
+    () => subject.elderlyAutonomyFor({ sex: 'categoria-inexistente' }),
+    /sexo/i
+  );
+});

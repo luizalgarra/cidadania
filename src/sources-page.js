@@ -1,10 +1,13 @@
 import { COMMITMENTS, SOURCE_CONTEXT, THEMES, publicSourcesFor } from './commitments.js';
 import {
   SOROCABA,
+  SOROCABA_ELDERLY_AUTONOMY_PROFILE,
   SOROCABA_ELDERLY_PROFILE,
+  elderlyAutonomyFor,
   elderlyPopulationFor,
   indicatorsForCommitment
 } from './sorocaba-data.js';
+import { autonomyChartRows, formatAutonomyMetric } from './elderly-autonomy.js';
 import { elderlyChartRows, formatElderlyMetric } from './elderly-explorer.js';
 import { buildSorocabaElderlyQuery } from './sorocaba-query.js';
 import { renderSourcesCatalogue } from './view-helpers.js';
@@ -22,6 +25,13 @@ const elderlyResultValue = document.querySelector('#elderly-result-value');
 const elderlyResultShare = document.querySelector('#elderly-result-share');
 const elderlyAgeChart = document.querySelector('#elderly-age-chart');
 const elderlyBigQueryCode = document.querySelector('#elderly-bigquery-code');
+const autonomyAgeFilter = document.querySelector('#autonomy-age-filter');
+const autonomySexFilter = document.querySelector('#autonomy-sex-filter');
+const autonomyResultContext = document.querySelector('#autonomy-result-context');
+const autonomyMedianValue = document.querySelector('#autonomy-median-value');
+const autonomyMeanValue = document.querySelector('#autonomy-mean-value');
+const autonomyPeopleValue = document.querySelector('#autonomy-people-value');
+const autonomyAgeChart = document.querySelector('#autonomy-age-chart');
 
 if (elderlyBigQueryCode) {
   elderlyBigQueryCode.textContent = buildSorocabaElderlyQuery();
@@ -137,6 +147,60 @@ function updateElderlyExplorer() {
   renderElderlyChart();
 }
 
+function renderAutonomyChart() {
+  if (!autonomyAgeChart || !autonomySexFilter || !autonomyAgeFilter) return;
+  const rows = autonomyChartRows({
+    profile: SOROCABA_ELDERLY_AUTONOMY_PROFILE,
+    sex: autonomySexFilter.value,
+    activeAgeBand: autonomyAgeFilter.value
+  });
+
+  const elements = rows.map((row) => {
+    const item = document.createElement('li');
+    item.className = 'autonomy-ledger__row';
+    item.dataset.ageBand = row.id;
+
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.ariaLabel = `Mostrar renda mediana de ${row.label} anos`;
+    button.setAttribute('aria-pressed', String(row.active));
+
+    const label = document.createElement('span');
+    label.textContent = row.label;
+    const track = document.createElement('i');
+    const bar = document.createElement('b');
+    bar.style.width = `${row.widthPercent}%`;
+    track.append(bar);
+    const value = document.createElement('strong');
+    value.textContent = row.formattedValue;
+
+    button.append(label, track, value);
+    button.addEventListener('click', () => {
+      autonomyAgeFilter.value = row.id;
+      updateAutonomyExplorer();
+    });
+    item.append(button);
+    return item;
+  });
+
+  autonomyAgeChart.replaceChildren(...elements);
+}
+
+function updateAutonomyExplorer() {
+  if (!autonomyAgeFilter || !autonomySexFilter) return;
+  const metric = elderlyAutonomyFor({
+    ageBand: autonomyAgeFilter.value,
+    sex: autonomySexFilter.value
+  });
+  const formatted = formatAutonomyMetric(metric);
+
+  autonomyResultContext.textContent = formatted.context;
+  autonomyMedianValue.textContent = formatted.median;
+  autonomyMeanValue.textContent = formatted.mean;
+  autonomyPeopleValue.textContent = formatted.people;
+  renderAutonomyChart();
+}
+
 searchInput.addEventListener('input', () => {
   clearLocalSelection();
   updateCatalogue();
@@ -164,7 +228,10 @@ localDataSelect?.addEventListener('change', () => {
 
 elderlyAgeFilter?.addEventListener('change', updateElderlyExplorer);
 elderlySexFilter?.addEventListener('change', updateElderlyExplorer);
+autonomyAgeFilter?.addEventListener('change', updateAutonomyExplorer);
+autonomySexFilter?.addEventListener('change', updateAutonomyExplorer);
 updateElderlyExplorer();
+updateAutonomyExplorer();
 
 document.querySelector('.sources-hero__lede').setAttribute(
   'data-source-context',

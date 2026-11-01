@@ -138,3 +138,23 @@ test('renders the elderly search result and all generation rows', (t) => {
   assert.match(dom, /60 a 64/);
   assert.match(dom, /100 ou mais/);
 });
+
+test('renders elderly individual income as a separate autonomy estimate', (t) => {
+  if (process.env.RUN_BROWSER_SMOKE !== '1') {
+    t.skip('Set RUN_BROWSER_SMOKE=1 in an environment allowed to launch Chrome');
+    return;
+  }
+  const chrome = findChrome();
+  if (!chrome) {
+    t.skip('Chrome/Chromium is not available on this host');
+    return;
+  }
+
+  const dom = dumpSourcesDom(chrome);
+
+  assert.match(dom, /id="elderly-autonomy"/);
+  assert.match(dom, /id="autonomy-median-value">R\$ 1\.500,00</);
+  assert.equal((dom.match(/class="autonomy-ledger__row"/g) ?? []).length, 5);
+  assert.match(dom, /Estimativa da amostra do Censo 2022/);
+  assert.match(dom, /não mede patrimônio, dívidas nem controle sobre os recursos/i);
+});

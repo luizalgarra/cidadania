@@ -10,6 +10,7 @@ test('declares both Sorocaba illustrations as publishable assets', () => {
   assert.ok(SOURCE_FILES.includes('assets/sorocaba-cuidado-pessoas-idosas.jpg'));
   assert.ok(SOURCE_FILES.includes('assets/sorocaba-educacao-tempo-integral.jpg'));
   assert.ok(SOURCE_FILES.includes('elderly-explorer.js'));
+  assert.ok(SOURCE_FILES.includes('elderly-autonomy.js'));
 });
 
 test('build copies only the declared static files and removes stale output', async (t) => {

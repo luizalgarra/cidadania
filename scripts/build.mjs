@@ -9,6 +9,7 @@ export const SOURCE_FILES = Object.freeze([
   'app.js',
   'sources-page.js',
   'elderly-explorer.js',
+  'elderly-autonomy.js',
   'sorocaba-query.js',
   'app-state.js',
   'logic.js',

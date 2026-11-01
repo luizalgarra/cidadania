@@ -176,6 +176,92 @@ dados &lt;- read_sql(consulta)</code></pre>
         </details>
       </section>
 
+      <section id="elderly-autonomy" class="elderly-autonomy" aria-labelledby="elderly-autonomy-title">
+        <header class="elderly-autonomy__header">
+          <div>
+            <p class="eyebrow">Censo 2022 · renda individual · Sorocaba</p>
+            <h2 id="elderly-autonomy-title">Autonomia econômica</h2>
+            <p>Veja a renda mensal individual estimada das pessoas idosas de Sorocaba. Este retrato ajuda a compreender autonomia, mas não mede patrimônio, dívidas nem controle sobre os recursos no domicílio.</p>
+          </div>
+          <a class="elderly-autonomy__source" href="https://sidra.ibge.gov.br/tabela/10299" target="_blank" rel="noopener noreferrer">
+            <span>Fonte oficial</span>
+            SIDRA 10299 ↗
+          </a>
+        </header>
+
+        <div class="elderly-autonomy__workspace">
+          <form class="autonomy-filters" aria-label="Filtros da autonomia econômica">
+            <fieldset>
+              <legend class="visually-hidden">Escolha a faixa etária e o sexo</legend>
+              <div>
+                <label for="autonomy-age-filter">Faixa de idade</label>
+                <select id="autonomy-age-filter">
+                  <option value="60-64">60 a 64 anos</option>
+                  <option value="65-69">65 a 69 anos</option>
+                  <option value="70-74">70 a 74 anos</option>
+                  <option value="75-79">75 a 79 anos</option>
+                  <option value="80-plus">80 anos ou mais</option>
+                </select>
+              </div>
+              <div>
+                <label for="autonomy-sex-filter">Sexo</label>
+                <select id="autonomy-sex-filter">
+                  <option value="total">Todas as pessoas</option>
+                  <option value="women">Mulheres</option>
+                  <option value="men">Homens</option>
+                </select>
+              </div>
+            </fieldset>
+          </form>
+
+          <output class="autonomy-card" aria-live="polite">
+            <span class="autonomy-card__stamp">Caderneta de autonomia · estimativa</span>
+            <span id="autonomy-result-context" class="autonomy-card__context">Todas as pessoas · 60 a 64 anos</span>
+            <strong id="autonomy-median-value">R$ 1.500,00</strong>
+            <b>mediana da renda mensal individual</b>
+            <dl>
+              <div>
+                <dt>Média mensal</dt>
+                <dd id="autonomy-mean-value">R$ 2.841,78</dd>
+              </div>
+              <div>
+                <dt>Universo estimado</dt>
+                <dd id="autonomy-people-value">37.819 pessoas consideradas na estimativa</dd>
+              </div>
+            </dl>
+          </output>
+
+          <div class="autonomy-ledger" aria-labelledby="autonomy-ledger-title">
+            <div class="autonomy-ledger__heading">
+              <h3 id="autonomy-ledger-title">Mediana por idade</h3>
+              <span>compare o valor típico</span>
+            </div>
+            <ol id="autonomy-age-chart" class="autonomy-ledger__chart"></ol>
+          </div>
+        </div>
+
+        <p class="elderly-autonomy__caveat"><strong>Como ler:</strong> a mediana divide o grupo ao meio e costuma representar melhor a renda típica do que a média. Estimativa da amostra do Censo 2022; estes totais não devem ser comparados diretamente com as 114.769 pessoas do levantamento universal por idade e sexo.</p>
+
+        <details class="autonomy-method">
+          <summary>Ver fonte, consulta e limites deste indicador</summary>
+          <div class="autonomy-method__grid">
+            <div>
+              <h3>O que está sendo medido</h3>
+              <p>Rendimento nominal mensal individual das pessoas de 14 anos ou mais, aqui filtrado para cinco faixas a partir dos 60 anos. Os valores são nominais e se referem a 2022.</p>
+            </div>
+            <div>
+              <h3>O que não significa</h3>
+              <p>Renda individual não equivale a patrimônio, segurança financeira, ausência de dívidas ou poder de decisão sobre o dinheiro no domicílio. “Fora da força de trabalho” também não é sinônimo de aposentadoria.</p>
+            </div>
+            <div>
+              <h3>Reproduza os dados</h3>
+              <p><a href="https://servicodados.ibge.gov.br/api/v3/agregados/10299/periodos/2022/variaveis/1641%7C13502%7C13503?localidades=N6%5B3552205%5D&amp;classificacao=2%5B6794,4,5%5D%7C629%5B32385%5D%7C58%5B1152,1153,1154,1155,2503%5D" target="_blank" rel="noopener noreferrer">Abrir a consulta na API do IBGE ↗</a></p>
+              <p>Variáveis: pessoas consideradas (<code>1641</code>), média (<code>13502</code>) e mediana (<code>13503</code>).</p>
+            </div>
+          </div>
+        </details>
+      </section>
+
       <div id="sources-catalogue" class="sources-catalogue"></div>
       <p id="sources-empty" class="sources-empty" hidden>Nenhum compromisso corresponde à busca. Tente outra palavra ou selecione todos os temas.</p>
       <noscript><p>Ative o JavaScript para consultar os compromissos e suas fontes.</p></noscript>
