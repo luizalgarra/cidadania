@@ -143,3 +143,49 @@ test('answers an elderly autonomy search without merging sample estimates into t
     /sexo/i
   );
 });
+
+test('compares urban accessibility conditions for elderly residents in the same IBGE table', async () => {
+  const subject = await loadSubject();
+  assert.ok(subject, 'the Sorocaba data module must exist');
+
+  assert.equal(subject.SOROCABA_ELDERLY_ACCESSIBILITY_PROFILE.source.sidraTable, '6591');
+  assert.equal(subject.SOROCABA_ELDERLY_ACCESSIBILITY_PROFILE.ageBands.length, 2);
+  assert.deepEqual(subject.elderlyAccessibilityFor(), {
+    ageLabel: '60 a 69 anos',
+    metricLabel: 'Calçada / passeio',
+    conditionLabel: 'moram em via com calçada / passeio',
+    observed: 61206,
+    universe: 63566,
+    percentage: 96.3,
+    favorable: true
+  });
+  assert.deepEqual(subject.elderlyAccessibilityFor({ ageBand: '70-plus', metric: 'obstacle' }), {
+    ageLabel: '70 anos ou mais',
+    metricLabel: 'Obstáculo na calçada',
+    conditionLabel: 'moram em via com obstáculo na calçada',
+    observed: 30851,
+    universe: 47016,
+    percentage: 65.6,
+    favorable: false
+  });
+  assert.throws(
+    () => subject.elderlyAccessibilityFor({ metric: 'categoria-inexistente' }),
+    /condição do entorno/i
+  );
+});
+
+test('keeps health and social-protection indicators in their own declared universes', async () => {
+  const subject = await loadSubject();
+  assert.ok(subject, 'the Sorocaba data module must exist');
+
+  assert.deepEqual(subject.SOROCABA_ELDERLY_HEALTH_PROFILE.indicator, {
+    label: 'Internações por fratura de fêmur em pessoas com 60+',
+    value: 21.89,
+    unit: 'por 10 mil habitantes',
+    referencePeriod: '2024',
+    target2029: 20
+  });
+  assert.equal(subject.SOROCABA_ELDERLY_PROTECTION_PROFILE.bpcElderly.value, 3890);
+  assert.equal(subject.SOROCABA_ELDERLY_PROTECTION_PROFILE.bpcElderly.referencePeriod, 'junho de 2022');
+  assert.match(subject.SOROCABA_ELDERLY_PROTECTION_PROFILE.caveat, /não representa toda a população idosa/i);
+});

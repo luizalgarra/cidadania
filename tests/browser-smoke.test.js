@@ -158,3 +158,25 @@ test('renders elderly individual income as a separate autonomy estimate', (t) =>
   assert.match(dom, /Estimativa da amostra do Censo 2022/);
   assert.match(dom, /não mede patrimônio, dívidas nem controle sobre os recursos/i);
 });
+
+test('renders the three additional elderly-data layers without merging their universes', (t) => {
+  if (process.env.RUN_BROWSER_SMOKE !== '1') {
+    t.skip('Set RUN_BROWSER_SMOKE=1 in an environment allowed to launch Chrome');
+    return;
+  }
+  const chrome = findChrome();
+  if (!chrome) {
+    t.skip('Chrome/Chromium is not available on this host');
+    return;
+  }
+
+  const dom = dumpSourcesDom(chrome);
+
+  assert.match(dom, /id="elderly-accessibility"/);
+  assert.match(dom, /id="accessibility-result-value">96,3%/);
+  assert.equal((dom.match(/class="accessibility-street__row"/g) ?? []).length, 5);
+  assert.match(dom, /id="elderly-health"/);
+  assert.match(dom, /21,89 por 10 mil/);
+  assert.match(dom, /id="elderly-protection"/);
+  assert.match(dom, /3\.890 pessoas idosas/);
+});

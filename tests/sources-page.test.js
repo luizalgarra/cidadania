@@ -42,6 +42,18 @@ test('offers a simple elderly-data search with reproducible BigQuery access', ()
   assert.match(sourcesPageHtml, /Consultar com R/);
 });
 
+test('adds separate, sourced views for urban accessibility, health and social protection', () => {
+  assert.match(sourcesPageHtml, /id="elderly-accessibility"/);
+  assert.match(sourcesPageHtml, /id="accessibility-age-filter"/);
+  assert.match(sourcesPageHtml, /id="accessibility-result-value"/);
+  assert.match(sourcesPageHtml, /SIDRA 6591/);
+  assert.match(sourcesPageHtml, /id="elderly-health"/);
+  assert.match(sourcesPageHtml, /21,89/);
+  assert.match(sourcesPageHtml, /id="elderly-protection"/);
+  assert.match(sourcesPageHtml, /3\.890/);
+  assert.match(sourcesPageHtml, /universos diferentes/i);
+});
+
 test('renders the complete public-source catalogue grouped by theme', () => {
   assert.equal(typeof viewHelpers.renderSourcesCatalogue, 'function');
   if (typeof viewHelpers.renderSourcesCatalogue !== 'function') return;

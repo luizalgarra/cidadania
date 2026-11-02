@@ -1,12 +1,15 @@
 import { COMMITMENTS, SOURCE_CONTEXT, THEMES, publicSourcesFor } from './commitments.js';
 import {
   SOROCABA,
+  SOROCABA_ELDERLY_ACCESSIBILITY_PROFILE,
   SOROCABA_ELDERLY_AUTONOMY_PROFILE,
   SOROCABA_ELDERLY_PROFILE,
+  elderlyAccessibilityFor,
   elderlyAutonomyFor,
   elderlyPopulationFor,
   indicatorsForCommitment
 } from './sorocaba-data.js';
+import { accessibilityChartRows, formatAccessibilityMetric } from './elderly-accessibility.js';
 import { autonomyChartRows, formatAutonomyMetric } from './elderly-autonomy.js';
 import { elderlyChartRows, formatElderlyMetric } from './elderly-explorer.js';
 import { buildSorocabaElderlyQuery } from './sorocaba-query.js';
@@ -32,6 +35,13 @@ const autonomyMedianValue = document.querySelector('#autonomy-median-value');
 const autonomyMeanValue = document.querySelector('#autonomy-mean-value');
 const autonomyPeopleValue = document.querySelector('#autonomy-people-value');
 const autonomyAgeChart = document.querySelector('#autonomy-age-chart');
+const accessibilityAgeFilter = document.querySelector('#accessibility-age-filter');
+const accessibilityResult = document.querySelector('#accessibility-result');
+const accessibilityResultContext = document.querySelector('#accessibility-result-context');
+const accessibilityResultValue = document.querySelector('#accessibility-result-value');
+const accessibilityResultCount = document.querySelector('#accessibility-result-count');
+const accessibilityChart = document.querySelector('#accessibility-chart');
+let activeAccessibilityMetric = 'sidewalk';
 
 if (elderlyBigQueryCode) {
   elderlyBigQueryCode.textContent = buildSorocabaElderlyQuery();
@@ -201,6 +211,61 @@ function updateAutonomyExplorer() {
   renderAutonomyChart();
 }
 
+function renderAccessibilityChart() {
+  if (!accessibilityChart || !accessibilityAgeFilter) return;
+  const rows = accessibilityChartRows({
+    profile: SOROCABA_ELDERLY_ACCESSIBILITY_PROFILE,
+    ageBand: accessibilityAgeFilter.value,
+    activeMetric: activeAccessibilityMetric
+  });
+
+  const elements = rows.map((row) => {
+    const item = document.createElement('li');
+    item.className = 'accessibility-street__row';
+    item.dataset.metric = row.id;
+    item.dataset.tone = row.favorable ? 'favorable' : 'attention';
+
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.setAttribute('aria-pressed', String(row.active));
+    button.ariaLabel = `Mostrar ${row.label.toLocaleLowerCase('pt-BR')}`;
+
+    const label = document.createElement('span');
+    label.textContent = row.label;
+    const track = document.createElement('i');
+    const bar = document.createElement('b');
+    bar.style.width = `${row.value}%`;
+    track.append(bar);
+    const value = document.createElement('strong');
+    value.textContent = row.formattedValue;
+
+    button.append(label, track, value);
+    button.addEventListener('click', () => {
+      activeAccessibilityMetric = row.id;
+      updateAccessibilityExplorer();
+    });
+    item.append(button);
+    return item;
+  });
+
+  accessibilityChart.replaceChildren(...elements);
+}
+
+function updateAccessibilityExplorer() {
+  if (!accessibilityAgeFilter) return;
+  const metric = elderlyAccessibilityFor({
+    ageBand: accessibilityAgeFilter.value,
+    metric: activeAccessibilityMetric
+  });
+  const formatted = formatAccessibilityMetric(metric);
+
+  accessibilityResultContext.textContent = formatted.context;
+  accessibilityResultValue.textContent = formatted.value;
+  accessibilityResultCount.textContent = formatted.count;
+  accessibilityResult.dataset.tone = formatted.tone;
+  renderAccessibilityChart();
+}
+
 searchInput.addEventListener('input', () => {
   clearLocalSelection();
   updateCatalogue();
@@ -230,8 +295,10 @@ elderlyAgeFilter?.addEventListener('change', updateElderlyExplorer);
 elderlySexFilter?.addEventListener('change', updateElderlyExplorer);
 autonomyAgeFilter?.addEventListener('change', updateAutonomyExplorer);
 autonomySexFilter?.addEventListener('change', updateAutonomyExplorer);
+accessibilityAgeFilter?.addEventListener('change', updateAccessibilityExplorer);
 updateElderlyExplorer();
 updateAutonomyExplorer();
+updateAccessibilityExplorer();
 
 document.querySelector('.sources-hero__lede').setAttribute(
   'data-source-context',

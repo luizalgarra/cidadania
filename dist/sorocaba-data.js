@@ -89,6 +89,114 @@ export const SOROCABA_ELDERLY_AUTONOMY_PROFILE = Object.freeze({
   })
 });
 
+const ACCESSIBILITY_METRICS = Object.freeze([
+  Object.freeze({
+    id: 'sidewalk',
+    label: 'Calçada / passeio',
+    conditionLabel: 'moram em via com calçada / passeio',
+    favorable: true
+  }),
+  Object.freeze({
+    id: 'obstacle',
+    label: 'Obstáculo na calçada',
+    conditionLabel: 'moram em via com obstáculo na calçada',
+    favorable: false
+  }),
+  Object.freeze({
+    id: 'ramp',
+    label: 'Rampa para cadeirante',
+    conditionLabel: 'moram em via com rampa para cadeirante',
+    favorable: true
+  }),
+  Object.freeze({
+    id: 'transit-stop',
+    label: 'Ponto de ônibus / van',
+    conditionLabel: 'moram em via com ponto de ônibus / van',
+    favorable: true
+  }),
+  Object.freeze({
+    id: 'lighting',
+    label: 'Iluminação pública',
+    conditionLabel: 'moram em via com iluminação pública',
+    favorable: true
+  })
+]);
+
+export const SOROCABA_ELDERLY_ACCESSIBILITY_PROFILE = Object.freeze({
+  referencePeriod: '2022',
+  retrievedAt: '2026-11-01',
+  metrics: ACCESSIBILITY_METRICS,
+  ageBands: Object.freeze([
+    Object.freeze({
+      id: '60-69',
+      label: '60 a 69 anos',
+      universe: 63566,
+      values: Object.freeze({
+        sidewalk: 61206,
+        obstacle: 43313,
+        ramp: 6527,
+        'transit-stop': 11917,
+        lighting: 62738
+      })
+    }),
+    Object.freeze({
+      id: '70-plus',
+      label: '70 anos ou mais',
+      universe: 47016,
+      values: Object.freeze({
+        sidewalk: 45543,
+        obstacle: 30851,
+        ramp: 5152,
+        'transit-stop': 8742,
+        lighting: 46519
+      })
+    })
+  ]),
+  source: Object.freeze({
+    organization: 'IBGE · Censo Demográfico 2022',
+    sidraTable: '6591',
+    tableUrl: 'https://sidra.ibge.gov.br/tabela/6591',
+    apiUrl: 'https://servicodados.ibge.gov.br/api/v3/agregados/6591/periodos/2022/variaveis/9598?localidades=N6%5B3552205%5D&classificacao=2%5B6794%5D%7C58%5B3520,3244%5D%7C14%5B200,72254,72258,72266,72270,72274%5D'
+  })
+});
+
+export const SOROCABA_ELDERLY_HEALTH_PROFILE = Object.freeze({
+  indicator: Object.freeze({
+    label: 'Internações por fratura de fêmur em pessoas com 60+',
+    value: 21.89,
+    unit: 'por 10 mil habitantes',
+    referencePeriod: '2024',
+    target2029: 20
+  }),
+  source: Object.freeze({
+    organization: 'Secretaria da Saúde de Sorocaba',
+    title: 'Plano Municipal de Saúde 2026–2029 · indicador 41',
+    url: 'https://saude.sorocaba.sp.gov.br/wp-content/uploads/2026/03/plano-municipal-2026-a-2029-com-o-anexo-1.pdf',
+    originalSystem: 'SIH/DATASUS'
+  }),
+  caveat: 'A taxa mede internações hospitalares registradas, não o número de quedas, pessoas únicas, qualidade do cuidado ou cobertura da atenção básica.'
+});
+
+export const SOROCABA_ELDERLY_PROTECTION_PROFILE = Object.freeze({
+  cadUnicoElderly: Object.freeze({
+    label: 'Pessoas idosas em famílias com renda de até 3 salários mínimos no Cadastro Único',
+    value: 13675,
+    referencePeriod: 'março de 2021'
+  }),
+  bpcElderly: Object.freeze({
+    label: 'Pessoas idosas beneficiárias do BPC',
+    value: 3890,
+    referencePeriod: 'junho de 2022'
+  }),
+  source: Object.freeze({
+    organization: 'Secretaria da Cidadania de Sorocaba',
+    title: 'Projeto básico do serviço de Centro-Dia do Idoso',
+    url: 'https://cidadania.sorocaba.sp.gov.br/editalselecao/wp-content/uploads/sites/2/2022/10/anexo-i-projeto-basico.pdf',
+    bpcReference: 'Cadastro Único e BPC/LOAS'
+  }),
+  caveat: 'É um retrato histórico de públicos cadastrados ou beneficiários; não representa toda a população idosa, nem todas as pessoas idosas em pobreza ou que precisam de proteção.'
+});
+
 const ELDERLY_SEX_LABELS = Object.freeze({
   total: 'Todas as pessoas',
   women: 'Mulheres',
@@ -140,6 +248,33 @@ export function elderlyAutonomyFor({ ageBand = '60-64', sex = 'total' } = {}) {
     ageLabel: selectedBand.label,
     sexLabel: ELDERLY_SEX_LABELS[sex],
     ...selectedBand[sex]
+  };
+}
+
+export function elderlyAccessibilityFor({ ageBand = '60-69', metric = 'sidewalk' } = {}) {
+  const selectedBand = SOROCABA_ELDERLY_ACCESSIBILITY_PROFILE.ageBands.find((band) => (
+    band.id === ageBand
+  ));
+  if (!selectedBand) {
+    throw new RangeError(`Faixa etária não disponível: ${ageBand}`);
+  }
+
+  const selectedMetric = SOROCABA_ELDERLY_ACCESSIBILITY_PROFILE.metrics.find((item) => (
+    item.id === metric
+  ));
+  if (!selectedMetric) {
+    throw new RangeError(`Condição do entorno não disponível: ${metric}`);
+  }
+
+  const observed = selectedBand.values[metric];
+  return {
+    ageLabel: selectedBand.label,
+    metricLabel: selectedMetric.label,
+    conditionLabel: selectedMetric.conditionLabel,
+    observed,
+    universe: selectedBand.universe,
+    percentage: roundOneDecimal(100 * observed / selectedBand.universe),
+    favorable: selectedMetric.favorable
   };
 }
 

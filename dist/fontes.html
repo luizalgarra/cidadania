@@ -69,7 +69,7 @@
         <div>
           <p class="eyebrow">Recorte municipal · código IBGE 3552205</p>
           <h2 id="sources-data-hub-title">Retrato de Sorocaba</h2>
-          <p>Os cartões identificados como “Dados do território” usam somente resultados municipais verificados para Sorocaba. Nesta primeira versão, há indicadores de população idosa e educação em tempo integral. A fonte original, o tratamento, o período, o método e os limites acompanham cada número.</p>
+          <p>Os cartões identificados como “Dados do território” usam somente resultados municipais verificados para Sorocaba. Para pessoas idosas, o retrato agora reúne população, renda, acessibilidade urbana, saúde e proteção social. A fonte, o período, o universo e os limites acompanham cada número.</p>
         </div>
         <div class="sources-data-hub__actions">
           <label for="sorocaba-commitment-select">Ver dados de um compromisso</label>
@@ -260,6 +260,99 @@ dados &lt;- read_sql(consulta)</code></pre>
             </div>
           </div>
         </details>
+      </section>
+
+      <section class="elderly-dimensions" aria-labelledby="elderly-dimensions-title">
+        <header class="elderly-dimensions__header">
+          <div>
+            <p class="eyebrow">Do domicílio à rede de cuidado · Sorocaba</p>
+            <h2 id="elderly-dimensions-title">Outras condições para envelhecer com dignidade</h2>
+            <p>A renda conta apenas uma parte da história. A rua que a pessoa encontra, o cuidado de saúde e o acesso à proteção social são dimensões diferentes — por isso, cada painel mantém seu próprio universo e período.</p>
+          </div>
+          <nav class="elderly-dimensions__nav" aria-label="Dimensões do retrato da pessoa idosa">
+            <a href="#elderly-accessibility">A rua</a>
+            <a href="#elderly-health">A saúde</a>
+            <a href="#elderly-protection">A proteção</a>
+          </nav>
+        </header>
+
+        <article id="elderly-accessibility" class="elderly-accessibility" aria-labelledby="elderly-accessibility-title">
+          <header class="dimension-panel__heading">
+            <div>
+              <p class="dimension-panel__index">A rua · Censo 2022</p>
+              <h3 id="elderly-accessibility-title">Acessibilidade urbana</h3>
+              <p>Compare as condições do entorno onde vivem pessoas de 60 a 69 anos e de 70 anos ou mais. O dado descreve a via observada pelo Censo, não a mobilidade individual de cada morador.</p>
+            </div>
+            <a href="https://sidra.ibge.gov.br/tabela/6591" target="_blank" rel="noopener noreferrer"><span>Fonte oficial</span>SIDRA 6591 ↗</a>
+          </header>
+
+          <div class="accessibility-workspace">
+            <form class="accessibility-filter" aria-label="Filtro da acessibilidade urbana">
+              <label for="accessibility-age-filter">Faixa de idade</label>
+              <select id="accessibility-age-filter">
+                <option value="60-69">60 a 69 anos</option>
+                <option value="70-plus">70 anos ou mais</option>
+              </select>
+              <p>O universo considera moradores em domicílios particulares permanentes ocupados nos setores selecionados pela Pesquisa Urbanística do Entorno.</p>
+            </form>
+
+            <output id="accessibility-result" class="accessibility-result" aria-live="polite" data-tone="favorable">
+              <span id="accessibility-result-context">60 a 69 anos · Calçada / passeio</span>
+              <strong id="accessibility-result-value">96,3%</strong>
+              <p id="accessibility-result-count">61.206 de 63.566 pessoas moram em via com calçada / passeio</p>
+            </output>
+
+            <div class="accessibility-street" aria-labelledby="accessibility-street-title">
+              <div class="accessibility-street__heading">
+                <h4 id="accessibility-street-title">O que existe na via</h4>
+                <span>toque em uma condição</span>
+              </div>
+              <ol id="accessibility-chart" class="accessibility-street__chart"></ol>
+            </div>
+          </div>
+
+          <details class="dimension-method">
+            <summary>Ver consulta, universo e limites</summary>
+            <div class="dimension-method__grid">
+              <div><h4>Como foi calculado</h4><p>Para cada faixa etária, dividimos os moradores na condição selecionada pelo total de moradores dos setores pesquisados: 63.566 pessoas de 60 a 69 anos e 47.016 pessoas de 70 anos ou mais.</p></div>
+              <div><h4>Como interpretar</h4><p>“Obstáculo na calçada” é uma condição desfavorável; nas demais linhas, a presença é favorável. Respostas “não declarado” permanecem no universo total.</p></div>
+              <div><h4>Reproduza o recorte</h4><p><a href="https://servicodados.ibge.gov.br/api/v3/agregados/6591/periodos/2022/variaveis/9598?localidades=N6%5B3552205%5D&amp;classificacao=2%5B6794%5D%7C58%5B3520,3244%5D%7C14%5B200,72254,72258,72266,72270,72274%5D" target="_blank" rel="noopener noreferrer">Abrir a consulta na API do IBGE ↗</a></p></div>
+            </div>
+          </details>
+        </article>
+
+        <div class="care-protection-grid">
+          <article id="elderly-health" class="care-card care-card--health" aria-labelledby="elderly-health-title">
+            <header>
+              <p class="dimension-panel__index">A saúde · ano-base 2024</p>
+              <h3 id="elderly-health-title">Quedas que chegam ao hospital</h3>
+            </header>
+            <div class="care-card__number"><strong>21,89</strong><span>internações por fratura de fêmur<br>por 10 mil pessoas com 60+</span></div>
+            <div class="health-target" aria-label="Meta municipal para 2029">
+              <span>2024 <b>21,89</b></span><i aria-hidden="true"></i><span>meta 2029 <b>20,00</b></span>
+            </div>
+            <p>O Plano Municipal de Saúde propõe reduzir a taxa com avaliação do risco de quedas, fortalecimento e equilíbrio, orientação a cuidadores e capacitação da atenção básica.</p>
+            <p class="care-card__caveat"><strong>Limite:</strong> mede internações registradas no SIH/DATASUS, não todas as quedas, pessoas únicas nem qualidade do cuidado.</p>
+            <a class="care-card__source" href="https://saude.sorocaba.sp.gov.br/wp-content/uploads/2026/03/plano-municipal-2026-a-2029-com-o-anexo-1.pdf" target="_blank" rel="noopener noreferrer">Plano Municipal de Saúde · indicador 41 ↗</a>
+          </article>
+
+          <article id="elderly-protection" class="care-card care-card--protection" aria-labelledby="elderly-protection-title">
+            <header>
+              <p class="dimension-panel__index">A proteção · retrato histórico</p>
+              <h3 id="elderly-protection-title">Quem aparece na rede social</h3>
+            </header>
+            <dl class="protection-ledger">
+              <div><dt>junho de 2022</dt><dd><strong>3.890</strong> pessoas idosas beneficiárias do BPC</dd></div>
+              <div><dt>março de 2021</dt><dd><strong>13.675</strong> pessoas idosas em famílias com renda de até 3 salários mínimos no Cadastro Único</dd></div>
+            </dl>
+            <p>Os dois números ajudam a dimensionar públicos alcançados por cadastros e benefícios. O BPC é uma garantia de um salário mínimo para pessoas idosas de baixa renda que atendem aos critérios legais.</p>
+            <p class="care-card__caveat"><strong>Limite:</strong> são períodos e universos diferentes. O retrato é histórico e não representa toda a população idosa, toda a pobreza ou toda necessidade de proteção.</p>
+            <div class="care-card__sources">
+              <a href="https://cidadania.sorocaba.sp.gov.br/editalselecao/wp-content/uploads/sites/2/2022/10/anexo-i-projeto-basico.pdf" target="_blank" rel="noopener noreferrer">Fonte municipal dos números ↗</a>
+              <a href="https://www.gov.br/mds/pt-br/acoes-e-programas/SUAS/beneficios-assistenciais/beneficio-assistencial-ao-idoso-e-a-pessoa-com-deficiencia-bpc" target="_blank" rel="noopener noreferrer">Entenda o BPC no MDS ↗</a>
+            </div>
+          </article>
+        </div>
       </section>
 
       <div id="sources-catalogue" class="sources-catalogue"></div>
