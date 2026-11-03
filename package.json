@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test",
+    "test": "TZ=America/Sao_Paulo node --test",
     "build": "node scripts/build.mjs"
   }
 }
