@@ -5,6 +5,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 export const SOURCE_FILES = Object.freeze([
   'index.html',
   'fontes.html',
+  'idosos.html',
   'styles.css',
   'app.js',
   'sources-page.js',
