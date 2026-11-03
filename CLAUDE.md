@@ -27,10 +27,8 @@ App web estático (pt-BR, mobile-first) para refletir sobre compromissos do disc
 
 ## Deploy
 
-No ar em https://cidadania.institutointersistemico.com.br — Cloudflare Worker `compromisso-em-acao` (só assets estáticos, conta Luiz Algarra). Publicar:
+No ar em https://cidadania.institutointersistemico.com.br — Cloudflare Worker `compromisso-em-acao` (só assets estáticos, conta Luiz Algarra), config em `wrangler.jsonc`. Repo: https://github.com/luizalgarra/cidadania.
 
-```
-npm test && npm run build && npx wrangler deploy --assets=dist --name=compromisso-em-acao --compatibility-date=2026-11-01 --domain=cidadania.institutointersistemico.com.br
-```
+Push na `main` publica sozinho (Cloudflare Workers Builds: `npm test` → `npx wrangler deploy`). Como `dist/` é versionado, rode `npm run build` e commite `dist/` antes do push. Deploy manual, se preciso: `npx wrangler deploy`.
 
 O domínio raiz `institutointersistemico.com.br` é outro app (Lovable, repo `luizalgarra/senior-vertem`) — não mexer. Workers redireciona `/x.html` → `/x` (307), normal. O antigo `.openai/hosting.json` (OpenAI Sites) ficou obsoleto.
