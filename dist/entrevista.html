@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Entrevista e plano pessoal — Sorocaba</title><link rel="stylesheet" href="./styles.css"></head>
+<body class="sources-page-body"><a class="skip-link" href="#interview">Pular para o conteúdo</a>
+<header class="site-header"><a class="brand" href="./idosos.html">Compromisso em Ação · Sorocaba</a><a href="./idosos.html#localizador">Encontrar CRAS e UBS</a></header>
+<main class="elderly-guide" id="interview" tabindex="-1">
+<section id="interview-intro"><p class="eyebrow">Escuta e orientação · 8 perguntas</p><h1>Que apoio pode ajudar no seu dia a dia?</h1><p>Responda sobre você ou, com a concordância da pessoa idosa, ajude-a a responder. No final, você recebe um plano com os caminhos que fazem sentido para as respostas.</p><p class="guide-note">Não pedimos nome, CPF, endereço ou diagnóstico. As respostas não são enviadas nem salvas pela aplicação: ficam na memória enquanto esta página estiver aberta. Ao recarregar, você começa de novo. Não coloque informações pessoais em campos externos sem conferir o serviço.</p><p>Esta entrevista orienta a procura por serviços. Não faz diagnóstico, não calcula renda familiar e não confirma direito a benefícios.</p></section>
+<form id="interview-form" autocomplete="off">
+<fieldset class="guide-card interview-question"><legend>1. Qual é a faixa etária da pessoa?</legend><label><input type="radio" name="age" value="60-64" required> <span>60 a 64 anos</span></label>
+<label><input type="radio" name="age" value="65+" required> <span>65 anos ou mais</span></label>
+<label><input type="radio" name="age" value="under60" required> <span>Menos de 60 anos</span></label>
+<label><input type="radio" name="age" value="unknown" required> <span>Não sei / prefiro não responder</span></label></fieldset>
+<fieldset class="guide-card interview-question"><legend>2. A renda disponível dá conta das necessidades básicas?</legend><label><input type="radio" name="income" value="hard" required> <span>Não, faltam recursos para despesas básicas</span></label>
+<label><input type="radio" name="income" value="enough" required> <span>Sim, no momento</span></label>
+<label><input type="radio" name="income" value="unknown" required> <span>Não sei / prefiro não responder</span></label></fieldset>
+<fieldset class="guide-card interview-question"><legend>3. A pessoa recebe algum destes benefícios?</legend><label><input type="radio" name="benefit" value="none" required> <span>Não recebe aposentadoria, pensão ou BPC</span></label>
+<label><input type="radio" name="benefit" value="pension" required> <span>Recebe aposentadoria ou pensão</span></label>
+<label><input type="radio" name="benefit" value="bpc" required> <span>Recebe BPC</span></label>
+<label><input type="radio" name="benefit" value="pending" required> <span>Tem pedido em análise ou dificuldade com o benefício</span></label>
+<label><input type="radio" name="benefit" value="unknown" required> <span>Não sei / prefiro não responder</span></label></fieldset>
+<fieldset class="guide-card interview-question"><legend>4. Como está o Cadastro Único da família?</legend><label><input type="radio" name="cad" value="yes" required> <span>Cadastrada e sem mudanças a informar</span></label>
+<label><input type="radio" name="cad" value="update" required> <span>Precisa atualizar ou houve mudanças</span></label>
+<label><input type="radio" name="cad" value="no" required> <span>Não está cadastrada</span></label>
+<label><input type="radio" name="cad" value="unknown" required> <span>Não sei / prefiro não responder</span></label></fieldset>
+<fieldset class="guide-card interview-question"><legend>5. Há deficiência ou impedimento de longo prazo que a pessoa queira avaliar para apoio?</legend><label><input type="radio" name="disability" value="yes" required> <span>Sim</span></label>
+<label><input type="radio" name="disability" value="no" required> <span>Não</span></label>
+<label><input type="radio" name="disability" value="unknown" required> <span>Não sei / prefiro não responder</span></label></fieldset>
+<fieldset class="guide-card interview-question"><legend>6. A pessoa precisa de ajuda para acessar cuidados de saúde?</legend><label><input type="radio" name="care" value="yes" required> <span>Sim, consulta, vacinação ou acompanhamento</span></label>
+<label><input type="radio" name="care" value="no" required> <span>Não neste momento</span></label>
+<label><input type="radio" name="care" value="unknown" required> <span>Não sei / prefiro não responder</span></label></fieldset>
+<fieldset class="guide-card interview-question"><legend>7. Como é sair de casa para buscar atendimento?</legend><label><input type="radio" name="mobility" value="hard" required> <span>É difícil ou não consegue sair</span></label>
+<label><input type="radio" name="mobility" value="easy" required> <span>Consegue sair</span></label>
+<label><input type="radio" name="mobility" value="unknown" required> <span>Não sei / prefiro não responder</span></label></fieldset>
+<fieldset class="guide-card interview-question"><legend>8. Há apoio suficiente para as tarefas do dia a dia?</legend><label><input type="radio" name="support" value="little" required> <span>Não, falta apoio ou quem cuida está sobrecarregado</span></label>
+<label><input type="radio" name="support" value="enough" required> <span>Sim</span></label>
+<label><input type="radio" name="support" value="unknown" required> <span>Não sei / prefiro não responder</span></label></fieldset>
+<div class="guide-actions"><button class="primary-button" type="submit">Ver meu plano de ação →</button><button class="quiet-button erase-interview" type="button">Apagar respostas</button></div>
+</form>
+<section id="personal-plan" hidden tabindex="-1" aria-labelledby="plan-title"><p class="eyebrow">Seu plano pessoal · Sorocaba</p><h1 id="plan-title">Um passo de cada vez</h1><p id="plan-date"></p><p>As indicações abaixo são caminhos para buscar avaliação e apoio. A concessão de benefícios depende dos critérios oficiais e da análise do órgão responsável.</p><p id="plan-scope" class="guide-note"></p><div id="plan-items"></div>
+<div class="guide-card"><h2>Organize o próximo contato</h2><ol><li>Escolha uma das indicações abaixo para começar.</li><li>Ligue e confirme a unidade responsável pelo endereço, o agendamento e os documentos.</li><li>Anote a orientação e o protocolo. Combine quando vai acompanhar o retorno.</li></ol><p>Data combinada: ____________________</p><p>Orientação / protocolo: ____________________</p></div>
+<div class="guide-actions plan-controls"><button id="print-plan" type="button" class="primary-button">Imprimir ou salvar como PDF</button><button id="edit-interview" type="button" class="quiet-button">Rever respostas</button><button class="quiet-button erase-interview" type="button">Apagar tudo e recomeçar</button></div>
+<p class="guide-note plan-controls">A impressão inclui somente o plano, não o questionário. O arquivo ou papel pode revelar necessidades pessoais; escolha onde guardá-lo.</p></section>
+<footer class="guide-footer"><p>Fontes de orientação consultadas em 03/11/2026. Guia independente, sem vínculo de atendimento com a Prefeitura ou o INSS.</p><a href="./idosos.html">Voltar ao guia de Sorocaba</a></footer>
+</main><script type="module" src="./elderly-interview.js"></script></body></html>

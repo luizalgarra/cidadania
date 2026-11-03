@@ -4674,3 +4674,24 @@ legend {
   .guide-card { padding: 20px; }
   .elderly-guide .primary-button { white-space: normal; text-align: center; }
 }
+.service-filters { display: flex; flex-wrap: wrap; gap: 16px; align-items: end; }
+.service-filters > div { flex: 1 1 240px; }
+.service-filters label { display: block; font-weight: 700; margin-bottom: 6px; }
+.service-filters input, .service-filters select { width: 100%; min-height: 48px; padding: 10px; border: 1px solid #56745f; border-radius: 8px; background: white; color: #193a2c; font: inherit; }
+.guide-choices a[aria-current] { background: #1d6242; color: white; }
+#need-result:focus { outline: 3px solid #26724c; outline-offset: 6px; }
+#localizador .guide-actions a { min-height: 44px; white-space: normal; }
+.interview-question { margin: 24px 0; }
+.interview-question legend { font-weight: 700; padding: 0 8px; }
+.interview-question label { display: flex; gap: 12px; align-items: center; padding: 12px 4px; cursor: pointer; }
+.interview-question input { width: 22px; height: 22px; flex-shrink: 0; accent-color: #246846; }
+#personal-plan:focus { outline: none; }
+.plan-controls { margin-top: 24px; }
+@media print {
+  body:has(#interview) .site-header, body:has(#interview) .skip-link,
+  #interview-form, #interview-intro, .plan-controls { display: none !important; }
+  #personal-plan[hidden] { display: none !important; }
+  #interview { max-width: none; padding: 0; color: black; font-size: 11pt; }
+  #interview .guide-card { break-inside: avoid; border: 1px solid #888; margin: 12pt 0; padding: 12pt; }
+  #personal-plan a::after { content: " (" attr(href) ")"; font-size: 9pt; overflow-wrap: anywhere; }
+}

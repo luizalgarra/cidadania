@@ -17,9 +17,36 @@
 <section class="guide-hero">
 <div><p class="eyebrow">Pessoas idosas · Sorocaba</p><h1>Sou idoso ou cuido de alguém.<br><span>Por onde começar?</span></h1>
 <p>Você não precisa descobrir tudo de uma vez. Escolha o que precisa hoje e encontre um primeiro caminho.</p>
-<nav class="guide-choices" aria-label="O que você precisa hoje?"><a href="#renda">Preciso de apoio com a renda →</a><a href="#saude">Preciso cuidar da saúde →</a><a href="#numeros">Quero entender os números →</a></nav>
+<p><a class="primary-button" href="./entrevista.html">Responder à entrevista e receber meu plano →</a></p>
+<h2>O que você precisa resolver hoje?</h2>
+<nav class="guide-choices" aria-label="O que você precisa hoje?">
+<a href="#renda" data-need="income">Estou com dificuldade para pagar as contas →</a>
+<a href="#renda" data-need="benefit">Tenho dúvidas sobre aposentadoria ou BPC →</a>
+<a href="#saude" data-need="health">Preciso de consulta, vacina ou acompanhamento →</a>
+<a href="#saude" data-need="home">Cuido de alguém que tem dificuldade para sair de casa →</a>
+<a href="#primeiro-passo" data-need="help">Quero ajudar uma pessoa idosa →</a>
+</nav>
+<p><a href="#numeros">Quero entender os números</a></p>
 </div>
 <img src="./assets/sorocaba-cuidado-pessoas-idosas.jpg" alt="Ilustração de pessoas idosas brasileiras em uma cena de convivência" width="640" height="480">
+</section>
+<section id="need-result" class="guide-section" hidden aria-labelledby="need-title" tabindex="-1">
+<p class="eyebrow">Seu primeiro caminho</p><h2 id="need-title"></h2>
+<div class="guide-card"><h3>Onde procurar</h3><p id="need-where"></p><h3>O que perguntar</h3><p id="need-question"></p><div id="need-actions" class="guide-actions"></div></div>
+</section>
+<section id="localizador" class="guide-section" aria-labelledby="locator-title">
+<p class="eyebrow">Atendimento em Sorocaba</p><h2 id="locator-title">Encontre um CRAS ou uma UBS</h2>
+<p>Busque pelo nome da unidade, bairro mencionado no endereço ou rua. A busca não calcula distância nem identifica automaticamente a unidade responsável pelo seu endereço.</p>
+<div class="service-filters">
+<div><label for="service-search">Bairro, rua ou nome da unidade</label><input id="service-search" type="search" placeholder="Ex.: São Bento, Éden, Wanel Ville" aria-describedby="service-limits"></div>
+<div><label for="service-type">Tipo de atendimento</label><select id="service-type"><option value="all">CRAS e UBS</option><option value="CRAS">CRAS · assistência social</option><option value="UBS">UBS · saúde</option></select></div>
+<button type="button" id="service-clear" class="quiet-button">Limpar busca</button>
+</div>
+<p id="service-limits" class="guide-note">Confirme por telefone: “Esta unidade atende meu endereço? Preciso agendar? O que devo levar?”. A localização no mapa é uma busca pelo endereço, não uma área de cobertura confirmada.</p>
+<p id="service-count" role="status" aria-live="polite"></p>
+<div id="service-results" class="guide-grid"></div>
+<noscript><p>Para filtrar as unidades, ative o JavaScript. Você também pode consultar as listas oficiais abaixo.</p></noscript>
+<p class="guide-source">Diretórios consultados em 03/11/2026; contatos não testados por ligação. Esta lista não se atualiza automaticamente. Fontes: <a href="https://cidadania.sorocaba.sp.gov.br/destaques/cras/" target="_blank" rel="noopener noreferrer">CRAS ↗</a> e <a href="https://saude.sorocaba.sp.gov.br/destaques/unidades-basicas-de-saude/" target="_blank" rel="noopener noreferrer">UBS ↗</a>.</p>
 </section>
 <section id="renda" class="guide-section">
 <p class="eyebrow">01 · Renda e apoio</p><h2>O dinheiro está curto ou há dúvidas sobre um benefício?</h2>
@@ -44,8 +71,9 @@
 <p class="guide-note">Retrato fixo a partir do resultado de consulta fornecido pelo usuário em 03/11/2026. Extração sem data informada; consulta não reexecutada pela aplicação. Os dados não se atualizam automaticamente. BPC/LOAS pode incluir pessoas com deficiência de 60 anos ou mais.</p>
 <a class="source-link" href="./fontes.html#elderly-protection">Ver as 11 categorias, valores, consulta e fontes →</a>
 </section>
-<section class="guide-section guide-next"><p class="eyebrow">Um passo possível</p><h2>Hoje, escolha só uma coisa.</h2><p>Anote uma dúvida, encontre o telefone do serviço e combine o próximo passo com a pessoa idosa, respeitando suas escolhas. Guarde a orientação recebida e o protocolo, quando houver.</p><p>Se você está ajudando alguém, pode começar oferecendo companhia para procurar informação ou atendimento.</p><a class="primary-button" href="./">Quero montar meu plano de ação →</a></section>
+<section id="primeiro-passo" class="guide-section guide-next"><p class="eyebrow">Um passo possível</p><h2>Hoje, escolha só uma coisa.</h2><p>Anote uma dúvida, encontre o telefone do serviço e combine o próximo passo com a pessoa idosa, respeitando suas escolhas. Guarde a orientação recebida e o protocolo, quando houver.</p><p>Se você está ajudando alguém, pode começar oferecendo companhia para procurar informação ou atendimento.</p><a class="primary-button" href="./">Quero montar meu plano de ação →</a></section>
 <footer class="guide-footer"><p>Guia informativo independente do Compromisso em Ação. Não é um canal de atendimento da Prefeitura ou do INSS. Você não precisa informar dados pessoais nesta página.</p><p>Fontes consultadas em 03/11/2026. Serviços e horários podem mudar; confirme nos canais oficiais vinculados acima.</p><a href="./fontes.html">Voltar aos compromissos e fontes públicas</a></footer>
 </main>
+<script type="module" src="./elderly-guide.js"></script>
 </body>
 </html>
