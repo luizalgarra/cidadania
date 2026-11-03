@@ -54,6 +54,29 @@ test('adds separate, sourced views for urban accessibility, health and social pr
   assert.match(sourcesPageHtml, /universos diferentes/i);
 });
 
+test('organizes elderly public data around four accessible investigation questions', () => {
+  const questions = [
+    ['elderly-care', 'O cuidado está chegando\\?'],
+    ['elderly-protection', 'Quem depende da proteção social\\?'],
+    ['elderly-health', 'Quais agravos mais atingem os idosos\\?'],
+    ['elderly-network', 'Qual rede existe para atender\\?']
+  ];
+
+  for (const [id, titlePattern] of questions) {
+    assert.match(sourcesPageHtml, new RegExp(`id="${id}"`));
+    assert.match(sourcesPageHtml, new RegExp(titlePattern));
+  }
+
+  assert.equal(
+    (sourcesPageHtml.match(/<details class="elderly-inquiry/g) ?? []).length,
+    4
+  );
+  assert.match(sourcesPageHtml, /consultas[\s\S]*vacinação[\s\S]*visitas domiciliares/i);
+  assert.match(sourcesPageHtml, /Cadastro Único[\s\S]*população cadastrada de menor renda/i);
+  assert.match(sourcesPageHtml, /todas as idades[\s\S]*não responde sozinho/i);
+  assert.match(sourcesPageHtml, /quantidade de unidades[\s\S]*capacidade[\s\S]*qualidade/i);
+});
+
 test('renders the complete public-source catalogue grouped by theme', () => {
   assert.equal(typeof viewHelpers.renderSourcesCatalogue, 'function');
   if (typeof viewHelpers.renderSourcesCatalogue !== 'function') return;

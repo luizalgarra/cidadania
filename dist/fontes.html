@@ -69,7 +69,7 @@
         <div>
           <p class="eyebrow">Recorte municipal · código IBGE 3552205</p>
           <h2 id="sources-data-hub-title">Retrato de Sorocaba</h2>
-          <p>Os cartões identificados como “Dados do território” usam somente resultados municipais verificados para Sorocaba. Para pessoas idosas, o retrato agora reúne população, renda, acessibilidade urbana, saúde e proteção social. A fonte, o período, o universo e os limites acompanham cada número.</p>
+          <p>Os cartões identificados como “Dados do território” usam somente resultados municipais verificados para Sorocaba. Para pessoas idosas, o retrato reúne população, renda, rua, cuidado, proteção social, agravos e rede de atendimento. A fonte, o período, o universo e os limites acompanham cada número.</p>
         </div>
         <div class="sources-data-hub__actions">
           <label for="sorocaba-commitment-select">Ver dados de um compromisso</label>
@@ -266,13 +266,15 @@ dados &lt;- read_sql(consulta)</code></pre>
         <header class="elderly-dimensions__header">
           <div>
             <p class="eyebrow">Do domicílio à rede de cuidado · Sorocaba</p>
-            <h2 id="elderly-dimensions-title">Outras condições para envelhecer com dignidade</h2>
-            <p>A renda conta apenas uma parte da história. A rua que a pessoa encontra, o cuidado de saúde e o acesso à proteção social são dimensões diferentes — por isso, cada painel mantém seu próprio universo e período.</p>
+            <h2 id="elderly-dimensions-title">Perguntas para acompanhar o cuidado</h2>
+            <p>A renda conta apenas uma parte da história. Este caderno separa o que já sabemos sobre Sorocaba, o que ainda precisa de recorte específico para pessoas idosas e onde conferir cada informação.</p>
           </div>
           <nav class="elderly-dimensions__nav" aria-label="Dimensões do retrato da pessoa idosa">
             <a href="#elderly-accessibility">A rua</a>
-            <a href="#elderly-health">A saúde</a>
+            <a href="#elderly-care">O cuidado</a>
             <a href="#elderly-protection">A proteção</a>
+            <a href="#elderly-health">Os agravos</a>
+            <a href="#elderly-network">A rede</a>
           </nav>
         </header>
 
@@ -321,37 +323,150 @@ dados &lt;- read_sql(consulta)</code></pre>
           </details>
         </article>
 
-        <div class="care-protection-grid">
-          <article id="elderly-health" class="care-card care-card--health" aria-labelledby="elderly-health-title">
-            <header>
-              <p class="dimension-panel__index">A saúde · ano-base 2024</p>
-              <h3 id="elderly-health-title">Quedas que chegam ao hospital</h3>
-            </header>
-            <div class="care-card__number"><strong>21,89</strong><span>internações por fratura de fêmur<br>por 10 mil pessoas com 60+</span></div>
-            <div class="health-target" aria-label="Meta municipal para 2029">
-              <span>2024 <b>21,89</b></span><i aria-hidden="true"></i><span>meta 2029 <b>20,00</b></span>
-            </div>
-            <p>O Plano Municipal de Saúde propõe reduzir a taxa com avaliação do risco de quedas, fortalecimento e equilíbrio, orientação a cuidadores e capacitação da atenção básica.</p>
-            <p class="care-card__caveat"><strong>Limite:</strong> mede internações registradas no SIH/DATASUS, não todas as quedas, pessoas únicas nem qualidade do cuidado.</p>
-            <a class="care-card__source" href="https://saude.sorocaba.sp.gov.br/wp-content/uploads/2026/03/plano-municipal-2026-a-2029-com-o-anexo-1.pdf" target="_blank" rel="noopener noreferrer">Plano Municipal de Saúde · indicador 41 ↗</a>
-          </article>
+        <aside class="evidence-legend" aria-label="Como os dados deste caderno estão classificados">
+          <strong>Como ler os cartões</strong>
+          <span><i data-scope="elderly" aria-hidden="true"></i><b>60+</b> recorte direto de pessoas idosas</span>
+          <span><i data-scope="general" aria-hidden="true"></i><b>Todas as idades</b> contexto municipal</span>
+          <span><i data-scope="monitor" aria-hidden="true"></i><b>Fonte a acompanhar</b> indicador definido, sem número municipal inserido</span>
+        </aside>
 
-          <article id="elderly-protection" class="care-card care-card--protection" aria-labelledby="elderly-protection-title">
-            <header>
-              <p class="dimension-panel__index">A proteção · retrato histórico</p>
-              <h3 id="elderly-protection-title">Quem aparece na rede social</h3>
-            </header>
-            <dl class="protection-ledger">
-              <div><dt>junho de 2022</dt><dd><strong>3.890</strong> pessoas idosas beneficiárias do BPC</dd></div>
-              <div><dt>março de 2021</dt><dd><strong>13.675</strong> pessoas idosas em famílias com renda de até 3 salários mínimos no Cadastro Único</dd></div>
-            </dl>
-            <p>Os dois números ajudam a dimensionar públicos alcançados por cadastros e benefícios. O BPC é uma garantia de um salário mínimo para pessoas idosas de baixa renda que atendem aos critérios legais.</p>
-            <p class="care-card__caveat"><strong>Limite:</strong> são períodos e universos diferentes. O retrato é histórico e não representa toda a população idosa, toda a pobreza ou toda necessidade de proteção.</p>
-            <div class="care-card__sources">
-              <a href="https://cidadania.sorocaba.sp.gov.br/editalselecao/wp-content/uploads/sites/2/2022/10/anexo-i-projeto-basico.pdf" target="_blank" rel="noopener noreferrer">Fonte municipal dos números ↗</a>
-              <a href="https://www.gov.br/mds/pt-br/acoes-e-programas/SUAS/beneficios-assistenciais/beneficio-assistencial-ao-idoso-e-a-pessoa-com-deficiencia-bpc" target="_blank" rel="noopener noreferrer">Entenda o BPC no MDS ↗</a>
+        <div id="elderly-inquiries" class="elderly-inquiries" aria-label="Quatro perguntas para investigar o cuidado às pessoas idosas">
+          <details class="elderly-inquiry" id="elderly-care" data-tone="care" open>
+            <summary>
+              <span class="elderly-inquiry__number" aria-hidden="true">01</span>
+              <span class="elderly-inquiry__question"><small>Chegada do cuidado</small><strong>O cuidado está chegando?</strong><em>Consultas, vacinação, visitas domiciliares e acompanhamento pela atenção primária.</em></span>
+              <span class="elderly-inquiry__status">Fonte a acompanhar</span>
+            </summary>
+            <div class="elderly-inquiry__body">
+              <p class="inquiry-intro">O Ministério da Saúde definiu quatro sinais objetivos para acompanhar o cuidado da pessoa idosa na atenção primária. Esta versão apresenta as definições oficiais, mas não publica um percentual municipal de 60+ sem um extrato público reproduzível.</p>
+              <ul class="monitor-grid" aria-label="Indicadores de cuidado da pessoa idosa">
+                <li><span aria-hidden="true">01</span><strong>Consulta no último ano</strong><p>Ao menos uma consulta médica ou de enfermagem nos últimos 12 meses.</p></li>
+                <li><span aria-hidden="true">02</span><strong>Vacinação contra influenza</strong><p>Registro da vacinação contra influenza nos últimos 12 meses.</p></li>
+                <li><span aria-hidden="true">03</span><strong>Visitas domiciliares</strong><p>Ao menos duas visitas de ACS ou TACS, com intervalo mínimo de 30 dias.</p></li>
+                <li><span aria-hidden="true">04</span><strong>Acompanhamento pela APS</strong><p>Peso e altura registrados no mesmo atendimento nos últimos 12 meses.</p></li>
+              </ul>
+              <div class="context-strip">
+                <div><span>Contexto municipal · todas as idades</span><strong>34,58%</strong><p>cobertura da atenção primária em dezembro de 2024</p></div>
+                <div><span>Base da cobertura</span><strong>250.294</strong><p>cadastros na APS; não são cadastros exclusivos de pessoas idosas</p></div>
+              </div>
+              <p class="inquiry-caveat"><strong>O que ainda falta:</strong> publicar, para Sorocaba e para a população de 60+, o percentual alcançado em cada um dos quatro indicadores. Cobertura geral não prova acompanhamento individual nem continuidade do cuidado.</p>
+              <div class="inquiry-sources">
+                <a href="https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/s/saude-da-pessoa-idosa/cofinanciamento-e-boas-praticas" target="_blank" rel="noopener noreferrer">Definições dos indicadores · Ministério da Saúde ↗</a>
+                <a href="https://saude.sorocaba.sp.gov.br/wp-content/uploads/2026/03/plano-municipal-2026-a-2029-com-o-anexo-1.pdf" target="_blank" rel="noopener noreferrer">Cobertura municipal · Plano de Saúde ↗</a>
+              </div>
             </div>
-          </article>
+          </details>
+
+          <details class="elderly-inquiry" id="elderly-protection" data-tone="protection">
+            <summary>
+              <span class="elderly-inquiry__number" aria-hidden="true">02</span>
+              <span class="elderly-inquiry__question"><small>Renda e amparo</small><strong>Quem depende da proteção social?</strong><em>Benefícios previdenciários, BPC e pessoas idosas inscritas no Cadastro Único.</em></span>
+              <span class="elderly-inquiry__status">Histórico + consulta</span>
+            </summary>
+            <div class="elderly-inquiry__body">
+              <p class="inquiry-intro">São universos diferentes. O Cadastro Único representa a população cadastrada de menor renda — não todas as pessoas idosas de Sorocaba. Benefícios ativos do INSS ajudam a observar renda previdenciária e assistencial, mas contam benefícios, não pessoas únicas.</p>
+              <dl class="evidence-ledger">
+                <div><dt>junho de 2022 <span>60+ · histórico</span></dt><dd><strong>3.890</strong> pessoas idosas beneficiárias do BPC</dd></div>
+                <div><dt>março de 2021 <span>60+ · histórico</span></dt><dd><strong>13.675</strong> pessoas idosas em famílias com renda de até 3 salários mínimos no Cadastro Único</dd></div>
+                <div><dt>consulta atualizável <span>60+ · benefícios</span></dt><dd><strong>BigQuery</strong> benefícios mantidos e renda mensal média por benefício</dd></div>
+              </dl>
+              <details class="query-notebook">
+                <summary>Copiar consulta de benefícios ativos de 60+ em Sorocaba</summary>
+                <p>A consulta escolhe a competência mais recente disponível e agrupa por categoria. Execute-a no seu projeto do Google Cloud.</p>
+                <pre><code>WITH base AS (
+  SELECT DATE(ano, mes, 1) AS competencia,
+    categoria_beneficio, faixa_etaria,
+    quantidade, valor_total
+  FROM `basedosdados.br_mps_beneficios.beneficio_mantido_municipio_mes`
+  WHERE id_municipio = '3552205'
+    AND faixa_etaria IN (
+      '60 a 64 anos', '65 a 69 anos', '70 anos ou mais'
+    )
+), ultima AS (
+  SELECT MAX(competencia) AS competencia FROM base
+)
+SELECT FORMAT_DATE('%Y-%m', b.competencia) AS competencia,
+  b.categoria_beneficio,
+  SUM(b.quantidade) AS beneficios_ativos,
+  ROUND(SAFE_DIVIDE(SUM(b.valor_total), SUM(b.quantidade)), 2)
+    AS renda_media_por_beneficio
+FROM base b JOIN ultima u USING (competencia)
+GROUP BY competencia, categoria_beneficio
+ORDER BY beneficios_ativos DESC;</code></pre>
+              </details>
+              <p class="inquiry-caveat"><strong>Não some bases sem conferir:</strong> uma pessoa pode receber mais de um benefício, a média é por benefício e não por pessoa, e o BPC também aparece em outras bases federais. Somar registros pode gerar dupla contagem.</p>
+              <div class="inquiry-sources">
+                <a href="https://basedosdados.org/dataset/4440e775-4912-4531-8d32-691a575fedaf?table=81706992-e653-4649-b939-a787c419c4d1" target="_blank" rel="noopener noreferrer">Tabela de benefícios mantidos · Base dos Dados ↗</a>
+                <a href="https://cidadania.sorocaba.sp.gov.br/editalselecao/wp-content/uploads/sites/2/2022/10/anexo-i-projeto-basico.pdf" target="_blank" rel="noopener noreferrer">Fonte municipal do retrato histórico ↗</a>
+                <a href="https://www.gov.br/mds/pt-br/acoes-e-programas/SUAS/beneficios-assistenciais/beneficio-assistencial-ao-idoso-e-a-pessoa-com-deficiencia-bpc" target="_blank" rel="noopener noreferrer">Entenda o BPC no MDS ↗</a>
+              </div>
+            </div>
+          </details>
+
+          <details class="elderly-inquiry" id="elderly-health" data-tone="health">
+            <summary>
+              <span class="elderly-inquiry__number" aria-hidden="true">03</span>
+              <span class="elderly-inquiry__question"><small>Saúde e prevenção</small><strong>Quais agravos mais atingem os idosos?</strong><em>Quedas, doenças cardiovasculares, diabetes e condições sensíveis à atenção básica.</em></span>
+              <span class="elderly-inquiry__status">1 recorte 60+ · 3 contextos</span>
+            </summary>
+            <div class="elderly-inquiry__body">
+              <p class="inquiry-intro">O Plano Municipal de Saúde oferece um indicador específico para pessoas idosas e outros números de contexto para todas as idades. Eles aparecem separados para evitar uma conclusão que os dados não permitem.</p>
+              <div class="aggravation-grid">
+                <article data-scope="elderly"><span>60+ · 2024</span><strong>21,89</strong><h4>Fratura de fêmur</h4><p>internações por 10 mil pessoas com 60 anos ou mais; meta municipal de 20,00 em 2029.</p></article>
+                <article data-scope="general"><span>Todas as idades · 2024</span><strong>1.102</strong><h4>Doenças circulatórias</h4><p>internações de residentes por doenças do aparelho circulatório.</p></article>
+                <article data-scope="general"><span>Todas as idades · 2023</span><strong>17,6%</strong><h4>Diabetes na APS</h4><p>participação entre as condições registradas na atenção primária; não é prevalência populacional.</p></article>
+                <article data-scope="general"><span>Todas as idades · 2024</span><strong>19,8%</strong><h4>Condições sensíveis à APS</h4><p>proporção municipal de internações por condições sensíveis à atenção básica.</p></article>
+              </div>
+              <p class="scope-warning"><strong>Atenção ao recorte:</strong> cada número marcado “Todas as idades” ajuda a formular perguntas, mas não responde sozinho quais agravos mais atingem as pessoas idosas. Para isso, é preciso consultar internações por faixa etária e causa.</p>
+              <p class="inquiry-caveat"><strong>Limite do indicador 60+:</strong> fratura de fêmur é um agravo importante associado a quedas, mas não registra todas as quedas, pessoas únicas, qualidade do cuidado nem barreiras de acesso.</p>
+              <div class="inquiry-sources">
+                <a href="https://saude.sorocaba.sp.gov.br/wp-content/uploads/2026/03/plano-municipal-2026-a-2029-com-o-anexo-1.pdf" target="_blank" rel="noopener noreferrer">Plano Municipal de Saúde 2026–2029 ↗</a>
+              </div>
+            </div>
+          </details>
+
+          <details class="elderly-inquiry" id="elderly-network" data-tone="network">
+            <summary>
+              <span class="elderly-inquiry__number" aria-hidden="true">04</span>
+              <span class="elderly-inquiry__question"><small>Portas e equipes</small><strong>Qual rede existe para atender?</strong><em>UBS, Saúde da Família, atenção domiciliar, CRAS, CREAS e serviços para pessoas idosas.</em></span>
+              <span class="elderly-inquiry__status">Estrutura municipal</span>
+            </summary>
+            <div class="elderly-inquiry__body">
+              <p class="inquiry-intro">Quantidade de unidades mostra pontos no território; capacidade depende de equipes, vagas, horários e cobertura; qualidade exige outros indicadores, como espera, continuidade, resolutividade e experiência de quem usa o serviço.</p>
+              <div class="network-columns">
+                <section>
+                  <h4>Pontos no território</h4>
+                  <dl class="network-counts">
+                    <div><dt>UBS e unidades com ESF</dt><dd>33</dd></div>
+                    <div><dt>CRAS</dt><dd>12</dd></div>
+                    <div><dt>CREAS</dt><dd>3</dd></div>
+                    <div><dt>Centro de Referência do Idoso</dt><dd>1</dd></div>
+                  </dl>
+                </section>
+                <section>
+                  <h4>Capacidade registrada</h4>
+                  <dl class="network-counts">
+                    <div><dt>Equipes de APS financiadas</dt><dd>89</dd></div>
+                    <div><dt>Equipes de atenção domiciliar</dt><dd>6</dd></div>
+                    <div><dt>Equipe multiprofissional de apoio</dt><dd>1</dd></div>
+                    <div><dt>Cadastros na APS · todas as idades</dt><dd>250.294</dd></div>
+                  </dl>
+                </section>
+              </div>
+              <div class="network-notes">
+                <article><span>Composição, não qualidade</span><strong>94%</strong><p>das equipes eSF/eAP estavam completas em 2024. Isso informa composição registrada, não a qualidade assistencial.</p></article>
+                <article><span>Serviços específicos citados no plano</span><strong>2 + 1 + 20</strong><p>dois serviços de convivência exclusivos, um Centro Dia e 20 moradias da Vila Dignidade.</p></article>
+              </div>
+              <p class="inquiry-caveat"><strong>O que estes números não dizem:</strong> tempo de espera, número de vagas, cobertura específica de 60+, distância real até o serviço ou qualidade do atendimento.</p>
+              <div class="inquiry-sources">
+                <a href="https://saude.sorocaba.sp.gov.br/destaques/unidades-basicas-de-saude/" target="_blank" rel="noopener noreferrer">Lista atual de UBS · Saúde Sorocaba ↗</a>
+                <a href="https://cidadania.sorocaba.sp.gov.br/destaques/cras/" target="_blank" rel="noopener noreferrer">Lista atual de CRAS ↗</a>
+                <a href="https://atendimento156.sorocaba.sp.gov.br/portal156/carta-servico/assunto/eb756f09-36d5-d76f-c9b5-6a0325777d82/" target="_blank" rel="noopener noreferrer">CREAS · Carta de Serviços ↗</a>
+                <a href="https://portal156.sorocaba.sp.gov.br/portal156/carta-servico/assunto/CE1B5CC2-AC41-E811-AD66-005056BF74CB/" target="_blank" rel="noopener noreferrer">Centro de Referência do Idoso ↗</a>
+                <a href="https://saude.sorocaba.sp.gov.br/wp-content/uploads/2026/03/plano-municipal-2026-a-2029-com-o-anexo-1.pdf" target="_blank" rel="noopener noreferrer">Equipes e cobertura · Plano de Saúde ↗</a>
+              </div>
+            </div>
+          </details>
         </div>
       </section>
 

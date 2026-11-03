@@ -189,3 +189,44 @@ test('keeps health and social-protection indicators in their own declared univer
   assert.equal(subject.SOROCABA_ELDERLY_PROTECTION_PROFILE.bpcElderly.referencePeriod, 'junho de 2022');
   assert.match(subject.SOROCABA_ELDERLY_PROTECTION_PROFILE.caveat, /não representa toda a população idosa/i);
 });
+
+test('keeps evidence scope explicit across the four elderly investigations', async () => {
+  const subject = await loadSubject();
+  assert.ok(subject, 'the Sorocaba data module must exist');
+
+  const inquiries = subject.SOROCABA_ELDERLY_INQUIRIES;
+  assert.ok(inquiries, 'the four elderly investigations must be published');
+  assert.deepEqual(
+    inquiries.map(({ id }) => id),
+    ['care', 'protection', 'aggravations', 'network']
+  );
+
+  const care = inquiries.find(({ id }) => id === 'care');
+  assert.deepEqual(
+    care.indicators.map(({ id }) => id),
+    ['consultation', 'influenza-vaccination', 'home-visits', 'aps-follow-up']
+  );
+  assert.ok(care.indicators.every(({ status }) => status === 'source-to-monitor'));
+
+  const protection = inquiries.find(({ id }) => id === 'protection');
+  assert.match(protection.caveat, /população cadastrada de menor renda/i);
+  assert.match(protection.caveat, /não representa toda a população idosa/i);
+
+  const aggravations = inquiries.find(({ id }) => id === 'aggravations');
+  assert.equal(
+    aggravations.metrics.find(({ id }) => id === 'femur-fracture').universe,
+    'pessoas com 60 anos ou mais'
+  );
+  assert.ok(
+    aggravations.metrics
+      .filter(({ id }) => id !== 'femur-fracture')
+      .every(({ universe }) => universe === 'todas as idades')
+  );
+
+  const network = inquiries.find(({ id }) => id === 'network');
+  assert.equal(network.points.find(({ id }) => id === 'ubs').value, 33);
+  assert.equal(network.points.find(({ id }) => id === 'cras').value, 12);
+  assert.equal(network.points.find(({ id }) => id === 'creas').value, 3);
+  assert.equal(network.capacity.find(({ id }) => id === 'aps-teams').value, 89);
+  assert.match(network.caveat, /não mede.*qualidade/i);
+});

@@ -197,6 +197,121 @@ export const SOROCABA_ELDERLY_PROTECTION_PROFILE = Object.freeze({
   caveat: 'É um retrato histórico de públicos cadastrados ou beneficiários; não representa toda a população idosa, nem todas as pessoas idosas em pobreza ou que precisam de proteção.'
 });
 
+export const SOROCABA_ELDERLY_INQUIRIES = Object.freeze([
+  Object.freeze({
+    id: 'care',
+    title: 'O cuidado está chegando?',
+    indicators: Object.freeze([
+      Object.freeze({
+        id: 'consultation',
+        label: 'Consulta no último ano',
+        description: 'Ao menos uma consulta médica ou de enfermagem nos últimos 12 meses.',
+        status: 'source-to-monitor'
+      }),
+      Object.freeze({
+        id: 'influenza-vaccination',
+        label: 'Vacinação contra influenza',
+        description: 'Registro de vacinação contra influenza nos últimos 12 meses.',
+        status: 'source-to-monitor'
+      }),
+      Object.freeze({
+        id: 'home-visits',
+        label: 'Visitas domiciliares',
+        description: 'Ao menos duas visitas de ACS ou TACS, separadas por 30 dias ou mais.',
+        status: 'source-to-monitor'
+      }),
+      Object.freeze({
+        id: 'aps-follow-up',
+        label: 'Acompanhamento pela atenção primária',
+        description: 'Peso e altura registrados no mesmo atendimento nos últimos 12 meses.',
+        status: 'source-to-monitor'
+      })
+    ]),
+    municipalContext: Object.freeze({
+      apsCoverage: 34.58,
+      registrations: 250294,
+      referencePeriod: 'dezembro de 2024',
+      universe: 'população geral cadastrada, não apenas pessoas idosas'
+    }),
+    caveat: 'Esta versão apresenta as definições oficiais a acompanhar, mas não publica um percentual municipal de 60+ sem um extrato público reproduzível.'
+  }),
+  Object.freeze({
+    id: 'protection',
+    title: 'Quem depende da proteção social?',
+    historicalMetrics: Object.freeze([
+      Object.freeze({ id: 'bpc', value: 3890, referencePeriod: 'junho de 2022' }),
+      Object.freeze({ id: 'cadunico', value: 13675, referencePeriod: 'março de 2021' })
+    ]),
+    benefitQuery: Object.freeze({
+      table: 'basedosdados.br_mps_beneficios.beneficio_mantido_municipio_mes',
+      municipalityId: '3552205',
+      measure: 'benefícios ativos e renda mensal por benefício, não pessoas únicas'
+    }),
+    caveat: 'O Cadastro Único retrata a população cadastrada de menor renda e não representa toda a população idosa; quantidade de benefícios também não equivale a pessoas únicas.'
+  }),
+  Object.freeze({
+    id: 'aggravations',
+    title: 'Quais agravos mais atingem os idosos?',
+    metrics: Object.freeze([
+      Object.freeze({
+        id: 'femur-fracture',
+        label: 'Internações por fratura de fêmur',
+        value: 21.89,
+        unit: 'por 10 mil habitantes',
+        referencePeriod: '2024',
+        universe: 'pessoas com 60 anos ou mais'
+      }),
+      Object.freeze({
+        id: 'circulatory-hospitalizations',
+        label: 'Internações por doenças do aparelho circulatório',
+        value: 1102,
+        unit: 'internações',
+        referencePeriod: '2024',
+        universe: 'todas as idades'
+      }),
+      Object.freeze({
+        id: 'diabetes-records',
+        label: 'Diabetes entre condições registradas na APS',
+        value: 17.6,
+        unit: '% dos registros apresentados',
+        referencePeriod: '2023',
+        universe: 'todas as idades'
+      }),
+      Object.freeze({
+        id: 'primary-care-sensitive-hospitalizations',
+        label: 'Internações por condições sensíveis à atenção básica',
+        value: 19.8,
+        unit: '%',
+        referencePeriod: '2024',
+        universe: 'todas as idades'
+      })
+    ]),
+    caveat: 'Somente a fratura de fêmur tem recorte explícito de 60+; os demais números dão contexto municipal e não medem, sozinhos, os agravos da população idosa.'
+  }),
+  Object.freeze({
+    id: 'network',
+    title: 'Qual rede existe para atender?',
+    points: Object.freeze([
+      Object.freeze({ id: 'ubs', label: 'UBS e unidades com ESF', value: 33 }),
+      Object.freeze({ id: 'cras', label: 'CRAS', value: 12 }),
+      Object.freeze({ id: 'creas', label: 'CREAS', value: 3 }),
+      Object.freeze({ id: 'cri', label: 'Centro de Referência do Idoso', value: 1 })
+    ]),
+    capacity: Object.freeze([
+      Object.freeze({ id: 'aps-teams', label: 'equipes de APS financiadas', value: 89, referencePeriod: 'dezembro de 2024' }),
+      Object.freeze({ id: 'emad', label: 'Equipes Multiprofissionais de Atenção Domiciliar', value: 6 }),
+      Object.freeze({ id: 'emap', label: 'Equipe Multiprofissional de Apoio', value: 1 }),
+      Object.freeze({ id: 'aps-registrations', label: 'cadastros na APS', value: 250294, universe: 'população geral' })
+    ]),
+    composition: Object.freeze({
+      completeTeamsPercentage: 94,
+      referencePeriod: '2024',
+      interpretation: 'composição registrada das equipes, não qualidade assistencial'
+    }),
+    caveat: 'A contagem de pontos e equipes descreve presença e capacidade registrada; não mede tempo de espera, cobertura específica de 60+ nem qualidade do atendimento.'
+  })
+]);
+
 const ELDERLY_SEX_LABELS = Object.freeze({
   total: 'Todas as pessoas',
   women: 'Mulheres',

@@ -159,7 +159,7 @@ test('renders elderly individual income as a separate autonomy estimate', (t) =>
   assert.match(dom, /não mede patrimônio, dívidas nem controle sobre os recursos/i);
 });
 
-test('renders the three additional elderly-data layers without merging their universes', (t) => {
+test('renders accessibility and the four elderly investigations without merging their universes', (t) => {
   if (process.env.RUN_BROWSER_SMOKE !== '1') {
     t.skip('Set RUN_BROWSER_SMOKE=1 in an environment allowed to launch Chrome');
     return;
@@ -175,8 +175,13 @@ test('renders the three additional elderly-data layers without merging their uni
   assert.match(dom, /id="elderly-accessibility"/);
   assert.match(dom, /id="accessibility-result-value">96,3%/);
   assert.equal((dom.match(/class="accessibility-street__row"/g) ?? []).length, 5);
+  assert.equal((dom.match(/<details class="elderly-inquiry"/g) ?? []).length, 4);
+  assert.match(dom, /id="elderly-care"[^>]*open/);
+  assert.match(dom, /O cuidado está chegando\?/);
   assert.match(dom, /id="elderly-health"/);
-  assert.match(dom, /21,89 por 10 mil/);
+  assert.match(dom, /21,89/);
   assert.match(dom, /id="elderly-protection"/);
-  assert.match(dom, /3\.890 pessoas idosas/);
+  assert.match(dom, /3\.890<\/strong>\s*pessoas idosas/);
+  assert.match(dom, /id="elderly-network"/);
+  assert.match(dom, /Equipes de APS financiadas/);
 });
