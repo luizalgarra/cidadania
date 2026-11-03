@@ -182,8 +182,8 @@ test('renders accessibility and the four elderly investigations without merging 
   assert.match(dom, /21,89/);
   assert.match(dom, /id="elderly-protection"/);
   assert.match(dom, /3\.890<\/strong>\s*pessoas idosas/);
-  assert.match(dom, /aria-label="Pessoas com 60 anos ou mais · consulta atualizável"/);
-  assert.match(dom, /Consultar no BigQuery/);
+  assert.match(dom, /107\.178/);
+  assert.match(dom, /Competência: julho de 2025/);
   assert.doesNotMatch(dom, /consulta atualizável60\+/i);
   assert.match(dom, /id="elderly-network"/);
   assert.match(dom, /Equipes de APS financiadas/);

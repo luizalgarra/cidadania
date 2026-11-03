@@ -4638,3 +4638,11 @@ legend {
     box-shadow: none;
   }
 }
+.benefits-snapshot { margin-block: 1.5rem; }
+.benefits-table-scroll { overflow-x: auto; margin-block: 1rem; }
+.benefits-snapshot table { width: 100%; border-collapse: collapse; font-size: .95rem; }
+.benefits-snapshot caption { text-align: left; margin-bottom: .75rem; }
+.benefits-snapshot th, .benefits-snapshot td { padding: .8rem; border-bottom: 1px solid #d2ddd4; text-align: left; }
+.benefits-snapshot thead { background: #e7eee8; color: #163b2a; }
+.benefits-snapshot td { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.benefits-snapshot tbody th { font-weight: 500; min-width: 12rem; }

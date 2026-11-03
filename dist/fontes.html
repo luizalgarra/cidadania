@@ -361,15 +361,40 @@ dados &lt;- read_sql(consulta)</code></pre>
             <summary>
               <span class="elderly-inquiry__number" aria-hidden="true">02</span>
               <span class="elderly-inquiry__question"><small>Renda e amparo</small><strong>Quem depende da proteção social?</strong><em>Benefícios previdenciários, BPC e pessoas idosas inscritas no Cadastro Único.</em></span>
-              <span class="elderly-inquiry__status">Histórico + consulta</span>
+              <span class="elderly-inquiry__status">Retrato · julho de 2025</span>
             </summary>
             <div class="elderly-inquiry__body">
               <p class="inquiry-intro">São universos diferentes. O Cadastro Único representa a população cadastrada de menor renda — não todas as pessoas idosas de Sorocaba. Benefícios ativos do INSS ajudam a observar renda previdenciária e assistencial, mas contam benefícios, não pessoas únicas.</p>
               <dl class="evidence-ledger">
                 <div><dt>junho de 2022 <span>60+ · histórico</span></dt><dd><strong>3.890</strong> pessoas idosas beneficiárias do BPC</dd></div>
                 <div><dt>março de 2021 <span>60+ · histórico</span></dt><dd><strong>13.675</strong> pessoas idosas em famílias com renda de até 3 salários mínimos no Cadastro Único</dd></div>
-                <div><dt aria-label="Pessoas com 60 anos ou mais · consulta atualizável">Pessoas com 60 anos ou mais <span>consulta atualizável</span></dt><dd><strong>Consultar no BigQuery</strong> benefícios ativos mantidos e renda mensal média por benefício</dd></div>
+                <div><dt>julho de 2025 <span>60+ · benefícios ativos</span></dt><dd><strong>107.178</strong> benefícios ativos nas 11 categorias do resultado; não são pessoas únicas</dd></div>
               </dl>
+              <section class="benefits-snapshot" aria-labelledby="benefits-snapshot-title">
+                <h4 id="benefits-snapshot-title">Benefícios de pessoas com 60 anos ou mais em Sorocaba</h4>
+                <p><strong>Competência: julho de 2025.</strong> Retrato fixo, sem atualização automática.</p>
+                <div class="benefits-table-scroll" role="region" aria-label="Benefícios por categoria" tabindex="0">
+                  <table>
+                    <caption>Quantidade e renda mensal média por benefício · julho de 2025</caption>
+                    <thead><tr><th scope="col">Categoria</th><th scope="col">Benefícios ativos</th><th scope="col">Média mensal por benefício</th></tr></thead>
+                    <tbody>
+                      <tr><th scope="row">Aposentadoria por tempo de contribuição</th><td>30.570</td><td>R$ 3.507,38</td></tr>
+                      <tr><th scope="row">Aposentadoria por idade</th><td>30.019</td><td>R$ 1.903,44</td></tr>
+                      <tr><th scope="row">Pensão por morte</th><td>23.281</td><td>R$ 2.371,90</td></tr>
+                      <tr><th scope="row">Aposentadoria por invalidez</th><td>13.128</td><td>R$ 2.383,65</td></tr>
+                      <tr><th scope="row">BPC/LOAS</th><td>6.495</td><td>R$ 1.518,00</td></tr>
+                      <tr><th scope="row">Aposentadoria especial</th><td>2.293</td><td>R$ 4.518,89</td></tr>
+                      <tr><th scope="row">Auxílio-acidente</th><td>791</td><td>R$ 1.451,25</td></tr>
+                      <tr><th scope="row">Auxílio por incapacidade temporária</th><td>487</td><td>R$ 1.960,39</td></tr>
+                      <tr><th scope="row">Renda mensal vitalícia</th><td>88</td><td>R$ 1.518,00</td></tr>
+                      <tr><th scope="row">Benefício especial de legislação</th><td>25</td><td>R$ 2.776,92</td></tr>
+                      <tr><th scope="row">Auxílio-reclusão</th><td>1</td><td>R$ 2.242,94</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p class="inquiry-caveat">Resultado de consulta fornecido pelo usuário em 03/11/2026, referente à tabela de benefícios mantidos da Base dos Dados. A data de extração não foi informada e a consulta não foi reexecutada para esta publicação. Julho de 2025 é a competência deste resultado, não uma garantia de ser a mais recente disponível.</p>
+                <p class="inquiry-caveat">O BPC/LOAS desta tabela inclui benefícios de titulares com 60 anos ou mais, podendo abranger pessoas com deficiência. Não equivale exclusivamente ao BPC por idade e não deve ser comparado diretamente ao retrato histórico de 2022. A média por benefício não representa a renda total nem mede, sozinha, a autonomia financeira da pessoa.</p>
+              </section>
               <details class="query-notebook">
                 <summary>Copiar consulta de benefícios ativos de 60+ em Sorocaba</summary>
                 <p>A consulta escolhe a competência mais recente disponível e agrupa por categoria. Execute-a no seu projeto do Google Cloud.</p>

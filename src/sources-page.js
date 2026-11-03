@@ -300,6 +300,13 @@ updateElderlyExplorer();
 updateAutonomyExplorer();
 updateAccessibilityExplorer();
 
+function openLinkedInquiry() {
+  const target = document.getElementById(window.location.hash.slice(1));
+  if (target?.matches('details.elderly-inquiry')) target.open = true;
+}
+openLinkedInquiry();
+window.addEventListener('hashchange', openLinkedInquiry);
+
 document.querySelector('.sources-hero__lede').setAttribute(
   'data-source-context',
   SOURCE_CONTEXT.context
