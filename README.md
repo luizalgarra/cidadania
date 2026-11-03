@@ -1,5 +1,7 @@
 # Compromisso em Ação
 
+No ar em https://cidadania.institutointersistemico.com.br — cada push na `main` roda os testes e publica (Cloudflare Workers Builds).
+
 Aplicação web individual para refletir sobre compromissos apresentados por Luiz Inácio Lula da Silva em seu discurso de vitória após o segundo turno, em outubro de 2026, e transformar uma escolha em um plano cidadão de 30 dias.
 
 ## Como funciona
