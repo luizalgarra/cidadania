@@ -1,4 +1,4 @@
-import { findServices, SERVICE_SOURCES } from './local-services.js';
+import { findServices, groupServices, SERVICE_SOURCES } from './local-services.js';
 
 const query = document.querySelector('#service-search');
 const type = document.querySelector('#service-type');
@@ -23,15 +23,28 @@ function renderServices() {
     results.append(element('p', 'Não encontramos esse termo nesta lista. Tente apenas uma palavra, limpe a busca ou consulte os diretórios oficiais abaixo. Isso não significa que seu bairro não tenha atendimento.'));
     return;
   }
-  for (const service of matches) {
-    const card = element('article', '', 'guide-card');
-    card.append(element('h3', service.type + ' ' + service.name), element('p', service.address + ' · Sorocaba/SP'));
-    const actions = element('div', '', 'guide-actions');
-    for (const phone of service.phones) actions.append(link('Ligar (15) ' + phone, 'tel:+5515' + phone.replace(/\D/g, '')));
-    actions.append(link('Ver endereço no mapa ↗', 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(service.type + ' ' + service.name + ', ' + service.address + ', Sorocaba SP'), true));
-    card.append(actions, element('p', 'Confirme se esta unidade atende seu endereço antes de ir.', 'guide-note'));
-    card.append(link('Conferir na fonte oficial ↗', SERVICE_SOURCES[service.type], true));
-    results.append(card);
+  const labels = { CRAS: 'CRAS · assistência social', UBS: 'UBS · saúde' };
+  const { groups, open } = groupServices(matches);
+  for (const group of groups) {
+    const list = element('ul', '', 'service-list');
+    for (const service of group.items) {
+      const item = element('details', '', 'service-item');
+      item.open = open;
+      item.append(element('summary', service.type + ' ' + service.name));
+      const body = element('div', '', 'service-body');
+      body.append(element('p', service.address + ' · Sorocaba/SP'));
+      const actions = element('div', '', 'guide-actions');
+      for (const phone of service.phones) actions.append(link('Ligar (15) ' + phone, 'tel:+5515' + phone.replace(/\D/g, '')));
+      actions.append(link('Ver endereço no mapa ↗', 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(service.type + ' ' + service.name + ', ' + service.address + ', Sorocaba SP'), true));
+      body.append(actions, element('p', 'Confirme se esta unidade atende seu endereço antes de ir.', 'guide-note'));
+      body.append(link('Conferir na fonte oficial ↗', SERVICE_SOURCES[service.type], true));
+      item.append(body);
+      const li = element('li');
+      li.append(item);
+      list.append(li);
+    }
+    const heading = element('h3', labels[group.type] + ' (' + group.items.length + ')', 'service-group-title');
+    results.append(heading, list);
   }
 }
 query.addEventListener('input', renderServices);

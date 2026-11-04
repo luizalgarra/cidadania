@@ -15,3 +15,14 @@ test('every published unit has usable telephone digits and provenance date', () 
     for (const phone of unit.phones) assert.match(phone.replace(/\D/g, ''), /^\d{8,9}$/);
   }
 });
+
+test('groups results by service type, CRAS first, and opens small result sets', async () => {
+  const { groupServices } = await import('../src/local-services.js');
+  const all = groupServices(findServices(''));
+  assert.deepEqual(all.groups.map((g) => [g.type, g.items.length]), [['CRAS', 12], ['UBS', 33]]);
+  assert.equal(all.open, false, 'lista completa deve começar fechada');
+
+  const few = groupServices(findServices('sao bento'));
+  assert.equal(few.open, true, 'poucos resultados devem abrir sozinhos');
+  assert.ok(few.groups.every((g) => g.items.length > 0), 'sem grupos vazios');
+});

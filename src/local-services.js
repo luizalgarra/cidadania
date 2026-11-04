@@ -450,3 +450,13 @@ export function findServices(query, type = 'all') {
   return LOCAL_SERVICES.filter(service => (type === 'all' || service.type === type)
     && words.every(word => normalizeSearch(service.name + ' ' + service.address).includes(word)));
 }
+
+// Até este número de resultados, as unidades já aparecem abertas.
+export const AUTO_OPEN_LIMIT = 3;
+
+export function groupServices(matches) {
+  const groups = ['CRAS', 'UBS']
+    .map((type) => ({ type, items: matches.filter((s) => s.type === type) }))
+    .filter((g) => g.items.length);
+  return { groups, open: matches.length <= AUTO_OPEN_LIMIT };
+}
