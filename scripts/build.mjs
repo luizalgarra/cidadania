@@ -7,6 +7,7 @@ export const SOURCE_FILES = Object.freeze([
   'fontes.html',
   'idosos.html',
   'entrevista.html',
+  'mapa.html',
   'elderly-interview.js',
   'elderly-support-plan.js',
   'local-services.js',
