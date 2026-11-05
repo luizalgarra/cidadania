@@ -15,20 +15,40 @@
 </header>
 <main id="guia" class="elderly-guide" tabindex="-1">
 <section class="guide-hero">
-<div><p class="eyebrow">Pessoas idosas · Sorocaba</p><h1>Sou idoso ou cuido de alguém.<br><span>Por onde começar?</span></h1>
-<p>Você não precisa descobrir tudo de uma vez. Escolha o que precisa hoje e encontre um primeiro caminho.</p>
-<p><a class="primary-button" href="./entrevista.html">Responder à entrevista e receber meu plano →</a></p>
-<h2>O que você precisa resolver hoje?</h2>
+<div><p class="eyebrow">Pessoas idosas · Sorocaba</p><h1>Pessoas idosas em Sorocaba.<br><span>Por onde começar?</span></h1>
+<p>Você não precisa descobrir tudo de uma vez. Escolha a porta que descreve você hoje.</p>
+<nav class="guide-doors" aria-label="Por onde começar">
+<a href="#procuro"><strong>Procuro ajuda</strong><span>Tenho 60 anos ou mais e preciso resolver algo</span></a>
+<a href="#quem-cuida"><strong>Cuido de alguém</strong><span>Sou familiar ou cuidador de uma pessoa idosa</span></a>
+<a href="./ajudar.html"><strong>Quero ajudar</strong><span>Sou vizinho, amigo ou quero ser voluntário</span></a>
+</nav>
+</div>
+<img src="./assets/sorocaba-cuidado-pessoas-idosas.jpg" alt="Ilustração de pessoas idosas brasileiras em uma cena de convivência" width="640" height="480">
+</section>
+<section id="procuro" class="guide-section" aria-labelledby="procuro-title" tabindex="-1">
+<p class="eyebrow">Procuro ajuda</p><h2 id="procuro-title">O que você precisa resolver hoje?</h2>
 <nav class="guide-choices" aria-label="O que você precisa hoje?">
 <a href="#renda" data-need="income">Estou com dificuldade para pagar as contas →</a>
 <a href="#renda" data-need="benefit">Tenho dúvidas sobre aposentadoria ou BPC →</a>
 <a href="#saude" data-need="health">Preciso de consulta, vacina ou acompanhamento →</a>
-<a href="#saude" data-need="home">Cuido de alguém que tem dificuldade para sair de casa →</a>
-<a href="#primeiro-passo" data-need="help">Quero ajudar uma pessoa idosa →</a>
 </nav>
-<p><a href="#numeros">Quero entender os números</a></p>
+<p><a class="primary-button" href="./entrevista.html">Responder à entrevista e receber meu plano →</a></p>
+<p><a class="text-link" href="#numeros">Quero entender os números</a></p>
+</section>
+<section id="quem-cuida" class="guide-section" aria-labelledby="cuida-title" tabindex="-1">
+<p class="eyebrow">Cuido de alguém</p><h2 id="cuida-title">Você cuida de uma pessoa idosa. Comece por aqui.</h2>
+<p>As decisões continuam sendo da pessoa, sempre que ela puder decidir. Combine com ela cada passo.</p>
+<nav class="guide-choices" aria-label="O que a pessoa que você cuida precisa?">
+<a href="#saude" data-need="home">A pessoa tem dificuldade para sair de casa →</a>
+<a href="#renda" data-need="income">O dinheiro não dá conta das despesas da pessoa →</a>
+<a href="#renda" data-need="benefit">Preciso acompanhar um benefício da pessoa →</a>
+</nav>
+<div class="guide-grid">
+<article class="guide-card"><h3>Responda à entrevista junto com a pessoa</h3><p>Com a concordância dela, respondam juntos às oito perguntas. No fim, vocês recebem um plano para imprimir e levar ao atendimento.</p><a class="primary-button" href="./entrevista.html">Começar a entrevista →</a></article>
+<article class="guide-card"><h3>Cuide também de quem cuida</h3><p>O Ministério da Saúde publica um guia com orientações práticas para cuidadores familiares: higiene, alimentação, mobilidade e o cuidado com a própria saúde de quem cuida.</p><a class="quiet-button" href="https://bvsms.saude.gov.br/bvs/publicacoes/guia_pratico_cuidador.pdf" target="_blank" rel="noopener noreferrer">Guia prático do cuidador (PDF) ↗</a><p>Se o cuidado passou do seu limite, procure o CRAS do bairro e peça orientação sobre a rede de apoio para a família.</p></article>
+<article class="guide-card"><h3>Convivência para a pessoa</h3><p>O Clube do Idoso e a Chácara do Idoso, da Prefeitura, oferecem atividades gratuitas de lazer, esporte e convivência para moradores de Sorocaba com mais de 55 anos. A inscrição pede foto 3×4, comprovante de endereço, RG, CPF e atestado médico para atividade física.</p><div class="guide-actions"><a class="quiet-button" href="tel:+551532339014">Clube do Idoso (15) 3233-9014</a><a class="quiet-button" href="tel:+551533023737">Chácara do Idoso (15) 3302-3737</a></div><p class="guide-source">Segunda a sexta, das 8h às 17h. Consultado em 04/11/2026. Fonte: <a href="https://cidadania.sorocaba.sp.gov.br/destaques/clube-do-idoso/" target="_blank" rel="noopener noreferrer">Secretaria da Cidadania ↗</a>.</p></article>
 </div>
-<img src="./assets/sorocaba-cuidado-pessoas-idosas.jpg" alt="Ilustração de pessoas idosas brasileiras em uma cena de convivência" width="640" height="480">
+<p class="guide-note">Se você suspeita de violência, abandono ou golpe contra a pessoa, veja <a href="./ajudar.html#sinais-de-risco">sinais de risco e onde avisar</a>.</p>
 </section>
 <section id="need-result" class="guide-section" hidden aria-labelledby="need-title" tabindex="-1">
 <p class="eyebrow">Seu primeiro caminho</p><h2 id="need-title"></h2>
@@ -71,7 +91,7 @@
 <p class="guide-note">Retrato fixo a partir do resultado de consulta fornecido pelo usuário em 03/11/2026. Extração sem data informada; consulta não reexecutada pela aplicação. Os dados não se atualizam automaticamente. BPC/LOAS pode incluir pessoas com deficiência de 60 anos ou mais.</p>
 <a class="source-link" href="./fontes.html#elderly-protection">Ver as 11 categorias, valores, consulta e fontes →</a>
 </section>
-<section id="primeiro-passo" class="guide-section guide-next"><p class="eyebrow">Um passo possível</p><h2>Hoje, escolha só uma coisa.</h2><p>Anote uma dúvida, encontre o telefone do serviço e combine o próximo passo com a pessoa idosa, respeitando suas escolhas. Guarde a orientação recebida e o protocolo, quando houver.</p><p>Se você está ajudando alguém, pode começar oferecendo companhia para procurar informação ou atendimento.</p><a class="primary-button" href="./">Quero montar meu plano de ação →</a></section>
+<section id="primeiro-passo" class="guide-section guide-next"><p class="eyebrow">Um passo possível</p><h2>Hoje, escolha só uma coisa.</h2><p>Anote uma dúvida, encontre o telefone do serviço e combine o próximo passo com a pessoa idosa, respeitando suas escolhas. Guarde a orientação recebida e o protocolo, quando houver.</p><p>Se você está ajudando alguém, pode começar oferecendo companhia para procurar informação ou atendimento. <a class="text-link" href="./ajudar.html">Veja como ajudar →</a></p><a class="primary-button" href="./">Quero montar meu plano de ação →</a></section>
 <footer class="guide-footer"><p>Guia informativo independente do Compromisso em Ação. Não é um canal de atendimento da Prefeitura ou do INSS. Você não precisa informar dados pessoais nesta página.</p><p>Fontes consultadas em 03/11/2026. Serviços e horários podem mudar; confirme nos canais oficiais vinculados acima.</p><a href="./fontes.html">Voltar aos compromissos e fontes públicas</a> · <a href="./mapa.html">Mapa do site</a></footer>
 </main>
 <script type="module" src="./elderly-guide.js"></script>

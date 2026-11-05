@@ -22,7 +22,7 @@ App web estático (pt-BR, mobile-first) para refletir sobre compromissos do disc
 
 - `src/index.html` + `app.js` / `app-state.js` / `logic.js` / `commitments.js` — jornada principal (temas → compromissos → perguntas → rota → plano).
 - `src/fontes.html` + `sources-page.js` / `sorocaba-query.js` — catálogo de fontes e pesquisa da população idosa.
-- `src/idosos.html`, `entrevista.html` + `elderly-*.js`, `local-services.js` — módulo pessoas idosas (em andamento).
+- `src/idosos.html` (três portas: `#procuro`, `#quem-cuida`, `ajudar.html`), `entrevista.html`, `ajudar.html` + `elderly-*.js`, `local-services.js` — módulo pessoas idosas.
 - `docs/superpowers/plans/` — plano original de implementação.
 
 ## Deploy

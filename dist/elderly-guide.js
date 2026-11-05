@@ -57,7 +57,6 @@ const needs = {
   benefit: ['Entenda seu benefício ou pedido', 'Procure os canais oficiais do INSS: Meu INSS ou telefone 135.', 'Como acompanho meu pedido? Há alguma pendência? Se já tiver protocolo, tenha o número à mão.', 'INSS'],
   health: ['Consulta, vacina e acompanhamento', 'Entre em contato com uma UBS e confirme qual atende seu endereço.', 'Como agendo atendimento e verifico as vacinas disponíveis? Quais documentos preciso levar?', 'UBS'],
   home: ['Cuidado para quem tem dificuldade de sair de casa', 'Comece pela equipe da UBS responsável pelo endereço da pessoa.', 'Como solicitar uma avaliação para cuidado domiciliar? Explique a dificuldade de deslocamento. A equipe avalia a indicação e a disponibilidade do serviço.', 'UBS'],
-  help: ['Ajude respeitando as escolhas da pessoa', 'Converse com a pessoa idosa e escolha com ela uma necessidade concreta.', 'Você gostaria de ajuda para encontrar um serviço, fazer uma ligação ou ir a um atendimento?', 'HELP']
 };
 document.querySelectorAll('[data-need]').forEach(choice => choice.addEventListener('click', event => {
   event.preventDefault();
@@ -71,8 +70,6 @@ document.querySelectorAll('[data-need]').forEach(choice => choice.addEventListen
   actions.replaceChildren();
   if (destination === 'INSS') {
     actions.append(link('Ligar 135', 'tel:135'), link('Abrir Meu INSS ↗', 'https://meu.inss.gov.br/', true));
-  } else if (destination === 'HELP') {
-    actions.append(link('Ver serviços', '#localizador'), link('Planejar meu primeiro passo', '#primeiro-passo'));
   } else {
     type.value = destination; query.value = ''; renderServices();
     actions.append(link('Encontrar ' + destination + ' e telefone', '#localizador'));

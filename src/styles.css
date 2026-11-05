@@ -4742,3 +4742,17 @@ legend {
 .service-item summary:focus-visible { outline: 3px solid #245b43; outline-offset: 2px; }
 .service-body { padding: 0 4px 16px 28px; }
 .service-body p { margin: 4px 0 12px; }
+
+/* Pessoas idosas: três portas de entrada */
+.guide-doors { display: grid; gap: 12px; margin-top: 24px; }
+.guide-doors a { display: grid; gap: 2px; min-height: 48px; padding: 16px 20px; border: 2px solid #1d6242; border-radius: 12px; background: #fff; color: #193a2c; text-decoration: none; }
+.guide-doors a:hover { background: #eef6f0; }
+.guide-doors strong { font-size: 1.25rem; }
+.guide-doors strong::after { content: " →"; }
+.guide-doors span { font-size: 1rem; color: #3e4b54; }
+.guide-steps { padding-left: 1.4em; }
+.guide-steps li { margin: 0 0 14px; }
+.guide-steps li a { display: inline-flex; align-items: center; min-height: 48px; }
+.service-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; padding: 10px 0; }
+.flow-aside { display: block; font-size: 0.9rem; color: var(--ink-soft); }
+.text-link { display: inline-flex; align-items: center; min-height: 48px; }
